@@ -10,6 +10,6 @@ public class inizialeController {
 
     @FXML
     private void switchToSecondary() throws IOException {
-        App.setRoot(ACQUISTO, "secondary");
+        App.setRoot(ACQUISTO, "acquisto");
     }
 }

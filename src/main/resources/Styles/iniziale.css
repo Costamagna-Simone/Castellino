@@ -1,0 +1,63 @@
+/* text; nome e cognome */
+.text-nc {
+    -fx-fill: #1c3879;
+    -fx-font-family: sans-serif;
+    -fx-font-weight: bold;
+    -fx-font-size: 17px;
+}
+
+/* anchorPane; slot */
+.anchorPane-sl  {
+    -fx-border-color: #607EAA;
+    -fx-border-width: 2;
+}
+
+/* fontAwesomeIconView; icona user */
+.fontAwesomeIconView-iu {
+    -fx-fill: #1c3879;
+}
+
+/* fontAwesomeIconView; arrow apri utente */
+.fontAwesomeIconView-ati{
+    -fx-fill: #1c3879;
+}
+
+/* MFXButton; acquisto-vendita-raffronto */
+.MFXButton-avr{
+    -fx-font-family: sans-serif;
+    -fx-font-size: 14px;
+    -fx-text-fill: #1c3879;
+    -fx-border-color: #1c3879;
+    -fx-border-width: 1;
+}
+
+/* fontAwesomeIconView; arrow torna indietro */
+.fontAwesomeIconView-ati{
+    -fx-fill: #1c3879;
+}
+
+/*---- Slot-liberi ----*/
+
+/* testo; nome e cognome */
+.text-nc-sl {
+    -fx-fill: #EAE3D2;
+    -fx-font-family: sans-serif;
+    -fx-font-weight: bold;
+    -fx-font-size: 17px;
+}
+
+/* anchorPane; slot */
+.anchorPane-sl-sl  {
+    -fx-border-color: #F9F5EB;
+    -fx-border-width: 3;
+}
+
+/* fontAwesomeIconView; icona user */
+.fontAwesomeIconView-iu-sl {
+    -fx-fill: #EAE3D2;
+}
+
+/* fontAwesomeIconView; arrow apri utente */
+.fontAwesomeIconView-aau-sl{
+    -fx-fill: #EAE3D2;
+}

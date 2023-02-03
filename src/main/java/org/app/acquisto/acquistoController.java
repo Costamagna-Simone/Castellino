@@ -10,6 +10,6 @@ public class acquistoController {
 
     @FXML
     private void switchToPrimary() throws IOException {
-        App.setRoot(INIZIALE, "primary");
+        App.setRoot(INIZIALE, "iniziale");
     }
 }

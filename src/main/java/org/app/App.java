@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import static org.app.utilities.Constants.INIZIALE;
 
@@ -22,8 +23,10 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         parents = new Parent[5];
 
-        parents[INIZIALE] = loadFXML("primary");
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        parents[INIZIALE] = loadFXML("iniziales");
+        scene = new Scene(parents[INIZIALE]);
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/Styles/iniziale.css")).toExternalForm());
+
         stage.setScene(scene);
         stage.show();
     }
@@ -33,6 +36,8 @@ public class App extends Application {
             parents[parent] = loadFXML(fxml);
 
         scene.setRoot(parents[parent]);
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add(Objects.requireNonNull(App.class.getResource("/Styles/" + fxml + ".css")).toExternalForm());
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
