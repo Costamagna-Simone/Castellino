@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.app.iniziale.Controller;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -23,9 +24,13 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         parents = new Parent[5];
 
-        parents[INIZIALE] = loadFXML("iniziales");
+        FXMLLoader loaderReceived = new FXMLLoader(App.class.getResource("iniziale.fxml"));
+        parents[INIZIALE] = loaderReceived.load();
+        Controller controller = loaderReceived.getController();
         scene = new Scene(parents[INIZIALE]);
-        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/Styles/iniziale.css")).toExternalForm());
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/iniziale.css")).toExternalForm());
+
+        controller.init();
 
         stage.setScene(scene);
         stage.show();
@@ -37,12 +42,16 @@ public class App extends Application {
 
         scene.setRoot(parents[parent]);
         scene.getStylesheets().clear();
-        scene.getStylesheets().add(Objects.requireNonNull(App.class.getResource("/Styles/" + fxml + ".css")).toExternalForm());
+        scene.getStylesheets().add(Objects.requireNonNull(App.class.getResource("/styles/" + fxml + ".css")).toExternalForm());
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
+    }
+
+    public static Scene getScene()    {
+        return scene;
     }
 
     public static void main(String[] args) {

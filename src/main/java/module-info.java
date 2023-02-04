@@ -1,6 +1,8 @@
 module org.app {
     requires javafx.controls;
     requires javafx.fxml;
+    requires de.jensd.fx.glyphs.fontawesome;
+    requires MaterialFX;
     opens org.app to javafx.fxml;
     exports org.app;
     exports org.app.iniziale;
