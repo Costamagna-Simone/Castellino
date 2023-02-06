@@ -14,6 +14,7 @@ import static org.app.utilities.Constants.INIZIALE;
 
 /**
  * JavaFX App
+ * Author: Simone Costamagna
  */
 public class App extends Application {
 
