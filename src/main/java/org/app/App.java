@@ -30,10 +30,10 @@ public class App extends Application {
         scene = new Scene(parents[INIZIALE]);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/iniziale.css")).toExternalForm());
 
-        controller.init();
-
         stage.setScene(scene);
         stage.show();
+
+        controller.init();
     }
 
     public static void setRoot(int parent, String fxml) throws IOException {

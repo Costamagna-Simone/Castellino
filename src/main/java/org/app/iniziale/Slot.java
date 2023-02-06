@@ -7,6 +7,7 @@ import io.github.palexdev.materialfx.controls.*;
 
 public class Slot {
     private int id;
+    private boolean aperto;
 
     private Text nome;
     private Text cognome;
@@ -20,27 +21,35 @@ public class Slot {
 
     public Slot(Scene scene, int id)    {
         this.id = id;
+        aperto = false;
 
-        nome = (Text) scene.lookup("textn" + id);
-        cognome = (Text) scene.lookup("textc" + id);
-        iconUtente = (FontAwesomeIconView) scene.lookup("faiviu" + id);
-        arrowApriUtent = (FontAwesomeIconView) scene.lookup("faivau" + id);
+        nome = (Text) scene.lookup("#textn" + id);
+        cognome = (Text) scene.lookup("#textc" + id);
+        iconUtente = (FontAwesomeIconView) scene.lookup("#faiviu" + id);
+        arrowApriUtent = (FontAwesomeIconView) scene.lookup("#faivau" + id);
 
-        buttonAcquisto = (MFXButton) scene.lookup("mfxba1" + id);
-        buttonVendita = (MFXButton) scene.lookup("mfxbv1" + id);
-        buttonRaffronto = (MFXButton) scene.lookup("mfxbr1" + id);
-        indietro = (FontAwesomeIconView) scene.lookup("faivi1" + id);
+        buttonAcquisto = (MFXButton) scene.lookup("#mfxba" + id);
+        buttonVendita = (MFXButton) scene.lookup("#mfxbv" + id);
+        buttonRaffronto = (MFXButton) scene.lookup("#mfxbr" + id);
+        indietro = (FontAwesomeIconView) scene.lookup("#faivi" + id);
     }
 
-    public void apriUtente() {
-        nome.setVisible(false);
-        cognome.setVisible(false);
-        iconUtente.setVisible(false);
-        arrowApriUtent.setVisible(false);
+    /* mostra o meno i bottoni acuqisto, vendita, raffonto */
+    public void apriUtente(boolean aperto) {
+        this.aperto = aperto;
 
-        buttonAcquisto.setVisible(true);
-        buttonVendita.setVisible(true);
-        buttonRaffronto.setVisible(true);
-        indietro.setVisible(true);
+        nome.setVisible(!aperto);
+        cognome.setVisible(!aperto);
+        iconUtente.setVisible(!aperto);
+        arrowApriUtent.setVisible(!aperto);
+
+        buttonAcquisto.setVisible(aperto);
+        buttonVendita.setVisible(aperto);
+        buttonRaffronto.setVisible(aperto);
+        indietro.setVisible(aperto);
+    }
+
+    public boolean getAperto()  {
+        return aperto;
     }
 }
