@@ -1,5 +1,11 @@
 @import url("colors.css");
 
+/* anchorPane; sfondo */
+.anchorPane-sf  {
+    -fx-background-image: url('../Image/Sfondo.png');
+    -fx-background-size: cover;
+}
+
 /* text; nome e cognome */
 .text-nc {
     -fx-fill: -fx-color-first;
@@ -10,8 +16,8 @@
 
 /* anchorPane; slot */
 .anchorPane-sl  {
-    -fx-border-color: -fx-color-second;
-    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 3, 3);
+    -fx-background-radius: 0;
 }
 
 /* fontAwesomeIconView; icon utente */
