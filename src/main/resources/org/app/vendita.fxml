@@ -1,16 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Button?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.vendita.venditaController">
-    <children>
-        <Label text="Secondary View" />
-        <Button fx:id="secondaryButton" text="Switch to Primary View"/>
-    </children>
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-</VBox>
+<AnchorPane maxHeight="730.0" maxWidth="1200.0" minHeight="730.0" minWidth="1200.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.vendita.Controller">
+   <children>
+      <HBox maxHeight="15.0" maxWidth="500.0" minHeight="15.0" minWidth="500.0" AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <Text onMouseClicked="#fxmlRitornaHome" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
+               <font>
+                  <Font name="Comfortaa Light" size="11.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="&gt;">
+               <font>
+                  <Font name="Comfortaa Light" size="11.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Text>
+            <Text onMouseClicked="#fxmlRitornaHome" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome Cognome">
+               <font>
+                  <Font name="Comfortaa Light" size="11.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="&gt;">
+               <font>
+                  <Font name="Comfortaa Light" size="11.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vendita">
+               <font>
+                  <Font name="Comfortaa SemiBold" size="11.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+      <StackPane maxHeight="80.0" minHeight="80.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-t" text="Vendita" AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="50.0">
+         <font>
+            <Font name="Comfortaa Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Overview fatture" AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="81.0">
+         <font>
+            <Font name="Comfortaa Light" size="13.0" />
+         </font>
+      </Text>
+      <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="30.0" maxWidth="125.0" minHeight="30.0" minWidth="125.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="50.0">
+         <children>
+            <MFXButton alignment="BOTTOM_RIGHT" depthLevel="LEVEL1" maxHeight="30.0" maxWidth="125.0" minHeight="30.0" minWidth="125.0" styleClass="MFXButton-im" text="Importa" textAlignment="CENTER" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="Comfortaa SemiBold" size="13.0" />
+               </font>
+            </MFXButton>
+            <FontAwesomeIconView fill="WHITE" glyphName="UPLOAD" size="20" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane maxHeight="30.0" maxWidth="125.0" minHeight="30.0" minWidth="125.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="50.0">
+         <children>
+            <MFXButton alignment="BOTTOM_RIGHT" depthLevel="LEVEL1" maxHeight="30.0" maxWidth="125.0" minHeight="30.0" minWidth="125.0" styleClass="MFXButton-es" text="Esporta" textAlignment="CENTER" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="Comfortaa SemiBold" size="13.0" />
+               </font>
+            </MFXButton>
+            <FontAwesomeIconView fill="WHITE" glyphName="FILE" size="17" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0" />
+         </children>
+      </AnchorPane>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" styleClass="scroll-pane-f" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="115.0">
+         <content>
+            <TableView styleClass="table-view-f">
+              <columns>
+                <TableColumn minWidth="300.0" prefWidth="300.0" styleClass="table-column-f" text="C1" />
+                <TableColumn minWidth="500.0" prefWidth="500.0" styleClass="table-column-f" text="C2" />
+                  <TableColumn minWidth="500.0" prefWidth="500.0" styleClass="table-column-f" text="C3" />
+                  <TableColumn prefWidth="75.0" styleClass="table-column-f" text="C4" />
+                  <TableColumn prefWidth="75.0" styleClass="table-column-f" text="C5" />
+              </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+      <StackPane maxHeight="50.0" minHeight="50.0" styleClass="stackPane-fi" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0">
+         <children>
+            <AnchorPane maxHeight="50.0" maxWidth="80.0" minHeight="50.0" minWidth="80.0">
+               <children>
+                  <FontAwesomeIconView glyphName="FILTER" size="25" styleClass="fontAwesomeIconView-fi" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                  <FontAwesomeIconView glyphName="UNDO" layoutX="10.0" layoutY="10.0" size="25" styleClass="fontAwesomeIconView-fi" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

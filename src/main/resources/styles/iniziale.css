@@ -25,7 +25,7 @@ SLOT OCCUPATI
 anchor-slot
 ********************/
 .anchorPane-sl  {
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 3, 3);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 30, 0.5, 3, 3);
     -fx-background-radius: 0;
 }
 

@@ -1,4 +1,4 @@
-package org.app.acquisto;
+package org.app.vendita;
 
 import java.io.IOException;
 import javafx.scene.input.MouseEvent;

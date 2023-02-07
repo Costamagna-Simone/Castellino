@@ -11,6 +11,7 @@ import org.app.App;
 import java.io.IOException;
 
 import static org.app.utilities.Constants.ACQUISTO;
+import static org.app.utilities.Constants.VENDITA;
 
 public class Controller {
     private static final int NUM_SLOTS = 6;
@@ -96,6 +97,15 @@ public class Controller {
     public void fxmlApriAcquisto(MouseEvent mouseEvent) {
         try {
             App.setRoot(ACQUISTO, "acquisto");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    //Apri finestra vendita
+    public void fxmlApriVendita(MouseEvent mouseEvent) {
+        try {
+            App.setRoot(VENDITA, "vendita");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
