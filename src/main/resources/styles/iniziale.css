@@ -1,37 +1,53 @@
 @import url("colors.css");
 
-/* anchorPane; sfondo */
+/********************
+anchor-pane sfondo
+********************/
 .anchorPane-sf  {
     -fx-background-image: url('../Image/Sfondo.png');
     -fx-background-size: cover;
 }
 
-/* text; nome e cognome */
+/********************
+text-nome e cognome degli slot
+********************/
 .text-nc {
     -fx-fill: -fx-color-first;
     -fx-font-family: Comfortaa SemiBold;
     -fx-font-size: 17px;
 }
 
-/* anchorPane; slot */
+/********************
+SLOT OCCUPATI
+********************/
+
+/********************
+anchor-slot
+********************/
 .anchorPane-sl  {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 3, 3);
     -fx-background-radius: 0;
 }
 
-/* fontAwesomeIconView; icon utente */
+/********************
+fontAwesomeIconView-icona utente
+********************/
 .fontAwesomeIconView-iu {
     -fx-fill: -fx-color-first;
 }
 
-/* fontAwesomeIconView; arrow apri utente */
+/********************
+fontAwesomeIconView-apri utente
+********************/
 .fontAwesomeIconView-ati{
     -fx-fill: -fx-color-first;
 }
 
-/* MFXButton; acquisto-vendita-raffronto */
+/********************
+MFXButton-acquisto-vendita-raffronto
+********************/
 .MFXButton-avr{
-    -fx-font-family: sans-serif;
+    -fx-font-family: comfortaa;
     -fx-font-weight: bold;
     -fx-font-size: 14px;
     -fx-text-fill: -fx-color-first;
@@ -39,14 +55,20 @@
     -fx-border-width: 1;
 }
 
-/* fontAwesomeIconView; arrow torna indietro */
+/********************
+fontAwesomeIconView-freccia torna indietro
+********************/
 .fontAwesomeIconView-ati{
     -fx-fill: -fx-color-first;
 }
 
-/*---- Slot-liberi ----*/
+/********************
+SLOT LIBERI
+********************/
 
-/* testo; nome e cognome */
+/********************
+text-nome e cognome degli slot
+********************/
 .text-nc-sl {
     -fx-fill: -fx-color-third;
     -fx-font-family: sans-serif;
@@ -54,18 +76,24 @@
     -fx-font-size: 17px;
 }
 
-/* anchorPane; slot */
+/********************
+anchor-slot
+********************/
 .anchorPane-sl-sl  {
     -fx-border-color: -fx-color-fourth;
     -fx-border-width: 3;
 }
 
-/* fontAwesomeIconView; icon utente */
+/********************
+fontAwesomeIconView-icona utente
+********************/
 .fontAwesomeIconView-iu-sl {
     -fx-fill: -fx-color-third;
 }
 
-/* fontAwesomeIconView; arrow apri utente */
+/********************
+fontAwesomeIconView-apri utente
+********************/
 .fontAwesomeIconView-aau-sl{
     -fx-fill: -fx-color-third;
 }

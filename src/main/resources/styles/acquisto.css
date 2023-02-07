@@ -1,0 +1,134 @@
+@import url("colors.css");
+
+/********************
+text-titolo
+********************/
+.text-t {
+    -fx-fill: -fx-color-first;
+    -fx-font-family: Comfortaa;
+    -fx-font-weight: bold;
+    -fx-font-size: 24px;
+}
+
+/********************
+text-overview fatture
+********************/
+.text-snc {
+    -fx-fill: grey;
+    -fx-font-family: Comfortaa light;
+    -fx-font-size: 13px;
+}
+
+/********************
+MFXButton-importa
+********************/
+.MFXButton-im{
+    -fx-font-family: comfortaa;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-text-fill: white;
+    -fx-background-color: -fx-color-second;
+    -fx-background-radius: 6;
+}
+
+/********************
+MFXButton-esporta
+********************/
+.MFXButton-es{
+    -fx-font-family: comfortaa;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-text-fill: white;
+    -fx-background-color: -fx-color-first;
+    -fx-background-radius: 5;
+}
+
+/********************
+scroll-pane-f
+********************/
+.scroll-pane-f > .scroll-bar:horizontal .thumb,
+.scroll-pane-f> .scroll-bar:vertical .thumb {
+    -fx-background-color : #bec1ca;
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    -fx-background-radius : 2em;
+}
+
+.scroll-pane-f > .scroll-bar:horizontal .thumb:hover,
+.scroll-pane-f > .scroll-bar:vertical .thumb:hover {
+    -fx-background-color : -fx-color-second;
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    -fx-background-radius : 2em;
+}
+.scroll-pane-f > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane-f  {
+    -fx-background-radius: 8;
+    -fx-background-color: white;
+    -fx-border-color: lightgray;
+    -fx-padding: 0 0 2 0;
+    -fx-border-radius: 8;
+}
+/********************
+Table View-f
+********************/
+.table-view-f {
+    -fx-background-color: white;
+    -fx-padding: 0 0 2 0;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+}
+
+.table-view-f .columns-container {
+    -fx-border-color: transparent transparent lightgray transparent;
+}
+
+.table-view-f .column-header-background .filler {
+    -fx-background-color: lightgray;
+}
+
+/********************
+Table Columns
+********************/
+.table-column-f {
+    -fx-pref-height: 40;
+    -fx-padding: 10 15 10 15;
+    -fx-background-color: #eeeff0;
+    -fx-fill: -fx-color-first;
+    -fx-font-family: Comfortaa Semibold;
+    -fx-font-size: 14px;
+}
+
+/********************
+Table Rows
+********************/
+.mfx-table-row {
+    -fx-background-color: transparent;
+}
+
+.mfx-table-row:hover {
+    -fx-background-color: #F5F5F5;
+}
+
+.mfx-table-row:selected {
+    -fx-background-color: #E1E1E1;
+}
+
+.mfx-table-row .mfx-ripple-generator {
+    -mfx-ripple-radius: 30;
+    -mfx-ripple-color: #C8C8C8;
+}
+
+/********************
+Table Row Cells
+********************/
+.table-view-f-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 5 15 5 15;
+}
+
+.table-view-f-cell,
+.table-view-f-cell:focused {
+    -fx-border-color: transparent;
+}

@@ -34,7 +34,7 @@
                               </Text>
                               <FontAwesomeIconView id="faivau0" glyphName="LOCATION_ARROW" layoutX="10.0" layoutY="10.0" onMouseClicked="#fxmlApriUtente" size="35" styleClass="fontAwesomeIconView-ati" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
                               <FontAwesomeIconView id="faivi0" glyphName="LONG_ARROW_LEFT" onMouseClicked="#fxmlChiudiUtente" size="25" styleClass="fontAwesomeIconView-ati" visible="false" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="20.0" />
-                              <MFXButton id="mfxba0" buttonType="RAISED" maxHeight="30.0" minHeight="30.0" styleClass="MFXButton-avr" text="Acquisto" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="17.0" />
+                              <MFXButton id="mfxba0" buttonType="RAISED" maxHeight="30.0" minHeight="30.0" onMouseClicked="#fxmlApriAcquisto" styleClass="MFXButton-avr" text="Acquisto" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="17.0" />
                               <MFXButton id="mfxbv0" buttonType="RAISED" layoutX="10.0" layoutY="10.0" maxHeight="30.0" minHeight="30.0" styleClass="MFXButton-avr" text="Vendita" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="54.0" />
                               <MFXButton id="mfxbr0" buttonType="RAISED" layoutX="20.0" layoutY="20.0" maxHeight="30.0" minHeight="30.0" styleClass="MFXButton-avr" text="Raffronto" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="91.0" />
                            </children>
@@ -113,7 +113,7 @@
                                  </font>
                               </Text>
                               <FontAwesomeIconView id="faivau4" glyphName="LOCATION_ARROW" layoutX="10.0" layoutY="10.0" onMouseClicked="#fxmlApriUtente" size="35" styleClass="fontAwesomeIconView-ati" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                              <FontAwesomeIconView id="faivi4" glyphName="LONG_ARROW_LEFT" size="25" styleClass="fontAwesomeIconView-ati" visible="false" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="20.0" />
+                              <FontAwesomeIconView id="faivi4" glyphName="LONG_ARROW_LEFT" onMouseClicked="#fxmlChiudiUtente" size="25" styleClass="fontAwesomeIconView-ati" visible="false" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="20.0" />
                               <MFXButton id="mfxba4" buttonType="RAISED" maxHeight="30.0" minHeight="30.0" styleClass="MFXButton-avr" text="Acquisto" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="17.0" />
                               <MFXButton id="mfxbv4" buttonType="RAISED" layoutX="10.0" layoutY="10.0" maxHeight="30.0" minHeight="30.0" styleClass="MFXButton-avr" text="Vendita" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="54.0" />
                               <MFXButton id="mfxbr4" buttonType="RAISED" layoutX="20.0" layoutY="20.0" maxHeight="30.0" minHeight="30.0" styleClass="MFXButton-avr" text="Raffronto" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="91.0" />

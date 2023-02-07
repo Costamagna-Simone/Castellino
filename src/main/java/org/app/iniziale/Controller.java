@@ -1,7 +1,6 @@
 package org.app.iniziale;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
-import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,6 +9,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.app.App;
 import java.io.IOException;
+
+import static org.app.utilities.Constants.ACQUISTO;
 
 public class Controller {
     private static final int NUM_SLOTS = 6;
@@ -29,7 +30,7 @@ public class Controller {
         }
     }
 
-    private void inizializzaDialogAggiungiUtente()  {
+    private void initializeDialogAggiungiUtente()  {
         try {
             FXMLLoader loaderReceived = new FXMLLoader(App.class.getResource("dialogAggiungiUtente.fxml"));
             Parent parent = loaderReceived.load();
@@ -81,14 +82,23 @@ public class Controller {
         slots[numSlot].apriUtente(false);
     }
 
-    //Apri finestra aggiungi utente
+    //Apri dialog aggiungi utente
     public void fxmlAggiungiUtente(MouseEvent mouseEvent)    {
         if(aggiungiUtente==null)  {
-            inizializzaDialogAggiungiUtente();
+            initializeDialogAggiungiUtente();
         }
 
         aggiungiUtente.show();
         //TODO: FXML dialog aggiungi utente
+    }
+
+    //Apri finestra acquisto
+    public void fxmlApriAcquisto(MouseEvent mouseEvent) {
+        try {
+            App.setRoot(ACQUISTO, "acquisto");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /*@FXML
