@@ -44,6 +44,21 @@ MFXButton-esporta
 }
 
 /********************
+StackPane-filtro
+********************/
+.stackPane-fi{
+    -fx-background-radius: 8;
+    -fx-background-color: white;
+    -fx-border-color: lightgray;
+    -fx-padding: 0 0 2 0;
+    -fx-border-radius: 8;
+}
+
+.fontAwesomeIconView-fi {
+    -fx-fill: -fx-color-first;
+}
+
+/********************
 scroll-pane-f
 ********************/
 .scroll-pane-f > .scroll-bar:horizontal .thumb,

@@ -2,7 +2,10 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -11,13 +14,13 @@
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="1200.0" style="-fx-background-color: #edeef4;" styleClass="anchorPane-sf" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.iniziale.Controller">
     <children>
         <HBox maxHeight="140.0" VBox.vgrow="ALWAYS" />
-        <HBox maxHeight="450.0" VBox.vgrow="ALWAYS">
+        <HBox maxHeight="550.0" VBox.vgrow="ALWAYS">
             <children>
                   <HBox HBox.hgrow="ALWAYS" />
-                  <VBox maxHeight="450.0" maxWidth="670.0" HBox.hgrow="ALWAYS">
+                  <VBox maxHeight="550.0" maxWidth="670.0" HBox.hgrow="ALWAYS">
                       <children>
                           <VBox VBox.vgrow="ALWAYS" />
-                          <AnchorPane maxHeight="450.0" maxWidth="670.0" minHeight="450.0" minWidth="670.0" VBox.vgrow="ALWAYS">
+                          <AnchorPane maxHeight="550.0" maxWidth="670.0" minHeight="550.0" minWidth="670.0" VBox.vgrow="ALWAYS">
                      <children>
                         <AnchorPane prefHeight="170.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" styleClass="anchorPane-sl" AnchorPane.leftAnchor="17.5" AnchorPane.topAnchor="10.0">
                            <children>
@@ -139,7 +142,16 @@
                               <MFXButton id="mfxbr5" buttonType="RAISED" layoutX="20.0" layoutY="20.0" maxHeight="30.0" minHeight="30.0" styleClass="MFXButton-avr" text="Raffronto" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="91.0" />
                            </children>
                         </AnchorPane>
-                        <FontAwesomeIconView fill="#1c3879" glyphName="USER_PLUS" onMouseClicked="#fxmlAggiungiUtente" size="35" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="10.0" />
+                        <BorderPane maxHeight="150.0" minHeight="150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <center>
+                              <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                 <image>
+                                    <Image url="@../../Image/logo.jpg" />
+                                 </image>
+                              </ImageView>
+                           </center>
+                        </BorderPane>
+                        <FontAwesomeIconView fill="#1c3879" glyphName="USER_PLUS" onMouseClicked="#fxmlAggiungiUtente" size="35" styleClass="fontAwesomeIconView-au" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="390.0" />
                      </children>
                           </AnchorPane>
                           <VBox layoutX="10.0" layoutY="10.0" VBox.vgrow="ALWAYS" />
@@ -147,6 +159,6 @@
                   </VBox>
                   <HBox HBox.hgrow="ALWAYS" />
             </children></HBox>
-        <HBox maxHeight="140.0" VBox.vgrow="ALWAYS" />
+        <HBox maxHeight="100.0" VBox.vgrow="ALWAYS" />
     </children>
 </VBox>

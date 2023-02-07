@@ -4,7 +4,7 @@
 anchor-pane sfondo
 ********************/
 .anchorPane-sf  {
-    -fx-background-image: url('../Image/Sfondo.png');
+    -fx-background-image: url('../Image/SfondoRosso.png');
     -fx-background-size: cover;
 }
 
@@ -40,6 +40,13 @@ fontAwesomeIconView-icona utente
 fontAwesomeIconView-apri utente
 ********************/
 .fontAwesomeIconView-ati{
+    -fx-fill: -fx-color-first;
+}
+
+/********************
+fontAwesomeIconView-aggiungi utente
+********************/
+.fontAwesomeIconView-au{
     -fx-fill: -fx-color-first;
 }
 

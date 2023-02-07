@@ -1,6 +1,16 @@
 * {
+    /*BLU*/
+    /*
     -fx-color-first: #1c3879;
     -fx-color-second: #607EAA;
+    -fx-color-third: #EAE3D2;
+    -fx-color-fourth: #F9F5EB;
+     */
+
+
+    /*RED*/
+    -fx-color-first: #292725;
+    -fx-color-second: #C40018;
     -fx-color-third: #EAE3D2;
     -fx-color-fourth: #F9F5EB;
 

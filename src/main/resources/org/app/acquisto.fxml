@@ -66,7 +66,7 @@
             <Font name="Comfortaa Light" size="13.0" />
          </font>
       </Text>
-      <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="30.0" maxWidth="125.0" minHeight="30.0" minWidth="125.0" AnchorPane.rightAnchor="165.0" AnchorPane.topAnchor="50.0">
+      <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="30.0" maxWidth="125.0" minHeight="30.0" minWidth="125.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="50.0">
          <children>
             <MFXButton alignment="BOTTOM_RIGHT" depthLevel="LEVEL1" maxHeight="30.0" maxWidth="125.0" minHeight="30.0" minWidth="125.0" styleClass="MFXButton-im" text="Importa" textAlignment="CENTER" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <font>
@@ -76,7 +76,7 @@
             <FontAwesomeIconView fill="WHITE" glyphName="UPLOAD" size="20" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0" />
          </children>
       </AnchorPane>
-      <AnchorPane maxHeight="30.0" maxWidth="125.0" minHeight="30.0" minWidth="125.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="50.0">
+      <AnchorPane maxHeight="30.0" maxWidth="125.0" minHeight="30.0" minWidth="125.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="50.0">
          <children>
             <MFXButton alignment="BOTTOM_RIGHT" depthLevel="LEVEL1" maxHeight="30.0" maxWidth="125.0" minHeight="30.0" minWidth="125.0" styleClass="MFXButton-es" text="Esporta" textAlignment="CENTER" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <font>
@@ -86,7 +86,7 @@
             <FontAwesomeIconView fill="WHITE" glyphName="FILE" size="17" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0" />
          </children>
       </AnchorPane>
-      <ScrollPane prefHeight="200.0" prefWidth="200.0" styleClass="scroll-pane-f" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="115.0">
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" styleClass="scroll-pane-f" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="115.0">
          <content>
             <TableView styleClass="table-view-f">
               <columns>
@@ -99,5 +99,15 @@
             </TableView>
          </content>
       </ScrollPane>
+      <StackPane maxHeight="50.0" minHeight="50.0" styleClass="stackPane-fi" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0">
+         <children>
+            <AnchorPane maxHeight="50.0" maxWidth="80.0" minHeight="50.0" minWidth="80.0">
+               <children>
+                  <FontAwesomeIconView glyphName="FILTER" size="25" styleClass="fontAwesomeIconView-fi" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                  <FontAwesomeIconView glyphName="UNDO" layoutX="10.0" layoutY="10.0" size="25" styleClass="fontAwesomeIconView-fi" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
    </children>
 </AnchorPane>
