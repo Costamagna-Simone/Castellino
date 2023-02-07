@@ -1,6 +1,7 @@
 package org.app.iniziale;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -8,11 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.app.App;
-
 import java.io.IOException;
-import java.util.Objects;
-
-import static org.app.utilities.Constants.INIZIALE;
 
 public class Controller {
     private static final int NUM_SLOTS = 6;
@@ -34,7 +31,7 @@ public class Controller {
 
     private void inizializzaDialogAggiungiUtente()  {
         try {
-            FXMLLoader loaderReceived = new FXMLLoader(App.class.getResource("aggiungiUtente.fxml"));
+            FXMLLoader loaderReceived = new FXMLLoader(App.class.getResource("dialogAggiungiUtente.fxml"));
             Parent parent = loaderReceived.load();
             controllerAggiungiUtente = loaderReceived.getController();
             controllerAggiungiUtente.init();
