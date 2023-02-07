@@ -31,6 +31,8 @@ public class App extends Application {
         scene = new Scene(parents[INIZIALE]);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/iniziale.css")).toExternalForm());
 
+        stage.setMinHeight(470);
+        stage.setMinWidth(680);
         stage.setScene(scene);
         stage.show();
 

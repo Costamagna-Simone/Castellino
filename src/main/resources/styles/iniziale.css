@@ -9,8 +9,7 @@
 /* text; nome e cognome */
 .text-nc {
     -fx-fill: -fx-color-first;
-    -fx-font-family: sans-serif;
-    -fx-font-weight: bold;
+    -fx-font-family: Comfortaa SemiBold;
     -fx-font-size: 17px;
 }
 
@@ -38,17 +37,6 @@
     -fx-text-fill: -fx-color-first;
     -fx-border-color: -fx-color-first;
     -fx-border-width: 1;
-}
-
-/* MFXButton; acquisto-vendita-raffronto entered */
-.MFXButton-entered-avr{
-    -fx-font-family: sans-serif;
-    -fx-font-weight: bold;
-    -fx-font-size: 14px;
-    -fx-text-fill: -fx-color-white;
-    -fx-border-color: -fx-color-white;
-    -fx-border-width: 1;
-    -fx-background-color: -fx-color-first;
 }
 
 /* fontAwesomeIconView; arrow torna indietro */

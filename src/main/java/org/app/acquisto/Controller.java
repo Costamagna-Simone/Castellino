@@ -6,10 +6,6 @@ import org.app.App;
 
 import static org.app.utilities.Constants.INIZIALE;
 
-public class acquistoController {
+public class Controller {
 
-    @FXML
-    private void switchToPrimary() throws IOException {
-        App.setRoot(INIZIALE, "iniziale");
-    }
 }
