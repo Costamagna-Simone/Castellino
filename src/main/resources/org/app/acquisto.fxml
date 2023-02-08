@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="730.0" maxWidth="1200.0" minHeight="730.0" minWidth="1200.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.acquisto.Controller">
+<AnchorPane maxHeight="730.0" maxWidth="1200.0" minHeight="730.0" minWidth="1200.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.acquisto.ControllerAcquisto">
    <children>
       <HBox maxHeight="15.0" maxWidth="500.0" minHeight="15.0" minWidth="500.0" AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="20.0">
          <children>
@@ -88,13 +88,29 @@
       </AnchorPane>
       <ScrollPane prefHeight="200.0" prefWidth="200.0" styleClass="scroll-pane-f" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="115.0">
          <content>
-            <TableView styleClass="table-view-f">
+            <TableView id="tableViewFatture" styleClass="table-view-f">
               <columns>
-                <TableColumn minWidth="300.0" prefWidth="300.0" styleClass="table-column-f" text="C1" />
-                <TableColumn minWidth="500.0" prefWidth="500.0" styleClass="table-column-f" text="C2" />
-                  <TableColumn minWidth="500.0" prefWidth="500.0" styleClass="table-column-f" text="C3" />
-                  <TableColumn prefWidth="75.0" styleClass="table-column-f" text="C4" />
-                  <TableColumn prefWidth="75.0" styleClass="table-column-f" text="C5" />
+                <TableColumn minWidth="50.0" prefWidth="61.0" styleClass="table-column-f" text="Numero" />
+                <TableColumn minWidth="80.0" prefWidth="82.0" styleClass="table-column-f" text="Suffisso" />
+                  <TableColumn minWidth="58.0" prefWidth="58.0" styleClass="table-column-f" text="Anno" />
+                  <TableColumn prefWidth="95.0" styleClass="table-column-f" text="Data" />
+                  <TableColumn prefWidth="90.0" styleClass="table-column-f" text="Numero Rif." />
+                  <TableColumn prefWidth="95.0" styleClass="table-column-f" text="Data Rif." />
+                  <TableColumn prefWidth="123.0" styleClass="table-column-f" text="Tipo documento" />
+                  <TableColumn prefWidth="117.0" styleClass="table-column-f" text="Fornitore" />
+                  <TableColumn prefWidth="138.0" styleClass="table-column-f" text="Codice fiscale" />
+                  <TableColumn prefWidth="100.0" styleClass="table-column-f" text="Partita IVA" />
+                  <TableColumn prefWidth="100.0" styleClass="table-column-f" text="Imponibile" />
+                  <TableColumn prefWidth="100.0" styleClass="table-column-f" text="Tipo cassa previdenza" />
+                  <TableColumn prefWidth="100.0" styleClass="table-column-f" text="Cassa previdenza" />
+                  <TableColumn prefWidth="100.0" styleClass="table-column-f" text="Imposta" />
+                  <TableColumn prefWidth="100.0" styleClass="table-column-f" text="Importo Art. 15" />
+                  <TableColumn prefWidth="100.0" styleClass="table-column-f" text="Bollo" />
+                  <TableColumn prefWidth="100.0" styleClass="table-column-f" text="Totale" />
+                  <TableColumn prefWidth="100.0" styleClass="table-column-f" text="Ritenuta" />
+                  <TableColumn prefWidth="100.0" styleClass="table-column-f" text="Netto a pagare" />
+                  <TableColumn prefWidth="100.0" styleClass="table-column-f" text="Note piede" />
+                  <TableColumn prefWidth="100.0" styleClass="table-column-f" text="Stato" />
               </columns>
             </TableView>
          </content>

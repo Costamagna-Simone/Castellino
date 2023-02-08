@@ -107,12 +107,12 @@ Table View-f
 Table Columns
 ********************/
 .table-column-f {
-    -fx-pref-height: 40;
-    -fx-padding: 10 15 10 15;
+    -fx-pref-height: 35;
+    -fx-padding: 8 12 8 12;
     -fx-background-color: #eeeff0;
     -fx-fill: -fx-color-first;
     -fx-font-family: Comfortaa Semibold;
-    -fx-font-size: 14px;
+    -fx-font-size: 12px;
 }
 
 /********************

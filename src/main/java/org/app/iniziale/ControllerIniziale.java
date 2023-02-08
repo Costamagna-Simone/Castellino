@@ -8,12 +8,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.app.App;
+import org.app.Controller;
 import java.io.IOException;
-
 import static org.app.utilities.Constants.ACQUISTO;
 import static org.app.utilities.Constants.VENDITA;
 
-public class Controller {
+public class ControllerIniziale implements Controller {
     private static final int NUM_SLOTS = 6;
     private Slot[] slots;
     private ControllerAggiungiUtente controllerAggiungiUtente;
