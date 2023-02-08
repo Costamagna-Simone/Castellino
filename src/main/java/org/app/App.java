@@ -34,7 +34,6 @@ public class App extends Application {
 
         controllers[INIZIALE].init();
 
-
         stage.setMinHeight(470);
         stage.setMinWidth(680);
         stage.setScene(scene);

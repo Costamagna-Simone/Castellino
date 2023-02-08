@@ -11,6 +11,8 @@ module org.app {
     opens org.app.acquisto to javafx.fxml;
     exports org.app.vendita;
     opens org.app.vendita to javafx.fxml;
+    exports org.app.raffronto;
+    opens org.app.raffronto to javafx.fxml;
     exports org.app.utilities;
     opens org.app.utilities to javafx.fxml;
 }

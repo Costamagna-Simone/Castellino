@@ -10,8 +10,8 @@ import javafx.stage.Stage;
 import org.app.App;
 import org.app.Controller;
 import java.io.IOException;
-import static org.app.utilities.Constants.ACQUISTO;
-import static org.app.utilities.Constants.VENDITA;
+
+import static org.app.utilities.Constants.*;
 
 public class ControllerIniziale implements Controller {
     private static final int NUM_SLOTS = 6;
@@ -110,6 +110,16 @@ public class ControllerIniziale implements Controller {
             throw new RuntimeException(e);
         }
     }
+
+    //Apri finestra raffronto
+    public void fxmlApriRaffronto(MouseEvent mouseEvent) {
+        try {
+            App.setRoot(RAFFRONTO, "raffronto");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
     /*@FXML
     private void switchToSecondary() throws IOException {
