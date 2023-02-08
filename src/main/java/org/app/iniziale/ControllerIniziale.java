@@ -1,6 +1,7 @@
 package org.app.iniziale;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -9,25 +10,41 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.app.App;
 import org.app.Controller;
+import org.app.database.MangerDB;
+import org.app.model.DataModel;
+import org.app.model.Utente;
+
+import java.awt.image.AreaAveragingScaleFilter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import static org.app.utilities.Constants.*;
 
 public class ControllerIniziale implements Controller {
     private static final int NUM_SLOTS = 6;
+
+    private DataModel dataModel;
     private Slot[] slots;
     private ControllerAggiungiUtente controllerAggiungiUtente;
     private Stage aggiungiUtente;
 
-    public void init()   {
+    public void init(DataModel dataModel)   {
+        this.dataModel = dataModel;
         slots = new Slot[NUM_SLOTS];
+
         initializeSlot();
     }
 
     // --- Initialize ---
     public void initializeSlot()  {
-        for(int i=0; i<NUM_SLOTS; i++)  {
+        ObservableList<Utente> utenti = dataModel.getUtenti();
+
+        for(int i=0; i<NUM_SLOTS; i++) {
             slots[i] = new Slot(App.getScene(), i);
+
+            if(i<utenti.size()) {
+                slots[i].setUtente(utenti.get(i));
+            }
         }
     }
 

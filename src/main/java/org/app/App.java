@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.app.iniziale.ControllerIniziale;
+import org.app.model.DataModel;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -21,8 +22,12 @@ public class App extends Application {
     private static Parent[] parents;
     private static Controller[] controllers;
 
+    private static DataModel datamodel;
+
     @Override
     public void start(Stage stage) throws IOException {
+        datamodel = new DataModel();
+
         parents = new Parent[5];
         controllers = new Controller[5];
 
@@ -32,7 +37,7 @@ public class App extends Application {
         scene = new Scene(parents[INIZIALE]);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/iniziale.css")).toExternalForm());
 
-        controllers[INIZIALE].init();
+        controllers[INIZIALE].init(datamodel);
 
         stage.setMinHeight(470);
         stage.setMinWidth(680);
@@ -54,7 +59,7 @@ public class App extends Application {
         scene.getStylesheets().add(Objects.requireNonNull(App.class.getResource("/styles/" + fxml + ".css")).toExternalForm());
 
         if(inizializza)
-            controllers[parent].init();
+            controllers[parent].init(datamodel);
     }
 
     private static Parent loadFXML(String fxml) throws IOException {

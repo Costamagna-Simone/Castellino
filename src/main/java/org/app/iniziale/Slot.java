@@ -2,13 +2,18 @@ package org.app.iniziale;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import io.github.palexdev.materialfx.controls.*;
+import org.app.model.Utente;
 
 public class Slot {
     private int id;
+
+    private Utente utente;
     private boolean aperto;
 
+    private AnchorPane anchorPane;
     private Text nome;
     private Text cognome;
     private FontAwesomeIconView iconUtente;
@@ -21,7 +26,10 @@ public class Slot {
 
     public Slot(Scene scene, int id)    {
         this.id = id;
+        utente = null;
         aperto = false;
+
+        anchorPane = (AnchorPane) scene.lookup("#anchorpanes" + id);
 
         nome = (Text) scene.lookup("#textn" + id);
         cognome = (Text) scene.lookup("#textc" + id);
@@ -49,6 +57,26 @@ public class Slot {
         indietro.setVisible(aperto);
     }
 
+    /* oscura o meno lo slot a seconda sia presente un utente*/
+    public void oscura(boolean presente) {
+        if(presente)    {
+            anchorPane.setOpacity(1);
+            anchorPane.setDisable(false);
+            nome.setText(utente.getNome());
+            cognome.setText(utente.getCognome());
+        } else {
+            anchorPane.setOpacity(0.25);
+            anchorPane.setDisable(true);
+            nome.setText("Slot");
+            cognome.setText("Libero");
+        }
+    }
+
+    public void setUtente(Utente utente)    {
+        this.utente = utente;
+
+        oscura(utente!=null);
+    }
     public boolean getAperto()  {
         return aperto;
     }

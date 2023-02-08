@@ -7,6 +7,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import org.app.App;
 import org.app.Controller;
+import org.app.model.DataModel;
 import org.app.model.Fattura;
 
 import static org.app.utilities.Constants.INIZIALE;
@@ -16,7 +17,7 @@ public class ControllerAcquisto implements Controller {
     @FXML
     private TableView<Fattura> tableViewFatture;
 
-    public void init()  {
+    public void init(DataModel dataModel)  {
 
     }
 
