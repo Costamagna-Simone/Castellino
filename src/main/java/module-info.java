@@ -3,6 +3,8 @@ module org.app {
     requires javafx.fxml;
     requires de.jensd.fx.glyphs.fontawesome;
     requires MaterialFX;
+    requires org.hsqldb;
+    requires java.sql;
     opens org.app to javafx.fxml;
     exports org.app;
     exports org.app.iniziale;
