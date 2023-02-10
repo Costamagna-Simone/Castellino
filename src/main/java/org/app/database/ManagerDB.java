@@ -3,10 +3,7 @@ package org.app.database;
 import org.app.model.Utente;
 import org.hsqldb.server.Server;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 import static org.app.database.Constants.*;
@@ -51,9 +48,9 @@ public class ManagerDB {
             //inizializza tabella utente
             connection.prepareStatement(
                             "CREATE TABLE IF NOT EXISTS UTENTE(" +
-                                    "ID INTEGER not null IDENTITY, " +
-                                    "NOME varchar(50) not null, " +
-                                    "COGNOME varchar(50) not null," +
+                                    "ID INTEGER NOT NULL IDENTITY, " +
+                                    "NOME VARCHAR(50) NOT NULL, " +
+                                    "COGNOME VARCHAR(50) NOT NULL," +
                                     "PRIMARY KEY (ID)" +
                                     ");").execute();
         }finally {
@@ -73,7 +70,7 @@ public class ManagerDB {
                     URL, USER, PASSWORD);
 
             ResultSet rs = connection.prepareStatement(
-                    "select * from UTENTE;").executeQuery();
+                    "SELECT * FROM UTENTE;").executeQuery();
 
             while(rs.next())    {
                 utenti.add(new Utente(rs.getInt("ID"), rs.getString("NOME"), rs.getString("COGNOME")));
@@ -92,5 +89,45 @@ public class ManagerDB {
         }
 
         return utenti;
+    }
+
+    public static Utente aggiungiUtente(String nome, String cognome)  {
+        Connection connection = null;
+        PreparedStatement pst = null;
+        Integer idUtente = null;
+
+        try {
+            connection = DriverManager.getConnection(
+                    URL, USER, PASSWORD);
+
+            pst = connection.prepareStatement(
+                    "INSERT INTO UTENTE(NOME, COGNOME) "+
+                            "values (?, ?);", Statement.RETURN_GENERATED_KEYS);
+
+            pst.setString(1, nome);
+            pst.setString(2, cognome);
+            pst.executeUpdate();
+
+            try(ResultSet generatedKeys = pst.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    idUtente = generatedKeys.getInt(1);
+                }
+            }
+
+            if(idUtente != null)
+                return new Utente(idUtente, nome, cognome);
+            else
+                return null;
+        } catch (SQLException e) {
+            return null;
+        } finally {
+            if(connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
     }
 }

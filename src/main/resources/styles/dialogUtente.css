@@ -1,0 +1,57 @@
+@import url("colors.css");
+
+/********************
+anchorPane-aggiungiUtente
+********************/
+.anchorPane-au {
+    -fx-background-color: white;
+}
+
+/********************
+MFXButton-crea/modifica utente
+********************/
+.MFXButton-cu{
+    -fx-font-family: comfortaa;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-text-fill: white;
+    -fx-background-color: -fx-color-second;
+    -fx-background-radius: 4;
+}
+
+/********************
+MFXButton-elimina utente
+********************/
+.MFXButton-eu{
+    -fx-font-family: comfortaa;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-text-fill: white;
+    -fx-background-color: -fx-color-first;
+    -fx-background-radius: 4;
+}
+
+/********************
+MFXTextField-nome e cognome
+********************/
+.MFXTextField-nc{
+    -fx-font-family: comfortaa;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-text-fill: -fx-color-first;
+    -fx-border-color: -fx-color-first;
+    -fx-border-width: 1;
+}
+
+.MFXTextField-nc .floating-text {
+    -fx-font-family: comfortaa;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-color-first;
+}
+
+/********************
+Text-messaggio di errore
+********************/
+.Text-er{
+    -fx-fill: -fx-color-second;
+}

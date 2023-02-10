@@ -11,7 +11,7 @@ import org.app.model.DataModel;
 import org.app.model.Utente;
 
 
-public class ControllerAggiungiUtente {
+public class ControllerModificaUtente {
     private DataModel dataModel;
 
     @FXML

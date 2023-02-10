@@ -14,6 +14,7 @@ import org.app.model.DataModel;
 import org.app.model.Utente;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import static org.app.utilities.Constants.*;
 
@@ -25,15 +26,23 @@ public class ControllerIniziale implements Controller {
     private ControllerAggiungiUtente controllerAggiungiUtente;
     private Stage aggiungiUtente;
 
+    private ControllerModificaUtente controllerModificaUtente;
+    private Stage modificaUtente;
+
     public void init(DataModel dataModel)   {
         this.dataModel = dataModel;
-        slots = new Slot[NUM_SLOTS];
 
         initializeSlot();
+
+        dataModel.getAggiornaUtenti().addListener((observableValue, numberOld, numberNew) -> {
+            initializeSlot();
+        });
     }
 
     // --- Initialize ---
     public void initializeSlot()  {
+        slots = new Slot[NUM_SLOTS];
+
         ObservableList<Utente> utenti = dataModel.getUtenti();
 
         for(int i=0; i<NUM_SLOTS; i++) {
@@ -50,9 +59,11 @@ public class ControllerIniziale implements Controller {
             FXMLLoader loaderReceived = new FXMLLoader(App.class.getResource("dialogAggiungiUtente.fxml"));
             Parent parent = loaderReceived.load();
             controllerAggiungiUtente = loaderReceived.getController();
-            controllerAggiungiUtente.init();
+            controllerAggiungiUtente.init(dataModel);
 
             Scene scene = new Scene(parent);
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/dialogUtente.css")).toExternalForm());
+
             aggiungiUtente = new Stage();
             aggiungiUtente.setScene(scene);
             aggiungiUtente.setResizable(false);
@@ -64,6 +75,26 @@ public class ControllerIniziale implements Controller {
         }
     }
 
+    private void initializeDialogModificaUtente()  {
+        try {
+            FXMLLoader loaderReceived = new FXMLLoader(App.class.getResource("dialogModificaUtente.fxml"));
+            Parent parent = loaderReceived.load();
+            controllerModificaUtente = loaderReceived.getController();
+            controllerModificaUtente.init(dataModel);
+
+            Scene scene = new Scene(parent);
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/dialogUtente.css")).toExternalForm());
+
+            modificaUtente = new Stage();
+            modificaUtente.setScene(scene);
+            modificaUtente.setResizable(false);
+            modificaUtente.setTitle("Modifica utente");
+
+            modificaUtente.initModality(Modality.APPLICATION_MODAL);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     // --- Utility ---
     private static int utilityParseInt(String text) {
@@ -104,7 +135,15 @@ public class ControllerIniziale implements Controller {
         }
 
         aggiungiUtente.show();
-        //TODO: FXML dialog aggiungi utente
+    }
+
+    //Apri dialog modifica utente
+    public void fxmlModificaUtente(MouseEvent mouseEvent) {
+        if(modificaUtente==null)  {
+            initializeDialogModificaUtente();
+        }
+
+        modificaUtente.show();
     }
 
     //Apri finestra acquisto
@@ -133,7 +172,6 @@ public class ControllerIniziale implements Controller {
             throw new RuntimeException(e);
         }
     }
-
 
     /*@FXML
     private void switchToSecondary() throws IOException {
