@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.app.iniziale.ControllerIniziale;
+import org.app.database.ManagerDB;
 import org.app.model.DataModel;
 
 import java.io.IOException;
@@ -26,6 +26,8 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        ManagerDB.avviaDatabase();
+
         datamodel = new DataModel();
 
         parents = new Parent[5];
@@ -45,6 +47,11 @@ public class App extends Application {
         stage.show();
     }
 
+    @Override
+    public void stop(){
+        ManagerDB.stopDatabase();
+    }
+
     public static void setRoot(int parent, String fxml) throws IOException {
         boolean inizializza = (parents[parent]==null);
 
@@ -60,11 +67,6 @@ public class App extends Application {
 
         if(inizializza)
             controllers[parent].init(datamodel);
-    }
-
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
     }
 
     public static Scene getScene()    {

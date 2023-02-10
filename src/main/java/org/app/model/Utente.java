@@ -1,9 +1,12 @@
 package org.app.model;
 
 public class Utente {
+    private Integer id;
     private String nome;
     private String cognome;
-    public Utente(String nome, String cognome) {
+
+    public Utente(Integer id, String nome, String cognome) {
+        this.id = id;
         this.nome = nome;
         this.cognome = cognome;
     }

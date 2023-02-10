@@ -11,4 +11,9 @@
       </profile>
     </annotationProcessing>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Castellino" options="--add-exports org.hsqldb/org.hsqldb=org.app --add-exports org.hsqldb/org.hsqldb.persist=org.app" />
+    </option>
+  </component>
 </project>

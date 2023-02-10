@@ -10,13 +10,10 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.app.App;
 import org.app.Controller;
-import org.app.database.MangerDB;
 import org.app.model.DataModel;
 import org.app.model.Utente;
 
-import java.awt.image.AreaAveragingScaleFilter;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import static org.app.utilities.Constants.*;
 

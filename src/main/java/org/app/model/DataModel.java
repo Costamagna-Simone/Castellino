@@ -2,7 +2,7 @@ package org.app.model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import org.app.database.MangerDB;
+import org.app.database.ManagerDB;
 
 import java.util.ArrayList;
 
@@ -21,7 +21,7 @@ public class DataModel {
     }
     public ObservableList<Utente> getUtenti() {
         if(utenti.isEmpty())    {
-            utenti.addAll(MangerDB.getUtenti());
+            utenti.addAll(ManagerDB.getUtenti());
         }
 
         return utenti;
