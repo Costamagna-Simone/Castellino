@@ -3,18 +3,21 @@ package org.app.model;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.stage.Stage;
 import org.app.database.ManagerDB;
 
 import java.util.ArrayList;
 
 public class DataModel {
 
+    private final Stage stage;
     private final ObservableList<Utente> utenti;
     private final SimpleIntegerProperty aggiornaUtenti;
-
     private final ObservableList<Fattura> fatture;
 
-    public DataModel()  {
+    public DataModel(Stage stage)  {
+        this.stage = stage;
+
         utenti = FXCollections.observableArrayList(new ArrayList<>());
         aggiornaUtenti = new SimpleIntegerProperty(0);
 
@@ -49,6 +52,9 @@ public class DataModel {
 
 
     //GET & SET
+    public Stage getStage() {
+        return stage;
+    }
     public ObservableList<Utente> getUtenti() {
         if(utenti.isEmpty())    {
             utenti.addAll(ManagerDB.getUtenti());
@@ -69,4 +75,5 @@ public class DataModel {
         else
             aggiornaUtenti.set(0);
     }
+
 }

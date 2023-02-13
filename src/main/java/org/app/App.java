@@ -28,7 +28,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         ManagerDB.avviaDatabase();
 
-        datamodel = new DataModel();
+        datamodel = new DataModel(stage);
 
         parents = new Parent[5];
         controllers = new Controller[5];

@@ -5,6 +5,7 @@ module org.app {
     requires MaterialFX;
     requires org.hsqldb;
     requires java.sql;
+    requires spire.xls;
     opens org.app to javafx.fxml;
     exports org.app;
     exports org.app.iniziale;
