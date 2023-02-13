@@ -50,6 +50,9 @@ public class DataModel {
         }
     }
 
+    public void aggiungiFatture(int tipo, ArrayList<Fattura> fatture) {
+    }
+
 
     //GET & SET
     public Stage getStage() {
@@ -75,5 +78,4 @@ public class DataModel {
         else
             aggiornaUtenti.set(0);
     }
-
 }
