@@ -13,6 +13,7 @@ import org.app.model.Utente;
 
 public class ControllerModificaUtente {
     private DataModel dataModel;
+    private Utente utente;
 
     @FXML
     private TextField textFieldNome;
@@ -36,9 +37,9 @@ public class ControllerModificaUtente {
     // --- FXML ---
 
     //Aggiungi utente
-    public void fxmlAggiungiUtente(MouseEvent mouseEvent) {
+    public void fxmlModificaUtente(MouseEvent mouseEvent) {
         if(utilityControllaCampi())    {
-            dataModel.aggiungiUtente(textFieldNome.getText(), textFieldCognome.getText());
+            dataModel.modificaUtente(utente.getId(), textFieldNome.getText(), textFieldCognome.getText());
             stop(mouseEvent);
         } else {
             textErrore.setVisible(true);
@@ -73,11 +74,20 @@ public class ControllerModificaUtente {
         String cognome = textFieldCognome.getText();
 
         for(Utente u : utenti)  {
-            if(u.getNome().equals(nome) && u.getCognome().equals(cognome))  {
+            if(u.getId()!=utente.getId() && u.getNome().equals(nome) && u.getCognome().equals(cognome))  {
                 return true;
             }
         }
 
         return false;
+    }
+
+
+    //Setter e Getter
+    public void setUtente(Utente utente) {
+        this.utente = utente;
+
+        textFieldNome.setText(utente.getNome());
+        textFieldCognome.setText(utente.getCognome());
     }
 }

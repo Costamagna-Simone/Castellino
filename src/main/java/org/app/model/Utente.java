@@ -11,6 +11,14 @@ public class Utente {
         this.cognome = cognome;
     }
 
+    //Utility
+    public void utilityModifica(Utente utente) {
+        nome = utente.getNome();
+        cognome = utente.getCognome();
+    }
+
+    //GET e SET
+
     public String getNome()    {
         return nome;
     }
@@ -18,4 +26,11 @@ public class Utente {
     public String getCognome()    {
         return cognome;
     }
+
+    public int getId()  {
+        return id;
+    }
+
+
+
 }

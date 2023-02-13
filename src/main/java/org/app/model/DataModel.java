@@ -32,6 +32,21 @@ public class DataModel {
         }
     }
 
+    public void modificaUtente(int id, String nome, String cognome) {
+        Utente utente = ManagerDB.modificaUtente(id, nome, cognome);
+
+        if(utente==null) {
+            //TODO implementare dialog errore
+        } else {
+            for(Utente u : utenti)  {
+                if(u.getId() == utente.getId()) {
+                    u.utilityModifica(utente);
+                }
+            }
+            setAggiornaUtenti();
+        }
+    }
+
 
     //GET & SET
     public ObservableList<Utente> getUtenti() {

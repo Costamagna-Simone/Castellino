@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.app.App;
@@ -139,12 +140,29 @@ public class ControllerIniziale implements Controller {
 
     //Apri dialog modifica utente
     public void fxmlModificaUtente(MouseEvent mouseEvent) {
+        Text text = (Text) mouseEvent.getSource();
+        int numSlot = utilityParseInt(text.getId().substring(text.getId().length()-1));
+
         if(modificaUtente==null)  {
             initializeDialogModificaUtente();
         }
 
+        controllerModificaUtente.setUtente(slots[numSlot].getUtente());
         modificaUtente.show();
     }
+
+    public void fxmlModificaUtenteIcon(MouseEvent mouseEvent) {
+        FontAwesomeIconView icon = (FontAwesomeIconView) mouseEvent.getSource();
+        int numSlot = utilityParseInt(icon.getId().substring(icon.getId().length()-1));
+
+        if(modificaUtente==null)  {
+            initializeDialogModificaUtente();
+        }
+
+        controllerModificaUtente.setUtente(slots[numSlot].getUtente());
+        modificaUtente.show();
+    }
+
 
     //Apri finestra acquisto
     public void fxmlApriAcquisto(MouseEvent mouseEvent) {
@@ -173,10 +191,6 @@ public class ControllerIniziale implements Controller {
         }
     }
 
-    /*@FXML
-    private void switchToSecondary() throws IOException {
-        App.setRoot(ACQUISTO, "acquisto");
-    }*/
 
 
 }

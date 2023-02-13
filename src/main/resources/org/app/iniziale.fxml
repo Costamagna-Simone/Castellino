@@ -24,7 +24,7 @@
                      <children>
                         <AnchorPane id="anchorpanes0" disable="true" opacity="0.3" prefHeight="170.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" styleClass="anchorPane-sl" AnchorPane.leftAnchor="17.5" AnchorPane.topAnchor="10.0">
                            <children>
-                              <FontAwesomeIconView id="faiviu0" glyphName="USER_CIRCLE" onMouseClicked="#fxmlModificaUtente" size="35" styleClass="fontAwesomeIconView-iu" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="32.0" />
+                              <FontAwesomeIconView id="faiviu0" glyphName="USER_CIRCLE" onMouseClicked="#fxmlModificaUtenteIcon" size="35" styleClass="fontAwesomeIconView-iu" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="32.0" />
                               <Text id="textn0" onMouseClicked="#fxmlModificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Slot" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="28.0">
                                  <font>
                                     <Font name="SansSerif Bold" size="17.0" />

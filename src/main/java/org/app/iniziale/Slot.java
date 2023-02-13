@@ -74,10 +74,13 @@ public class Slot {
 
     public void setUtente(Utente utente)    {
         this.utente = utente;
-
         oscura(utente!=null);
     }
     public boolean getAperto()  {
         return aperto;
+    }
+
+    public Utente getUtente()   {
+        return utente;
     }
 }

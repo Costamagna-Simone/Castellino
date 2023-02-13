@@ -2,10 +2,8 @@ package org.app.database;
 
 import org.app.model.Utente;
 import org.hsqldb.server.Server;
-
 import java.sql.*;
 import java.util.ArrayList;
-
 import static org.app.database.Constants.*;
 
 public class ManagerDB {
@@ -91,7 +89,7 @@ public class ManagerDB {
         return utenti;
     }
 
-    public static Utente aggiungiUtente(String nome, String cognome)  {
+    public static Utente aggiungiUtente(String nome, String cognome) {
         Connection connection = null;
         PreparedStatement pst = null;
         Integer idUtente = null;
@@ -101,27 +99,70 @@ public class ManagerDB {
                     URL, USER, PASSWORD);
 
             pst = connection.prepareStatement(
-                    "INSERT INTO UTENTE(NOME, COGNOME) "+
+                    "INSERT INTO UTENTE(NOME, COGNOME) " +
                             "values (?, ?);", Statement.RETURN_GENERATED_KEYS);
 
             pst.setString(1, nome);
             pst.setString(2, cognome);
             pst.executeUpdate();
 
-            try(ResultSet generatedKeys = pst.getGeneratedKeys()) {
+            try (ResultSet generatedKeys = pst.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
                     idUtente = generatedKeys.getInt(1);
                 }
             }
 
-            if(idUtente != null)
+            if (idUtente != null)
                 return new Utente(idUtente, nome, cognome);
             else
                 return null;
         } catch (SQLException e) {
             return null;
         } finally {
-            if(connection != null) {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+    }
+
+    public static Utente modificaUtente(int id, String nome, String cognome) {
+        Connection connection = null;
+        PreparedStatement pst = null;
+        Integer idUtente = null;
+
+        try {
+            connection = DriverManager.getConnection(
+                    URL, USER, PASSWORD);
+
+            pst = connection.prepareStatement(
+                    "UPDATE UTENTE " +
+                            "SET nome = ?," +
+                            "cognome = ?" +
+                            "WHERE id = ?", Statement.RETURN_GENERATED_KEYS);
+
+            pst.setString(1, nome);
+            pst.setString(2, cognome);
+            pst.setInt(3, id);
+            pst.executeUpdate();
+
+            try (ResultSet generatedKeys = pst.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    idUtente = generatedKeys.getInt(1);
+                }
+            }
+
+            if (idUtente != null)
+                return new Utente(idUtente, nome, cognome);
+            else
+                return null;
+        } catch (SQLException e) {
+            return null;
+        } finally {
+            if (connection != null) {
                 try {
                     connection.close();
                 } catch (SQLException e) {
