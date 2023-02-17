@@ -21,8 +21,10 @@ public class Vendita extends Fattura {
     }
 
 
-    //Utility
-    private double utilityFromStringToDouble(String string) throws ParseException {
+    /********************
+     Utility
+     ********************/
+    private double fromStringToDouble(String string) throws ParseException {
         DecimalFormat df = new DecimalFormat();
         DecimalFormatSymbols symbols = new DecimalFormatSymbols();
         symbols.setDecimalSeparator(',');
@@ -31,7 +33,11 @@ public class Vendita extends Fattura {
         return (df.parse(string)).doubleValue();
     }
 
-    //GET e SET
+
+
+    /********************
+     Get & Set
+     ********************/
     public String setCampi(BufferedReader reader, String line, int num)   {
         String[] colonne = line.split("\\^");
 
@@ -69,7 +75,7 @@ public class Vendita extends Fattura {
 
         try {
             if(!colonne[8].equals(""))  {
-                imponibile = utilityFromStringToDouble(colonne[8]);
+                imponibile = fromStringToDouble(colonne[8]);
             }
         } catch (NumberFormatException | ParseException ex) {
             return "la colonna imponibile contiene un formato non valido a riga: " + num;
@@ -79,7 +85,7 @@ public class Vendita extends Fattura {
 
         try {
             if(!colonne[10].equals(""))  {
-                cassaPrevidenza = utilityFromStringToDouble(colonne[10]);
+                cassaPrevidenza = fromStringToDouble(colonne[10]);
             }
         } catch (NumberFormatException | ParseException ex) {
             return "la colonna cassa previdenza contiene un formato non valido a riga: " + num;
@@ -87,7 +93,7 @@ public class Vendita extends Fattura {
 
         try {
             if(!colonne[11].equals(""))  {
-                imposta = utilityFromStringToDouble(colonne[11]);
+                imposta = fromStringToDouble(colonne[11]);
             }
         } catch (NumberFormatException | ParseException ex) {
             return "la colonna imposta contiene un formato non valido a riga: " + num;
@@ -95,7 +101,7 @@ public class Vendita extends Fattura {
 
         try {
             if(!colonne[12].equals(""))  {
-                importoArt15 = utilityFromStringToDouble(colonne[12]);
+                importoArt15 = fromStringToDouble(colonne[12]);
             }
         } catch (NumberFormatException | ParseException ex) {
             return "la colonna importo Art. 15 contiene un formato non valido a riga: " + num;
@@ -103,7 +109,7 @@ public class Vendita extends Fattura {
 
         try {
             if(!colonne[13].equals(""))  {
-                bollo = utilityFromStringToDouble(colonne[13]);
+                bollo = fromStringToDouble(colonne[13]);
             }
         } catch (NumberFormatException | ParseException ex) {
             return "la colonna bollo contiene un formato non valido a riga: " + num;
@@ -111,7 +117,7 @@ public class Vendita extends Fattura {
 
         try {
             if(!colonne[14].equals(""))  {
-                totale = utilityFromStringToDouble(colonne[14]);
+                totale = fromStringToDouble(colonne[14]);
             }
         } catch (NumberFormatException | ParseException ex) {
             return "la colonna totale contiene un formato non valido a riga: " + num;
@@ -121,7 +127,7 @@ public class Vendita extends Fattura {
 
         try {
             if(!colonne[16].equals(""))  {
-                nettoAPagare = utilityFromStringToDouble(colonne[16]);
+                nettoAPagare = fromStringToDouble(colonne[16]);
             }
         } catch (NumberFormatException | ParseException ex) {
             return "la colonna netto a pagare contiene un formato non valido a riga: " + num;
@@ -159,6 +165,10 @@ public class Vendita extends Fattura {
         return "OK";
     }
 
+
+    /********************
+     Override
+     ********************/
     @Override
     public String toString() {
         return "Vendita{" +

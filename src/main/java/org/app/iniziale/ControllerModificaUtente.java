@@ -28,25 +28,15 @@ public class ControllerModificaUtente {
         this.dataModel = dataModel;
     }
 
+    /********************
+     Utility
+     ********************/
+    //Chiudi dialog modifica utente
     private void stop(MouseEvent mouseEvent) {
         Node source = (Node) mouseEvent.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
     }
-
-    // --- FXML ---
-
-    //Aggiungi utente
-    public void fxmlModificaUtente(MouseEvent mouseEvent) {
-        if(utilityControllaCampi())    {
-            dataModel.modificaUtente(utente.getId(), textFieldNome.getText(), textFieldCognome.getText());
-            stop(mouseEvent);
-        } else {
-            textErrore.setVisible(true);
-        }
-    }
-
-    // --- Utility ---
     private boolean utilityControllaCampi() {
         textErrore.setVisible(false);
         textErrore.setText("");
@@ -83,7 +73,25 @@ public class ControllerModificaUtente {
     }
 
 
-    //Setter e Getter
+    /********************
+     FXML
+     ********************/
+
+    //Modifica utente
+    public void modificaUtente(MouseEvent mouseEvent) {
+        if(utilityControllaCampi())    {
+            dataModel.modificaUtente(utente.getId(), textFieldNome.getText(), textFieldCognome.getText());
+            stop(mouseEvent);
+        } else {
+            textErrore.setVisible(true);
+        }
+    }
+
+
+
+    /********************
+     Get & Set
+     ********************/
     public void setUtente(Utente utente) {
         this.utente = utente;
 

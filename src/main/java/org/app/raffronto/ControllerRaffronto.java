@@ -17,7 +17,9 @@ public class ControllerRaffronto implements Controller {
     }
 
 
-    // --- FXML ---
+    /********************
+     FXML
+     ********************/
 
     //Torna alla home
     public void fxmlRitornaHome(MouseEvent mouseEvent) {

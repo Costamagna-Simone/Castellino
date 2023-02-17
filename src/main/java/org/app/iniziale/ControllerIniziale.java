@@ -33,15 +33,19 @@ public class ControllerIniziale implements Controller {
     public void init(DataModel dataModel)   {
         this.dataModel = dataModel;
 
-        initializeSlot();
+        slot();
 
         dataModel.getAggiornaUtenti().addListener((observableValue, numberOld, numberNew) -> {
-            initializeSlot();
+            slot();
         });
     }
 
-    // --- Initialize ---
-    public void initializeSlot()  {
+
+    /********************
+     Initialize
+     ********************/
+    //inizializza gli slot
+    public void slot()  {
         slots = new Slot[NUM_SLOTS];
 
         ObservableList<Utente> utenti = dataModel.getUtenti();
@@ -55,7 +59,8 @@ public class ControllerIniziale implements Controller {
         }
     }
 
-    private void initializeDialogAggiungiUtente()  {
+    //inizializza il dialog aggiungi utente
+    private void dialogAggiungiUtente()  {
         try {
             FXMLLoader loaderReceived = new FXMLLoader(App.class.getResource("dialogAggiungiUtente.fxml"));
             Parent parent = loaderReceived.load();
@@ -76,7 +81,8 @@ public class ControllerIniziale implements Controller {
         }
     }
 
-    private void initializeDialogModificaUtente()  {
+    //inizializza il dialog modifica utente
+    private void dialogModificaUtente()  {
         try {
             FXMLLoader loaderReceived = new FXMLLoader(App.class.getResource("dialogModificaUtente.fxml"));
             Parent parent = loaderReceived.load();
@@ -97,8 +103,11 @@ public class ControllerIniziale implements Controller {
         }
     }
 
-    // --- Utility ---
-    private static int utilityParseInt(String text) {
+
+    /********************
+     Utility
+     ********************/
+    private static int parseInt(String text) {
         try {
             return Integer.parseInt(text);
         } catch (NumberFormatException e) {
@@ -107,10 +116,12 @@ public class ControllerIniziale implements Controller {
     }
 
 
-    // --- FXML ---
+    /********************
+     FXML
+     ********************/
 
     //Visualizza slot acquisto/vendita/raffronto dopo click su freccia
-    public void fxmlApriUtente(MouseEvent mouseEvent) {
+    public void apriUtente(MouseEvent mouseEvent) {
         for(Slot slot : slots) {
             if(slot.getAperto())    {
                 slot.apriUtente(false);
@@ -118,54 +129,54 @@ public class ControllerIniziale implements Controller {
         }
 
         FontAwesomeIconView icon = (FontAwesomeIconView) mouseEvent.getSource();
-        int numSlot = utilityParseInt(icon.getId().substring(icon.getId().length()-1));
+        int numSlot = parseInt(icon.getId().substring(icon.getId().length()-1));
         slots[numSlot].apriUtente(true);
     }
 
     //Chiudi slot acquisto/vendita/raffonto e apri nome e cognome utente
-    public void fxmlChiudiUtente(MouseEvent mouseEvent) {
+    public void chiudiUtente(MouseEvent mouseEvent) {
         FontAwesomeIconView icon = (FontAwesomeIconView) mouseEvent.getSource();
-        int numSlot = utilityParseInt(icon.getId().substring(icon.getId().length()-1));
+        int numSlot = parseInt(icon.getId().substring(icon.getId().length()-1));
         slots[numSlot].apriUtente(false);
     }
 
     //Apri dialog aggiungi utente
-    public void fxmlAggiungiUtente(MouseEvent mouseEvent)    {
+    public void aggiungiUtente(MouseEvent mouseEvent)    {
         if(aggiungiUtente==null)  {
-            initializeDialogAggiungiUtente();
+            dialogAggiungiUtente();
         }
 
         aggiungiUtente.show();
     }
 
-    //Apri dialog modifica utente
-    public void fxmlModificaUtente(MouseEvent mouseEvent) {
+    //Modifica dialog modifica utente, cliccando da text
+    public void modificaUtente(MouseEvent mouseEvent) {
         Text text = (Text) mouseEvent.getSource();
-        int numSlot = utilityParseInt(text.getId().substring(text.getId().length()-1));
+        int numSlot = parseInt(text.getId().substring(text.getId().length()-1));
 
         if(modificaUtente==null)  {
-            initializeDialogModificaUtente();
+            dialogModificaUtente();
         }
 
         controllerModificaUtente.setUtente(slots[numSlot].getUtente());
         modificaUtente.show();
     }
 
-    public void fxmlModificaUtenteIcon(MouseEvent mouseEvent) {
+    //Modifica dialog modifica utente, cliccando da icon
+    public void modificaUtenteIcon(MouseEvent mouseEvent) {
         FontAwesomeIconView icon = (FontAwesomeIconView) mouseEvent.getSource();
-        int numSlot = utilityParseInt(icon.getId().substring(icon.getId().length()-1));
+        int numSlot = parseInt(icon.getId().substring(icon.getId().length()-1));
 
         if(modificaUtente==null)  {
-            initializeDialogModificaUtente();
+            dialogModificaUtente();
         }
 
         controllerModificaUtente.setUtente(slots[numSlot].getUtente());
         modificaUtente.show();
     }
-
 
     //Apri finestra acquisto
-    public void fxmlApriAcquisto(MouseEvent mouseEvent) {
+    public void apriAcquisto(MouseEvent mouseEvent) {
         try {
             App.setRoot(ACQUISTO, "acquisto");
         } catch (IOException e) {
@@ -174,7 +185,7 @@ public class ControllerIniziale implements Controller {
     }
 
     //Apri finestra vendita
-    public void fxmlApriVendita(MouseEvent mouseEvent) {
+    public void apriVendita(MouseEvent mouseEvent) {
         try {
             App.setRoot(VENDITA, "vendita");
         } catch (IOException e) {
@@ -183,7 +194,7 @@ public class ControllerIniziale implements Controller {
     }
 
     //Apri finestra raffronto
-    public void fxmlApriRaffronto(MouseEvent mouseEvent) {
+    public void apriRaffronto(MouseEvent mouseEvent) {
         try {
             App.setRoot(RAFFRONTO, "raffronto");
         } catch (IOException e) {

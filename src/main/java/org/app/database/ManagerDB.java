@@ -10,6 +10,10 @@ public class ManagerDB {
     private static Server hsqlServer = null;
 
 
+    /********************
+     Utility
+     ********************/
+
     //avvia database
     public static void avviaDatabase() {
         hsqlServer = new Server();
@@ -29,6 +33,7 @@ public class ManagerDB {
 
     }
 
+    //ferma database
     public static void stopDatabase()   {
         if(hsqlServer!=null)
             hsqlServer.stop();
@@ -58,37 +63,7 @@ public class ManagerDB {
         }
     }
 
-    public static ArrayList<Utente> getUtenti() {
-        ArrayList<Utente> utenti = new ArrayList<Utente>();
-
-        Connection connection = null;
-
-        try {
-            connection = DriverManager.getConnection(
-                    URL, USER, PASSWORD);
-
-            ResultSet rs = connection.prepareStatement(
-                    "SELECT * FROM UTENTE;").executeQuery();
-
-            while(rs.next())    {
-                utenti.add(new Utente(rs.getInt("ID"), rs.getString("NOME"), rs.getString("COGNOME")));
-            }
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            if(connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        }
-
-        return utenti;
-    }
-
+    //aggiungi un utente nel db
     public static Utente aggiungiUtente(String nome, String cognome) {
         Connection connection = null;
         PreparedStatement pst = null;
@@ -129,6 +104,7 @@ public class ManagerDB {
         }
     }
 
+    //modifica un utente
     public static Utente modificaUtente(int id, String nome, String cognome) {
         Connection connection = null;
         PreparedStatement pst = null;
@@ -170,5 +146,37 @@ public class ManagerDB {
                 }
             }
         }
+    }
+
+    //leggi gli utenti dal db
+    public static ArrayList<Utente> getUtenti() {
+        ArrayList<Utente> utenti = new ArrayList<Utente>();
+
+        Connection connection = null;
+
+        try {
+            connection = DriverManager.getConnection(
+                    URL, USER, PASSWORD);
+
+            ResultSet rs = connection.prepareStatement(
+                    "SELECT * FROM UTENTE;").executeQuery();
+
+            while(rs.next())    {
+                utenti.add(new Utente(rs.getInt("ID"), rs.getString("NOME"), rs.getString("COGNOME")));
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if(connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+
+        return utenti;
     }
 }

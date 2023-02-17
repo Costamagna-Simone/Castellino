@@ -24,6 +24,12 @@ public class DataModel {
         fatture = FXCollections.observableArrayList(new ArrayList<>());
     }
 
+
+    /********************
+     Utility
+     ********************/
+
+    //aggiungi un utente
     public void aggiungiUtente(String nome, String cognome)    {
         Utente utente = ManagerDB.aggiungiUtente(nome, cognome);
 
@@ -35,6 +41,7 @@ public class DataModel {
         }
     }
 
+    //modifica un utente
     public void modificaUtente(int id, String nome, String cognome) {
         Utente utente = ManagerDB.modificaUtente(id, nome, cognome);
 
@@ -43,18 +50,21 @@ public class DataModel {
         } else {
             for(Utente u : utenti)  {
                 if(u.getId() == utente.getId()) {
-                    u.utilityModifica(utente);
+                    u.modifica(utente);
                 }
             }
             setAggiornaUtenti();
         }
     }
 
+    //aggiungi fatture
     public void aggiungiFatture(int tipo, ArrayList<Fattura> fatture) {
     }
 
 
-    //GET & SET
+    /********************
+     Get & Set
+     ********************/
     public Stage getStage() {
         return stage;
     }

@@ -27,26 +27,18 @@ public class ControllerAggiungiUtente {
         this.dataModel = dataModel;
     }
 
+
+    /********************
+     Utility
+     ********************/
     private void stop(MouseEvent mouseEvent) {
         Node source = (Node) mouseEvent.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
     }
 
-    // --- FXML ---
-
-    //Aggiungi utente
-    public void fxmlAggiungiUtente(MouseEvent mouseEvent) {
-        if(utilityControllaCampi())    {
-            dataModel.aggiungiUtente(textFieldNome.getText(), textFieldCognome.getText());
-            stop(mouseEvent);
-        } else {
-            textErrore.setVisible(true);
-        }
-    }
-
-    // --- Utility ---
-    private boolean utilityControllaCampi() {
+    //controlla che i campi del dialog siano completi e corretti
+    private boolean controllaCampi() {
         textErrore.setVisible(false);
         textErrore.setText("");
 
@@ -58,7 +50,7 @@ public class ControllerAggiungiUtente {
             textErrore.setText("Inserisci un cognome valido");
             return false;
         }
-        if(utilityControllaUtenti())    {
+        if(controllaUtenti())    {
             textErrore.setText("Nome e cognome già utilizzati");
             return false;
         }
@@ -66,7 +58,8 @@ public class ControllerAggiungiUtente {
         return true;
     }
 
-    private boolean utilityControllaUtenti()    {
+    //controlla che non ci sia un utente con stessi dati di quello che si vuole aggiungere
+    private boolean controllaUtenti()    {
         ObservableList<Utente> utenti = dataModel.getUtenti();
 
         String nome = textFieldNome.getText();
@@ -80,4 +73,20 @@ public class ControllerAggiungiUtente {
 
         return false;
     }
+
+
+    /********************
+     FXML
+     ********************/
+
+    //Aggiungi utente
+    public void aggiungiUtente(MouseEvent mouseEvent) {
+        if(controllaCampi())    {
+            dataModel.aggiungiUtente(textFieldNome.getText(), textFieldCognome.getText());
+            stop(mouseEvent);
+        } else {
+            textErrore.setVisible(true);
+        }
+    }
+
 }

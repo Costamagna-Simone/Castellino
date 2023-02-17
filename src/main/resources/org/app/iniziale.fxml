@@ -24,39 +24,39 @@
                      <children>
                         <AnchorPane id="anchorpanes0" disable="true" opacity="0.3" prefHeight="170.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" styleClass="anchorPane-sl" AnchorPane.leftAnchor="17.5" AnchorPane.topAnchor="10.0">
                            <children>
-                              <FontAwesomeIconView id="faiviu0" glyphName="USER_CIRCLE" onMouseClicked="#fxmlModificaUtenteIcon" size="35" styleClass="fontAwesomeIconView-iu" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="32.0" />
-                              <Text id="textn0" onMouseClicked="#fxmlModificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Slot" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="28.0">
+                              <FontAwesomeIconView id="faiviu0" glyphName="USER_CIRCLE" onMouseClicked="#modificaUtenteIcon" size="35" styleClass="fontAwesomeIconView-iu" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="32.0" />
+                              <Text id="textn0" onMouseClicked="#modificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Slot" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="28.0">
                                  <font>
                                     <Font name="SansSerif Bold" size="17.0" />
                                  </font>
                               </Text>
-                              <Text id="textc0" layoutX="10.0" layoutY="10.0" onMouseClicked="#fxmlModificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Libero" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="50.0">
+                              <Text id="textc0" layoutX="10.0" layoutY="10.0" onMouseClicked="#modificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Libero" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="50.0">
                                  <font>
                                     <Font name="SansSerif Bold" size="17.0" />
                                  </font>
                               </Text>
-                              <FontAwesomeIconView id="faivau0" glyphName="LOCATION_ARROW" layoutX="10.0" layoutY="10.0" onMouseClicked="#fxmlApriUtente" size="35" styleClass="fontAwesomeIconView-ati" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                              <FontAwesomeIconView id="faivi0" glyphName="LONG_ARROW_LEFT" onMouseClicked="#fxmlChiudiUtente" size="25" styleClass="fontAwesomeIconView-ati" visible="false" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="20.0" />
-                              <MFXButton id="mfxba0" buttonType="RAISED" maxHeight="30.0" minHeight="30.0" onMouseClicked="#fxmlApriAcquisto" styleClass="MFXButton-avr" text="Acquisto" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="17.0" />
-                              <MFXButton id="mfxbv0" buttonType="RAISED" layoutX="10.0" layoutY="10.0" maxHeight="30.0" minHeight="30.0" onMouseClicked="#fxmlApriVendita" styleClass="MFXButton-avr" text="Vendita" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="54.0" />
-                              <MFXButton id="mfxbr0" buttonType="RAISED" layoutX="20.0" layoutY="20.0" maxHeight="30.0" minHeight="30.0" onMouseClicked="#fxmlApriRaffronto" styleClass="MFXButton-avr" text="Raffronto" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="91.0" />
+                              <FontAwesomeIconView id="faivau0" glyphName="LOCATION_ARROW" layoutX="10.0" layoutY="10.0" onMouseClicked="#apriUtente" size="35" styleClass="fontAwesomeIconView-ati" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <FontAwesomeIconView id="faivi0" glyphName="LONG_ARROW_LEFT" onMouseClicked="#chiudiUtente" size="25" styleClass="fontAwesomeIconView-ati" visible="false" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="20.0" />
+                              <MFXButton id="mfxba0" buttonType="RAISED" maxHeight="30.0" minHeight="30.0" onMouseClicked="#apriAcquisto" styleClass="MFXButton-avr" text="Acquisto" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="17.0" />
+                              <MFXButton id="mfxbv0" buttonType="RAISED" layoutX="10.0" layoutY="10.0" maxHeight="30.0" minHeight="30.0" onMouseClicked="#apriVendita" styleClass="MFXButton-avr" text="Vendita" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="54.0" />
+                              <MFXButton id="mfxbr0" buttonType="RAISED" layoutX="20.0" layoutY="20.0" maxHeight="30.0" minHeight="30.0" onMouseClicked="#apriRaffronto" styleClass="MFXButton-avr" text="Raffronto" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="91.0" />
                            </children>
                         </AnchorPane>
                         <AnchorPane id="anchorpanes1" disable="true" layoutX="10.0" layoutY="10.0" opacity="0.3" prefHeight="170.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" styleClass="anchorPane-sl" AnchorPane.leftAnchor="235.0" AnchorPane.topAnchor="10.0">
                            <children>
-                              <FontAwesomeIconView id="faiviu1" glyphName="USER_CIRCLE" onMouseClicked="#fxmlModificaUtente" size="35" styleClass="fontAwesomeIconView-iu" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="32.0" />
-                              <Text id="textn1" onMouseClicked="#fxmlModificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Slot" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="28.0">
+                              <FontAwesomeIconView id="faiviu1" glyphName="USER_CIRCLE" onMouseClicked="#modificaUtente" size="35" styleClass="fontAwesomeIconView-iu" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="32.0" />
+                              <Text id="textn1" onMouseClicked="#modificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Slot" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="28.0">
                                  <font>
                                     <Font name="SansSerif Bold" size="17.0" />
                                  </font>
                               </Text>
-                              <Text id="textc1" layoutX="10.0" layoutY="10.0" onMouseClicked="#fxmlModificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Libero" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="50.0">
+                              <Text id="textc1" layoutX="10.0" layoutY="10.0" onMouseClicked="#modificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Libero" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="50.0">
                                  <font>
                                     <Font name="SansSerif Bold" size="17.0" />
                                  </font>
                               </Text>
-                              <FontAwesomeIconView id="faivau1" glyphName="LOCATION_ARROW" layoutX="10.0" layoutY="10.0" onMouseClicked="#fxmlApriUtente" size="35" styleClass="fontAwesomeIconView-ati" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                              <FontAwesomeIconView id="faivi1" glyphName="LONG_ARROW_LEFT" onMouseClicked="#fxmlChiudiUtente" size="25" styleClass="fontAwesomeIconView-ati" visible="false" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="20.0" />
+                              <FontAwesomeIconView id="faivau1" glyphName="LOCATION_ARROW" layoutX="10.0" layoutY="10.0" onMouseClicked="#apriUtente" size="35" styleClass="fontAwesomeIconView-ati" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <FontAwesomeIconView id="faivi1" glyphName="LONG_ARROW_LEFT" onMouseClicked="#chiudiUtente" size="25" styleClass="fontAwesomeIconView-ati" visible="false" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="20.0" />
                               <MFXButton id="mfxba1" buttonType="RAISED" maxHeight="30.0" minHeight="30.0" styleClass="MFXButton-avr" text="Acquisto" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="17.0" />
                               <MFXButton id="mfxbv1" buttonType="RAISED" layoutX="10.0" layoutY="10.0" maxHeight="30.0" minHeight="30.0" styleClass="MFXButton-avr" text="Vendita" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="54.0" />
                               <MFXButton id="mfxbr1" buttonType="RAISED" layoutX="20.0" layoutY="20.0" maxHeight="30.0" minHeight="30.0" styleClass="MFXButton-avr" text="Raffronto" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="91.0" />
@@ -64,19 +64,19 @@
                         </AnchorPane>
                         <AnchorPane id="anchorpanes2" disable="true" layoutX="20.0" layoutY="20.0" opacity="0.3" prefHeight="170.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" styleClass="anchorPane-sl" AnchorPane.rightAnchor="17.5" AnchorPane.topAnchor="10.0">
                            <children>
-                              <FontAwesomeIconView id="faiviu2" glyphName="USER_CIRCLE" onMouseClicked="#fxmlModificaUtente" size="35" styleClass="fontAwesomeIconView-iu" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="32.0" />
-                              <Text id="textn2" onMouseClicked="#fxmlModificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Slot" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="28.0">
+                              <FontAwesomeIconView id="faiviu2" glyphName="USER_CIRCLE" onMouseClicked="#modificaUtente" size="35" styleClass="fontAwesomeIconView-iu" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="32.0" />
+                              <Text id="textn2" onMouseClicked="#modificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Slot" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="28.0">
                                  <font>
                                     <Font name="SansSerif Bold" size="17.0" />
                                  </font>
                               </Text>
-                              <Text id="textc2" layoutX="10.0" layoutY="10.0" onMouseClicked="#fxmlModificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Libero" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="50.0">
+                              <Text id="textc2" layoutX="10.0" layoutY="10.0" onMouseClicked="#modificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Libero" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="50.0">
                                  <font>
                                     <Font name="SansSerif Bold" size="17.0" />
                                  </font>
                               </Text>
-                              <FontAwesomeIconView id="faivau2" glyphName="LOCATION_ARROW" layoutX="10.0" layoutY="10.0" onMouseClicked="#fxmlApriUtente" size="35" styleClass="fontAwesomeIconView-ati" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                              <FontAwesomeIconView id="faivi2" glyphName="LONG_ARROW_LEFT" onMouseClicked="#fxmlChiudiUtente" size="25" styleClass="fontAwesomeIconView-ati" visible="false" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="20.0" />
+                              <FontAwesomeIconView id="faivau2" glyphName="LOCATION_ARROW" layoutX="10.0" layoutY="10.0" onMouseClicked="#apriUtente" size="35" styleClass="fontAwesomeIconView-ati" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <FontAwesomeIconView id="faivi2" glyphName="LONG_ARROW_LEFT" onMouseClicked="#chiudiUtente" size="25" styleClass="fontAwesomeIconView-ati" visible="false" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="20.0" />
                               <MFXButton id="mfxba2" buttonType="RAISED" maxHeight="30.0" minHeight="30.0" styleClass="MFXButton-avr" text="Acquisto" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="17.0" />
                               <MFXButton id="mfxbv2" buttonType="RAISED" layoutX="10.0" layoutY="10.0" maxHeight="30.0" minHeight="30.0" styleClass="MFXButton-avr" text="Vendita" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="54.0" />
                               <MFXButton id="mfxbr2" buttonType="RAISED" layoutX="20.0" layoutY="20.0" maxHeight="30.0" minHeight="30.0" styleClass="MFXButton-avr" text="Raffronto" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="91.0" />
@@ -84,19 +84,19 @@
                         </AnchorPane>
                         <AnchorPane id="anchorpanes3" disable="true" layoutX="30.0" layoutY="30.0" opacity="0.3" prefHeight="170.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" styleClass="anchorPane-sl" AnchorPane.leftAnchor="17.5" AnchorPane.topAnchor="195.0">
                            <children>
-                              <FontAwesomeIconView id="faiviu3" glyphName="USER_CIRCLE" onMouseClicked="#fxmlModificaUtente" size="35" styleClass="fontAwesomeIconView-iu" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="32.0" />
-                              <Text id="textn3" onMouseClicked="#fxmlModificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Slot" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="28.0">
+                              <FontAwesomeIconView id="faiviu3" glyphName="USER_CIRCLE" onMouseClicked="#modificaUtente" size="35" styleClass="fontAwesomeIconView-iu" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="32.0" />
+                              <Text id="textn3" onMouseClicked="#modificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Slot" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="28.0">
                                  <font>
                                     <Font name="SansSerif Bold" size="17.0" />
                                  </font>
                               </Text>
-                              <Text id="textc3" layoutX="10.0" layoutY="10.0" onMouseClicked="#fxmlModificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Libero" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="50.0">
+                              <Text id="textc3" layoutX="10.0" layoutY="10.0" onMouseClicked="#modificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Libero" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="50.0">
                                  <font>
                                     <Font name="SansSerif Bold" size="17.0" />
                                  </font>
                               </Text>
-                              <FontAwesomeIconView id="faivau3" glyphName="LOCATION_ARROW" layoutX="10.0" layoutY="10.0" onMouseClicked="#fxmlApriUtente" size="35" styleClass="fontAwesomeIconView-ati" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                              <FontAwesomeIconView id="faivi3" glyphName="LONG_ARROW_LEFT" onMouseClicked="#fxmlChiudiUtente" size="25" styleClass="fontAwesomeIconView-ati" visible="false" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="20.0" />
+                              <FontAwesomeIconView id="faivau3" glyphName="LOCATION_ARROW" layoutX="10.0" layoutY="10.0" onMouseClicked="#apriUtente" size="35" styleClass="fontAwesomeIconView-ati" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <FontAwesomeIconView id="faivi3" glyphName="LONG_ARROW_LEFT" onMouseClicked="#chiudiUtente" size="25" styleClass="fontAwesomeIconView-ati" visible="false" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="20.0" />
                               <MFXButton id="mfxba3" buttonType="RAISED" maxHeight="30.0" minHeight="30.0" styleClass="MFXButton-avr" text="Acquisto" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="17.0" />
                               <MFXButton id="mfxbv3" buttonType="RAISED" layoutX="10.0" layoutY="10.0" maxHeight="30.0" minHeight="30.0" styleClass="MFXButton-avr" text="Vendita" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="54.0" />
                               <MFXButton id="mfxbr3" buttonType="RAISED" layoutX="20.0" layoutY="20.0" maxHeight="30.0" minHeight="30.0" styleClass="MFXButton-avr" text="Raffronto" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="91.0" />
@@ -104,19 +104,19 @@
                         </AnchorPane>
                         <AnchorPane id="anchorpanes4" disable="true" layoutX="40.0" layoutY="40.0" opacity="0.3" prefHeight="170.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" styleClass="anchorPane-sl" AnchorPane.leftAnchor="235.0" AnchorPane.topAnchor="195.0">
                            <children>
-                              <FontAwesomeIconView id="faiviu4" glyphName="USER_CIRCLE" onMouseClicked="#fxmlModificaUtente" size="35" styleClass="fontAwesomeIconView-iu" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="32.0" />
-                              <Text id="textn4" onMouseClicked="#fxmlModificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Slot" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="28.0">
+                              <FontAwesomeIconView id="faiviu4" glyphName="USER_CIRCLE" onMouseClicked="#modificaUtente" size="35" styleClass="fontAwesomeIconView-iu" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="32.0" />
+                              <Text id="textn4" onMouseClicked="#modificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Slot" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="28.0">
                                  <font>
                                     <Font name="SansSerif Bold" size="17.0" />
                                  </font>
                               </Text>
-                              <Text id="textc4" layoutX="10.0" layoutY="10.0" onMouseClicked="#fxmlModificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Libero" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="50.0">
+                              <Text id="textc4" layoutX="10.0" layoutY="10.0" onMouseClicked="#modificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Libero" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="50.0">
                                  <font>
                                     <Font name="SansSerif Bold" size="17.0" />
                                  </font>
                               </Text>
-                              <FontAwesomeIconView id="faivau4" glyphName="LOCATION_ARROW" layoutX="10.0" layoutY="10.0" onMouseClicked="#fxmlApriUtente" size="35" styleClass="fontAwesomeIconView-ati" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                              <FontAwesomeIconView id="faivi4" glyphName="LONG_ARROW_LEFT" onMouseClicked="#fxmlChiudiUtente" size="25" styleClass="fontAwesomeIconView-ati" visible="false" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="20.0" />
+                              <FontAwesomeIconView id="faivau4" glyphName="LOCATION_ARROW" layoutX="10.0" layoutY="10.0" onMouseClicked="#apriUtente" size="35" styleClass="fontAwesomeIconView-ati" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <FontAwesomeIconView id="faivi4" glyphName="LONG_ARROW_LEFT" onMouseClicked="#chiudiUtente" size="25" styleClass="fontAwesomeIconView-ati" visible="false" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="20.0" />
                               <MFXButton id="mfxba4" buttonType="RAISED" maxHeight="30.0" minHeight="30.0" styleClass="MFXButton-avr" text="Acquisto" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="17.0" />
                               <MFXButton id="mfxbv4" buttonType="RAISED" layoutX="10.0" layoutY="10.0" maxHeight="30.0" minHeight="30.0" styleClass="MFXButton-avr" text="Vendita" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="54.0" />
                               <MFXButton id="mfxbr4" buttonType="RAISED" layoutX="20.0" layoutY="20.0" maxHeight="30.0" minHeight="30.0" styleClass="MFXButton-avr" text="Raffronto" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="91.0" />
@@ -124,19 +124,19 @@
                         </AnchorPane>
                         <AnchorPane id="anchorpanes5" disable="true" layoutX="50.0" layoutY="50.0" opacity="0.3" prefHeight="170.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" styleClass="anchorPane-sl" AnchorPane.rightAnchor="17.5" AnchorPane.topAnchor="195.0">
                            <children>
-                              <FontAwesomeIconView id="faiviu5" glyphName="USER_CIRCLE" onMouseClicked="#fxmlModificaUtente" size="35" styleClass="fontAwesomeIconView-iu" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="32.0" />
-                              <Text id="textn5" onMouseClicked="#fxmlModificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Slot" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="28.0">
+                              <FontAwesomeIconView id="faiviu5" glyphName="USER_CIRCLE" onMouseClicked="#modificaUtente" size="35" styleClass="fontAwesomeIconView-iu" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="32.0" />
+                              <Text id="textn5" onMouseClicked="#modificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Slot" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="28.0">
                                  <font>
                                     <Font name="SansSerif Bold" size="17.0" />
                                  </font>
                               </Text>
-                              <Text id="textc5" layoutX="10.0" layoutY="10.0" onMouseClicked="#fxmlModificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Libero" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="50.0">
+                              <Text id="textc5" layoutX="10.0" layoutY="10.0" onMouseClicked="#modificaUtente" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nc" text="Libero" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="50.0">
                                  <font>
                                     <Font name="SansSerif Bold" size="17.0" />
                                  </font>
                               </Text>
-                              <FontAwesomeIconView id="faivau5" glyphName="LOCATION_ARROW" layoutX="10.0" layoutY="10.0" onMouseClicked="#fxmlApriUtente" size="35" styleClass="fontAwesomeIconView-ati" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                              <FontAwesomeIconView id="faivi5" glyphName="LONG_ARROW_LEFT" onMouseClicked="#fxmlChiudiUtente" size="25" styleClass="fontAwesomeIconView-ati" visible="false" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="20.0" />
+                              <FontAwesomeIconView id="faivau5" glyphName="LOCATION_ARROW" layoutX="10.0" layoutY="10.0" onMouseClicked="#apriUtente" size="35" styleClass="fontAwesomeIconView-ati" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <FontAwesomeIconView id="faivi5" glyphName="LONG_ARROW_LEFT" onMouseClicked="#chiudiUtente" size="25" styleClass="fontAwesomeIconView-ati" visible="false" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="20.0" />
                               <MFXButton id="mfxba5" buttonType="RAISED" maxHeight="30.0" minHeight="30.0" styleClass="MFXButton-avr" text="Acquisto" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="17.0" />
                               <MFXButton id="mfxbv5" buttonType="RAISED" layoutX="10.0" layoutY="10.0" maxHeight="30.0" minHeight="30.0" styleClass="MFXButton-avr" text="Vendita" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="54.0" />
                               <MFXButton id="mfxbr5" buttonType="RAISED" layoutX="20.0" layoutY="20.0" maxHeight="30.0" minHeight="30.0" styleClass="MFXButton-avr" text="Raffronto" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="91.0" />
@@ -151,7 +151,7 @@
                               </ImageView>
                            </center>
                         </BorderPane>
-                        <FontAwesomeIconView fill="#1c3879" glyphName="USER_PLUS" onMouseClicked="#fxmlAggiungiUtente" size="35" styleClass="fontAwesomeIconView-au" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="390.0" />
+                        <FontAwesomeIconView fill="#1c3879" glyphName="USER_PLUS" onMouseClicked="#aggiungiUtente" size="35" styleClass="fontAwesomeIconView-au" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="390.0" />
                      </children>
                           </AnchorPane>
                           <VBox layoutX="10.0" layoutY="10.0" VBox.vgrow="ALWAYS" />

@@ -1,7 +1,5 @@
 package org.app.acquisto;
 
-import java.io.IOException;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
@@ -9,6 +7,8 @@ import org.app.App;
 import org.app.Controller;
 import org.app.model.DataModel;
 import org.app.model.Fattura;
+
+import java.io.IOException;
 
 import static org.app.utilities.Constants.INIZIALE;
 
@@ -23,7 +23,9 @@ public class ControllerAcquisto implements Controller {
 
 
 
-    // --- FXML ---
+    /********************
+     FXML
+     ********************/
 
     //Torna alla home
     public void fxmlRitornaHome(MouseEvent mouseEvent) {

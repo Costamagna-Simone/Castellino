@@ -11,14 +11,18 @@ public class Utente {
         this.cognome = cognome;
     }
 
-    //Utility
-    public void utilityModifica(Utente utente) {
+    /********************
+     Utility
+     ********************/
+    public void modifica(Utente utente) {
         nome = utente.getNome();
         cognome = utente.getCognome();
     }
 
-    //GET e SET
 
+    /********************
+     Get & Set
+     ********************/
     public String getNome()    {
         return nome;
     }

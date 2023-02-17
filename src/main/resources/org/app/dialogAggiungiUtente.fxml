@@ -31,6 +31,6 @@
             </Text>
          </center>
       </BorderPane>
-      <MFXButton buttonType="RAISED" maxHeight="30.0" maxWidth="150.0" minHeight="30.0" minWidth="150.0" onMouseClicked="#fxmlAggiungiUtente" styleClass="MFXButton-cu" text="Aggiungi" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="90.0" />
+      <MFXButton buttonType="RAISED" maxHeight="30.0" maxWidth="150.0" minHeight="30.0" minWidth="150.0" onMouseClicked="#aggiungiUtente" styleClass="MFXButton-cu" text="Aggiungi" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="90.0" />
    </children>
 </AnchorPane>

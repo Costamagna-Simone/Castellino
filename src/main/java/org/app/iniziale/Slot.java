@@ -42,7 +42,12 @@ public class Slot {
         indietro = (FontAwesomeIconView) scene.lookup("#faivi" + id);
     }
 
-    /* mostra o meno i bottoni acuqisto, vendita, raffonto */
+
+    /********************
+     Utility
+     ********************/
+
+    //Mostra o meno i bottoni acuqisto, vendita, raffonto
     public void apriUtente(boolean aperto) {
         this.aperto = aperto;
 
@@ -57,7 +62,7 @@ public class Slot {
         indietro.setVisible(aperto);
     }
 
-    /* oscura o meno lo slot a seconda sia presente un utente*/
+    //Oscura o meno lo slot a seconda sia presente un utente
     public void oscura(boolean presente) {
         if(presente)    {
             anchorPane.setOpacity(1);
@@ -71,6 +76,11 @@ public class Slot {
             cognome.setText("Libero");
         }
     }
+
+
+    /********************
+     Get & Set
+     ********************/
 
     public void setUtente(Utente utente)    {
         this.utente = utente;

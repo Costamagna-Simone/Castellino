@@ -27,9 +27,12 @@ public class ControllerVendita implements Controller {
         this.dataModel = dataModel;
     }
 
-    // --- Utility ---
 
-    private void utilityLeggiFatture()  {
+    /********************
+     Utility
+     ********************/
+    //leggi fatture da file
+    private void leggiFattureDaFile()  {
         boolean fileCorretto = true;
         String stato = "File vuoto";
 
@@ -77,7 +80,10 @@ public class ControllerVendita implements Controller {
 
 
 
-    // --- FXML ---
+    /********************
+     FXML
+     ********************/
+    //apri il file chooser per la scelta del file
     public void fxmlImporta()   {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Importa file");
@@ -91,7 +97,7 @@ public class ControllerVendita implements Controller {
         Worksheet sheet = workbook.getWorksheets().get(0);
         sheet.saveToFile(PATH_FATTURE, "^", StandardCharsets.UTF_8);
 
-        utilityLeggiFatture();
+        leggiFattureDaFile();
     }
 
     //Torna alla home
