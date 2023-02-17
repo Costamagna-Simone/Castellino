@@ -12,6 +12,8 @@ public class DataModel {
 
     private final Stage stage;
     private final ObservableList<Utente> utenti;
+
+    private Utente utenteCorrente;
     private final SimpleIntegerProperty aggiornaUtenti;
     private final ObservableList<Fattura> fatture;
 
@@ -58,7 +60,9 @@ public class DataModel {
     }
 
     //aggiungi fatture
-    public void aggiungiFatture(int tipo, ArrayList<Fattura> fatture) {
+    public void aggiungiFatture(ArrayList<Fattura> fatture) {
+        ArrayList<Fattura> nuoveFatture = ManagerDB.aggiungiFatture(fatture);
+        fatture.addAll(nuoveFatture);
     }
 
 
@@ -87,5 +91,9 @@ public class DataModel {
             aggiornaUtenti.set(1);
         else
             aggiornaUtenti.set(0);
+    }
+
+    public void setUtenteCorrente(Utente utente) {
+        utenteCorrente = utente;
     }
 }

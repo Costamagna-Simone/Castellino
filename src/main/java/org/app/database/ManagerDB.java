@@ -1,5 +1,6 @@
 package org.app.database;
 
+import org.app.model.Fattura;
 import org.app.model.Utente;
 import org.hsqldb.server.Server;
 import java.sql.*;
@@ -56,6 +57,42 @@ public class ManagerDB {
                                     "COGNOME VARCHAR(50) NOT NULL," +
                                     "PRIMARY KEY (ID)" +
                                     ");").execute();
+
+            //inizializza tabella fatture
+            connection.prepareStatement(
+                    "CREATE TABLE IF NOT EXISTS FATTURE(" +
+                            "ID INTEGER NOT NULL IDENTITY, " +
+                            "TIPO INTEGER NOT NULL, " +
+                            "NUMERO INTEGER, " +
+                            "SUFFISSO VARCHAR(30), " +
+                            "ANNO INTEGER, " +
+                            "DATA_ DATE, " +
+                            "TIPO_DOCUMENTO VARCHAR(30), " +
+                            "CODICE_FISCALE VARCHAR(20), " +
+                            "PARTITA_IVA VARCHAR(20), " +
+                            "IMPONIBILE DOUBLE, " +
+                            "TIPO_CASSA_PREVIDENZA VARCHAR(50), " +
+                            "CASSA_PREVIDENZA DOUBLE, " +
+                            "IMPOSTA DOUBLE, " +
+                            "IMPORTO_ART_15 DOUBLE, " +
+                            "BOLLO DOUBLE, " +
+                            "TOTALE DOUBLE, " +
+                            "RITENUTA VARCHAR(20), " +
+                            "NETTO_A_PAGARE DOUBLE, " +
+                            "NOTE_PIEDE VARCHAR(500), " +
+                            "STATO VARCHAR(20), " +
+
+                            /*VENDITA*/
+                            "CLIENTE VARCHAR(50)," +
+                            "ESITO VARCHAR(50)," +
+
+                            /*ACQUISTO*/
+                            "NUMERO_RIF VARCHAR(50)," +
+                            "DATA_RIF DATE," +
+                            "FORNITORE VARCHAR(50)," +
+
+                            "PRIMARY KEY (ID)" +
+                            ");").execute();
         }finally {
             if(connection != null) {
                 connection.close();
@@ -146,6 +183,15 @@ public class ManagerDB {
                 }
             }
         }
+    }
+
+    //aggiungi una lista di fatture nel db
+    public static ArrayList<Fattura> aggiungiFatture(ArrayList<Fattura> fatture) {
+        ArrayList<Fattura> nuoveFatture = new ArrayList<>();
+
+        //TODO: implementare query per salvataggio
+
+        return nuoveFatture;
     }
 
     //leggi gli utenti dal db

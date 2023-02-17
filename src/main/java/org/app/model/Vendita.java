@@ -6,16 +6,14 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import static org.app.utilities.Constants.NUM_COLONNE_VENDITA;
 import static org.app.utilities.Constants.VENDITA;
 
 public class Vendita extends Fattura {
-    private String numeroRif;
-    private Date dataRif;
     private String cliente;
     private String esito;
+
     public Vendita()    {
         super(VENDITA);
     }
@@ -172,8 +170,6 @@ public class Vendita extends Fattura {
     @Override
     public String toString() {
         return "Vendita{" +
-                "numeroRif='" + numeroRif + '\'' +
-                ", dataRif=" + dataRif +
                 ", cliente='" + cliente + '\'' +
                 ", esito='" + esito + '\'' +
                 ", numero=" + numero +

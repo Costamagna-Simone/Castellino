@@ -131,6 +131,7 @@ public class ControllerIniziale implements Controller {
         FontAwesomeIconView icon = (FontAwesomeIconView) mouseEvent.getSource();
         int numSlot = parseInt(icon.getId().substring(icon.getId().length()-1));
         slots[numSlot].apriUtente(true);
+        dataModel.setUtenteCorrente(slots[numSlot].getUtente());
     }
 
     //Chiudi slot acquisto/vendita/raffonto e apri nome e cognome utente

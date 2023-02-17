@@ -51,7 +51,6 @@ public class ControllerVendita implements Controller {
             int num = INIZIO_FATTURE_VENDITA;
             while (line != null && fileCorretto) {
               Vendita v = new Vendita();
-
               stato = v.setCampi(reader, line, num);
 
               if(stato=="OK")   {
@@ -68,7 +67,7 @@ public class ControllerVendita implements Controller {
 
             if(stato.equals("OK"))   {
                 //TODO dialog lettura avvenuta correttamente
-                dataModel.aggiungiFatture(VENDITA, fatture);
+                dataModel.aggiungiFatture(fatture);
             } else {
                 //TODO dialog errore durante la lettur
             }
