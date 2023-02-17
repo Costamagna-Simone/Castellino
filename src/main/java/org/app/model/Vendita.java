@@ -2,6 +2,7 @@ package org.app.model;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.sql.Date;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
@@ -61,7 +62,7 @@ public class Vendita extends Fattura {
 
         try {
             if(!colonne[3].equals(""))
-                data = new SimpleDateFormat("dd/MM/yyyy").parse(colonne[3]);
+                data = new Date((new SimpleDateFormat("dd/MM/yyyy").parse(colonne[3])).getTime());
         } catch (ParseException e) {
             return "la colonna data contiene un formato diverso da dd/MM/yyyy a riga: " + num;
         }

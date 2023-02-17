@@ -189,7 +189,81 @@ public class ManagerDB {
     public static ArrayList<Fattura> aggiungiFatture(ArrayList<Fattura> fatture) {
         ArrayList<Fattura> nuoveFatture = new ArrayList<>();
 
-        //TODO: implementare query per salvataggio
+        Connection connection = null;
+        PreparedStatement pst = null;
+        Integer idFattura = null;
+
+        try {
+            connection = DriverManager.getConnection(
+                    URL, USER, PASSWORD);
+
+            connection.setAutoCommit(false);
+
+            for(Fattura f : fatture)    {
+                pst = connection.prepareStatement(
+                        "INSERT INTO FATTURA(TIPO, NUMERO, SUFFISSO, ANNO, DATA_, TIPO_DOCUMENTO, " +
+                                "CODICE_FISCALE, PARTITA_IVA, IMPONIBILE, TIPO_CASSA_PREVIDENZA, " +
+                                "CASSA_PREVIDENZA, IMPOSTA, IMPORTO_ART_15, BOLLO, TOTALE, RITENUTA, " +
+                                "NETTO_A_PAGARE, NOTE_PIEDE, STATO, CLIENTE, ESITO) " +
+                                "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ",
+                        Statement.RETURN_GENERATED_KEYS);
+
+                pst.setInt(1, f.getTipo());
+                pst.setInt(2, f.getNumero());
+                pst.setString(3, f.getSuffisso());
+                pst.setInt(4, f.getAnno());
+                pst.setDate(5, f.getData());
+                pst.setString(6, f.getTipoDocumento());
+                pst.setString(7, f.getCodiceFiscale());
+                pst.setString(8, f.getPartitaIva());
+                pst.setDouble(9, f.getImponibile());
+                pst.setString(10, f.getTipoCassaPrevidenza());
+                pst.setDouble(11, f.getCassaPrevidenza());
+                pst.setDouble(12, f.getImposta());
+                pst.setDouble(13, f.getImportoArt15());
+                pst.setString(14, "");
+                pst.setString(15, "");
+                pst.setString(16, "");
+                pst.setString(17, "");
+                pst.setString(18, "");
+                pst.setString(19, "");
+                pst.setString(20, "");
+                pst.setString(21, "");
+
+                pst.executeUpdate();
+
+                try (ResultSet generatedKeys = pst.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        idFattura = generatedKeys.getInt(1);
+                    }
+                }
+
+                if (idFattura != null)   {
+                    f.setId(idFattura);
+                    nuoveFatture.add(f);
+                }
+            }
+
+            connection.commit();
+
+        } catch (SQLException e) {
+            if(connection != null)  {
+                try {
+                    connection.rollback();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+            nuoveFatture.clear();
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
 
         return nuoveFatture;
     }
