@@ -5,6 +5,8 @@ import java.sql.Date;
 
 public class Fattura {
     private Integer id;
+
+    Integer utente;
     private int tipo;
     int numero;
     String suffisso;

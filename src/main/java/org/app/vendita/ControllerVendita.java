@@ -17,7 +17,8 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
-import static org.app.utilities.Constants.*;
+import static org.app.utilities.Constants.INIZIALE;
+import static org.app.utilities.Constants.INIZIO_FATTURE_VENDITA;
 
 public class ControllerVendita implements Controller {
     private final String PATH_FATTURE = "tmp/fattureVendita.csv";
@@ -67,8 +68,10 @@ public class ControllerVendita implements Controller {
 
             if(stato.equals("OK"))   {
                 //TODO dialog lettura avvenuta correttamente
+                System.out.println("Entro in aggiungiFatture");
                 dataModel.aggiungiFatture(fatture);
             } else {
+                System.out.println("STATO: " + stato);
                 //TODO dialog errore durante la lettur
             }
 
@@ -90,13 +93,15 @@ public class ControllerVendita implements Controller {
 
         File file = fileChooser.showOpenDialog(dataModel.getStage());
 
-        Workbook workbook = new Workbook();
-        workbook.loadFromFile(file.getAbsolutePath());
+        if(file != null)    {
+            Workbook workbook = new Workbook();
+            workbook.loadFromFile(file.getAbsolutePath());
 
-        Worksheet sheet = workbook.getWorksheets().get(0);
-        sheet.saveToFile(PATH_FATTURE, "^", StandardCharsets.UTF_8);
+            Worksheet sheet = workbook.getWorksheets().get(0);
+            sheet.saveToFile(PATH_FATTURE, "^", StandardCharsets.UTF_8);
 
-        leggiFattureDaFile();
+            leggiFattureDaFile();
+        }
     }
 
     //Torna alla home

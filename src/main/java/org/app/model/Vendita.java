@@ -164,6 +164,13 @@ public class Vendita extends Fattura {
         return "OK";
     }
 
+    public String getCliente() {
+        return cliente;
+    }
+
+    public String getEsito() {
+        return esito;
+    }
 
     /********************
      Override

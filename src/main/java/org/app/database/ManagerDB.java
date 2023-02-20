@@ -2,10 +2,12 @@ package org.app.database;
 
 import org.app.model.Fattura;
 import org.app.model.Utente;
+import org.app.model.Vendita;
 import org.hsqldb.server.Server;
 import java.sql.*;
 import java.util.ArrayList;
 import static org.app.database.Constants.*;
+import static org.app.utilities.Constants.VENDITA;
 
 public class ManagerDB {
     private static Server hsqlServer = null;
@@ -60,7 +62,7 @@ public class ManagerDB {
 
             //inizializza tabella fatture
             connection.prepareStatement(
-                    "CREATE TABLE IF NOT EXISTS FATTURE(" +
+                    "CREATE TABLE IF NOT EXISTS FATTURA(" +
                             "ID INTEGER NOT NULL IDENTITY, " +
                             "TIPO INTEGER NOT NULL, " +
                             "NUMERO INTEGER, " +
@@ -79,7 +81,7 @@ public class ManagerDB {
                             "TOTALE DOUBLE, " +
                             "RITENUTA VARCHAR(20), " +
                             "NETTO_A_PAGARE DOUBLE, " +
-                            "NOTE_PIEDE VARCHAR(500), " +
+                            "NOTE_PIEDE VARCHAR(1000), " +
                             "STATO VARCHAR(20), " +
 
                             /*VENDITA*/
@@ -192,6 +194,7 @@ public class ManagerDB {
         Connection connection = null;
         PreparedStatement pst = null;
         Integer idFattura = null;
+        int row = 0;
 
         try {
             connection = DriverManager.getConnection(
@@ -221,18 +224,24 @@ public class ManagerDB {
                 pst.setDouble(11, f.getCassaPrevidenza());
                 pst.setDouble(12, f.getImposta());
                 pst.setDouble(13, f.getImportoArt15());
-                pst.setString(14, "");
-                pst.setString(15, "");
-                pst.setString(16, "");
-                pst.setString(17, "");
-                pst.setString(18, "");
-                pst.setString(19, "");
-                pst.setString(20, "");
-                pst.setString(21, "");
+                pst.setDouble(14, f.getBollo());
+                pst.setDouble(15, f.getTotale());
+                pst.setString(16, f.getRitenuta());
+                pst.setDouble(17, f.getNettoAPagare());
+                pst.setString(18, f.getNotePiede());
+                pst.setString(19, f.getStato());
+
+                if(f.getTipo()==VENDITA)    {
+                    Vendita v = (Vendita)f;
+                    pst.setString(20, v.getCliente());
+                    pst.setString(21, v.getEsito());
+                } else {
+                    //TODO PER ACQUISTO
+                }
 
                 pst.executeUpdate();
 
-                try (ResultSet generatedKeys = pst.getGeneratedKeys()) {
+                /*try (ResultSet generatedKeys = pst.getGeneratedKeys()) {
                     if (generatedKeys.next()) {
                         idFattura = generatedKeys.getInt(1);
                     }
@@ -241,12 +250,18 @@ public class ManagerDB {
                 if (idFattura != null)   {
                     f.setId(idFattura);
                     nuoveFatture.add(f);
-                }
+                } else {
+                    System.out.println("Id null");
+                }*/
+                nuoveFatture.add(f);
+
+                row++;
             }
 
             connection.commit();
 
         } catch (SQLException e) {
+            System.out.println("Errore riga " + row + " - " + e);
             if(connection != null)  {
                 try {
                     connection.rollback();
@@ -265,6 +280,7 @@ public class ManagerDB {
             }
         }
 
+        System.out.println("Array leng: " + nuoveFatture.size());
         return nuoveFatture;
     }
 
