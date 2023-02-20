@@ -93,13 +93,13 @@
             <TableColumn fx:id="data" maxWidth="-1.0" minWidth="100.0" prefWidth="100.0" styleClass="table-column-f" text="data" />
             <TableColumn fx:id="tipoDocumento" maxWidth="-1.0" minWidth="200.0" prefWidth="200.0" styleClass="table-column-f" text="tipo documento" />
             <TableColumn fx:id="cliente" maxWidth="-1.0" minWidth="200.0" prefWidth="200.0" styleClass="table-column-f" text="cliente" />
-            <TableColumn fx:id="codiceFiscale" maxWidth="-1.0" minWidth="200.0" prefWidth="200.0" styleClass="table-column-f" text="codiceFiscale" />
-            <TableColumn fx:id="partitaIva" maxWidth="-1.0" minWidth="200.0" prefWidth="200.0" styleClass="table-column-f" text="partitaIva" />
+            <TableColumn fx:id="codiceFiscale" maxWidth="-1.0" minWidth="200.0" prefWidth="200.0" styleClass="table-column-f" text="codice fiscale" />
+            <TableColumn fx:id="partitaIva" maxWidth="-1.0" minWidth="200.0" prefWidth="200.0" styleClass="table-column-f" text="partita iva" />
             <TableColumn fx:id="imponibile" maxWidth="-1.0" minWidth="200.0" prefWidth="200.0" styleClass="table-column-f" text="imponibile" />
             <TableColumn fx:id="tipoCassaPrevidenza" maxWidth="-1.0" minWidth="200.0" prefWidth="200.0" styleClass="table-column-f" text="tipo cassa previdenza" />
             <TableColumn fx:id="cassaPrevidenza" maxWidth="-1.0" minWidth="200.0" prefWidth="200.0" styleClass="table-column-f" text="cassa previdenza" />
             <TableColumn fx:id="imposta" maxWidth="-1.0" minWidth="100.0" prefWidth="-1.0" styleClass="table-column-f" text="imposta" />
-            <TableColumn fx:id="importoArt15" maxWidth="-1.0" minWidth="200.0" prefWidth="200.0" styleClass="table-column-f" text="importoArt15" />
+            <TableColumn fx:id="importoArt15" maxWidth="-1.0" minWidth="200.0" prefWidth="200.0" styleClass="table-column-f" text="importo art 15" />
             <TableColumn fx:id="bollo" maxWidth="-1.0" minWidth="100.0" prefWidth="100.0" styleClass="table-column-f" text="bollo" />
             <TableColumn fx:id="totale" maxWidth="-1.0" minWidth="100.0" prefWidth="100.0" styleClass="table-column-f" text="totale" />
             <TableColumn fx:id="ritenuta" maxWidth="-1.0" minWidth="100.0" prefWidth="100.0" styleClass="table-column-f" text="ritenuta" />

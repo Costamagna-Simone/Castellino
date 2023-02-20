@@ -253,19 +253,19 @@ public class ManagerDB {
                     if (generatedKeys.next()) {
                         idFattura = generatedKeys.getInt(1);
                     }
+                } catch (SQLException e) {
+                    System.out.println(e);
                 }
 
                 if (idFattura != null)   {
                     fatture.get(i).setId(idFattura);
                     nuoveFatture.add(fatture.get(i));
                 } else {
+                    System.out.println("null");
                     //TODO dialog id null
                 }
-
-                nuoveFatture.add(fatture.get(i));
             }
         } catch (SQLException e) {
-            System.out.println("ROW " + row + " - " + e);
             if(connection != null)  {
                 try {
                     connection.rollback();
@@ -353,10 +353,6 @@ public class ManagerDB {
                     throw new RuntimeException(e);
                 }
             }
-        }
-
-        for(Fattura ft : fatture)   {
-            System.out.println(ft);
         }
 
         return fatture;

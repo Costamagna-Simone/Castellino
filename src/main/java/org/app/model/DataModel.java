@@ -62,7 +62,7 @@ public class DataModel {
     //aggiungi fatture
     public void aggiungiFatture(ArrayList<Fattura> fatture) {
         ArrayList<Fattura> nuoveFatture = ManagerDB.setFatture(fatture);
-        fatture.addAll(nuoveFatture);
+        this.fatture.addAll(nuoveFatture);
     }
 
 

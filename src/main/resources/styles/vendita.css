@@ -93,9 +93,6 @@ Table View-f
     -fx-background-radius : 2em;
 }
 
-/********************
-Table Columns
-********************/
 .table-column-f {
     -fx-padding: 10 15 10 15;
     -fx-background-color: white;
@@ -107,17 +104,33 @@ Table Columns
     -fx-background-color: white;
     -fx-text-fill: black;
     -fx-font-family: Comfortaa Semibold;
-    -fx-font-size: 16px;
+    -fx-font-size: 14px;
 }
 
 .column-header {
     -fx-pref-height: 40;
 }
 
-.table-cell {
+.table-cell:odd {
+    -fx-background-color: white;
     -fx-border-width: 0.15 0 0 0;
     -fx-border-color: gray;
     -fx-alignment: center;
     -fx-text-alignment: center;
     -fx-pref-height: -1;
+}
+
+.table-cell:even {
+    -fx-background-color: #F6F4F6;
+    -fx-border-width: 0.15 0 0 0;
+    -fx-border-color: gray;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-pref-height: -1;
+}
+
+.table-row-cell:filled:selected .table-cell {
+    -fx-background-color: -fx-color-second; /* colore di sfondo delle celle della riga evidenziata */
+    -fx-text-fill: white; /* colore del testo delle celle della riga evidenziata */
+    -fx-font-weight: bold;
 }

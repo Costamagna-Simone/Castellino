@@ -21,7 +21,6 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.sql.Date;
 import java.util.ArrayList;
-
 import static org.app.utilities.Constants.INIZIALE;
 import static org.app.utilities.Constants.INIZIO_FATTURE_VENDITA;
 
@@ -62,6 +61,7 @@ public class ControllerVendita implements Controller {
 
         tabella.setItems(dataModel.getFatture());
     }
+
 
     /********************
      Utility
