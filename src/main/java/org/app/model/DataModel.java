@@ -59,6 +59,11 @@ public class DataModel {
         }
     }
 
+    //elimina un utente
+    public void eliminaUtente(Utente utente)    {
+        ManagerDB.eliminaUtente(utente.getId());
+    }
+
     //aggiungi fatture
     public void aggiungiFatture(ArrayList<Fattura> fatture) {
         ArrayList<Fattura> nuoveFatture = ManagerDB.setFatture(fatture);

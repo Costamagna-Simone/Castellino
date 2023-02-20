@@ -32,6 +32,6 @@
          </center>
       </BorderPane>
       <MFXButton buttonType="RAISED" maxHeight="30.0" maxWidth="120.0" minHeight="30.0" minWidth="120.0" onMouseClicked="#modificaUtente" styleClass="MFXButton-cu" text="Modifica" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="40.0" />
-      <MFXButton buttonType="RAISED" layoutX="10.0" layoutY="10.0" maxHeight="30.0" maxWidth="120.0" minHeight="30.0" minWidth="120.0" onMouseClicked="#modificaUtente" styleClass="MFXButton-eu" text="Elimina" AnchorPane.bottomAnchor="60.0" AnchorPane.rightAnchor="40.0" />
+      <MFXButton buttonType="RAISED" layoutX="10.0" layoutY="10.0" maxHeight="30.0" maxWidth="120.0" minHeight="30.0" minWidth="120.0" onMouseClicked="#eliminaUtente" styleClass="MFXButton-eu" text="Elimina" AnchorPane.bottomAnchor="60.0" AnchorPane.rightAnchor="40.0" />
    </children>
 </AnchorPane>

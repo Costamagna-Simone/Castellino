@@ -188,6 +188,11 @@ public class ManagerDB {
         }
     }
 
+    //elimina utente
+    public static void eliminaUtente(int id)    {
+        //TODO ELIMINA UTENTE
+    }
+
     //aggiungi una lista di fatture nel db
     public static ArrayList<Fattura> setFatture(ArrayList<Fattura> fatture) {
         ArrayList<Fattura> nuoveFatture = new ArrayList<>();

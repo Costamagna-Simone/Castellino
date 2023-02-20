@@ -87,6 +87,11 @@ public class ControllerModificaUtente {
         }
     }
 
+    //Elimina utente
+    public void eliminaUtente(MouseEvent mouseEvent) {
+        //TODO open dialog di avviso
+        dataModel.eliminaUtente(dataModel.getUtenteCorrente());
+    }
 
 
     /********************
