@@ -86,6 +86,10 @@ public class DataModel {
         return fatture;
     }
 
+    public Utente getUtenteCorrente()   {
+        return utenteCorrente;
+    }
+
     public void setAggiornaUtenti()    {
         if(aggiornaUtenti.get() == 0)
             aggiornaUtenti.set(1);

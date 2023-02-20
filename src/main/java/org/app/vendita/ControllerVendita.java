@@ -52,9 +52,10 @@ public class ControllerVendita implements Controller {
             int num = INIZIO_FATTURE_VENDITA;
             while (line != null && fileCorretto) {
               Vendita v = new Vendita();
+              v.setUtente(dataModel.getUtenteCorrente().getId());
               stato = v.setCampi(reader, line, num);
 
-              if(stato=="OK")   {
+              if(stato.equals("OK"))   {
                   fatture.add(v);
               } else {
                   fileCorretto = false;
@@ -68,10 +69,8 @@ public class ControllerVendita implements Controller {
 
             if(stato.equals("OK"))   {
                 //TODO dialog lettura avvenuta correttamente
-                System.out.println("Entro in aggiungiFatture");
                 dataModel.aggiungiFatture(fatture);
             } else {
-                System.out.println("STATO: " + stato);
                 //TODO dialog errore durante la lettur
             }
 
@@ -79,7 +78,6 @@ public class ControllerVendita implements Controller {
             //TODO non esiste il file
         }
     }
-
 
 
     /********************

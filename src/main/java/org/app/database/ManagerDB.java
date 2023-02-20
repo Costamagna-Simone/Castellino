@@ -192,7 +192,7 @@ public class ManagerDB {
         ArrayList<Fattura> nuoveFatture = new ArrayList<>();
 
         Connection connection = null;
-        PreparedStatement pst = null;
+        PreparedStatement[] pst = new PreparedStatement[fatture.size()];
         Integer idFattura = null;
         int row = 0;
 
@@ -203,7 +203,7 @@ public class ManagerDB {
             connection.setAutoCommit(false);
 
             for(Fattura f : fatture)    {
-                pst = connection.prepareStatement(
+                pst[row] = connection.prepareStatement(
                         "INSERT INTO FATTURA(TIPO, NUMERO, SUFFISSO, ANNO, DATA_, TIPO_DOCUMENTO, " +
                                 "CODICE_FISCALE, PARTITA_IVA, IMPONIBILE, TIPO_CASSA_PREVIDENZA, " +
                                 "CASSA_PREVIDENZA, IMPOSTA, IMPORTO_ART_15, BOLLO, TOTALE, RITENUTA, " +
@@ -211,55 +211,57 @@ public class ManagerDB {
                                 "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ",
                         Statement.RETURN_GENERATED_KEYS);
 
-                pst.setInt(1, f.getTipo());
-                pst.setInt(2, f.getNumero());
-                pst.setString(3, f.getSuffisso());
-                pst.setInt(4, f.getAnno());
-                pst.setDate(5, f.getData());
-                pst.setString(6, f.getTipoDocumento());
-                pst.setString(7, f.getCodiceFiscale());
-                pst.setString(8, f.getPartitaIva());
-                pst.setDouble(9, f.getImponibile());
-                pst.setString(10, f.getTipoCassaPrevidenza());
-                pst.setDouble(11, f.getCassaPrevidenza());
-                pst.setDouble(12, f.getImposta());
-                pst.setDouble(13, f.getImportoArt15());
-                pst.setDouble(14, f.getBollo());
-                pst.setDouble(15, f.getTotale());
-                pst.setString(16, f.getRitenuta());
-                pst.setDouble(17, f.getNettoAPagare());
-                pst.setString(18, f.getNotePiede());
-                pst.setString(19, f.getStato());
+                pst[row].setInt(1, f.getTipo());
+                pst[row].setInt(2, f.getNumero());
+                pst[row].setString(3, f.getSuffisso());
+                pst[row].setInt(4, f.getAnno());
+                pst[row].setDate(5, f.getData());
+                pst[row].setString(6, f.getTipoDocumento());
+                pst[row].setString(7, f.getCodiceFiscale());
+                pst[row].setString(8, f.getPartitaIva());
+                pst[row].setDouble(9, f.getImponibile());
+                pst[row].setString(10, f.getTipoCassaPrevidenza());
+                pst[row].setDouble(11, f.getCassaPrevidenza());
+                pst[row].setDouble(12, f.getImposta());
+                pst[row].setDouble(13, f.getImportoArt15());
+                pst[row].setDouble(14, f.getBollo());
+                pst[row].setDouble(15, f.getTotale());
+                pst[row].setString(16, f.getRitenuta());
+                pst[row].setDouble(17, f.getNettoAPagare());
+                pst[row].setString(18, f.getNotePiede());
+                pst[row].setString(19, f.getStato());
 
                 if(f.getTipo()==VENDITA)    {
                     Vendita v = (Vendita)f;
-                    pst.setString(20, v.getCliente());
-                    pst.setString(21, v.getEsito());
+                    pst[row].setString(20, v.getCliente());
+                    pst[row].setString(21, v.getEsito());
                 } else {
                     //TODO PER ACQUISTO
                 }
 
-                pst.executeUpdate();
-
-                /*try (ResultSet generatedKeys = pst.getGeneratedKeys()) {
-                    if (generatedKeys.next()) {
-                        idFattura = generatedKeys.getInt(1);
-                    }
-                }
-
-                if (idFattura != null)   {
-                    f.setId(idFattura);
-                    nuoveFatture.add(f);
-                } else {
-                    System.out.println("Id null");
-                }*/
-                nuoveFatture.add(f);
+                pst[row].executeUpdate();
 
                 row++;
             }
 
             connection.commit();
 
+            for(int i=0; i<row; i++)    {
+                try(ResultSet generatedKeys = pst[i].getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        idFattura = generatedKeys.getInt(1);
+                    }
+                }
+
+                if (idFattura != null)   {
+                    fatture.get(i).setId(idFattura);
+                    nuoveFatture.add(fatture.get(i));
+                } else {
+                    System.out.println("Id null");
+                }
+
+                nuoveFatture.add(fatture.get(i));
+            }
         } catch (SQLException e) {
             System.out.println("Errore riga " + row + " - " + e);
             if(connection != null)  {
@@ -280,7 +282,6 @@ public class ManagerDB {
             }
         }
 
-        System.out.println("Array leng: " + nuoveFatture.size());
         return nuoveFatture;
     }
 

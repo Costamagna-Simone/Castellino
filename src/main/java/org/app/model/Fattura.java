@@ -6,7 +6,7 @@ import java.sql.Date;
 public class Fattura {
     private Integer id;
 
-    Integer utente;
+    private Integer utente;
     private int tipo;
     int numero;
     String suffisso;
@@ -37,6 +37,10 @@ public class Fattura {
      ********************/
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public void setUtente(int utente)   {
+        this.utente = utente;
     }
     public Integer getId() {
         return id;
