@@ -187,6 +187,7 @@ public class ControllerIniziale implements Controller {
 
     //Apri finestra vendita
     public void apriVendita(MouseEvent mouseEvent) {
+        dataModel.setFatture(dataModel.getUtenteCorrente(), VENDITA);
         try {
             App.setRoot(VENDITA, "vendita");
         } catch (IOException e) {

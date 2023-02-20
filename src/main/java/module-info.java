@@ -18,6 +18,7 @@ module org.app {
     opens org.app.raffronto to javafx.fxml;
     exports org.app.utilities;
     opens org.app.utilities to javafx.fxml;
+    opens org.app.model to javafx.base;
 
 }
 

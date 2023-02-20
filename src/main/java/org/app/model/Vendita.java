@@ -3,6 +3,8 @@ package org.app.model;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
@@ -19,6 +21,38 @@ public class Vendita extends Fattura {
         super(VENDITA);
     }
 
+    public Vendita(ResultSet rs)    {
+        super(VENDITA);
+
+        try {
+            id = rs.getInt("ID");
+            utente = rs.getInt("UTENTE");
+            tipo = rs.getInt("TIPO");
+            numero = rs.getInt("NUMERO");
+            suffisso = rs.getString("SUFFISSO");
+            anno = rs.getInt("ANNO");
+            data = rs.getDate("DATA_");
+            tipoDocumento = rs.getString("TIPO_DOCUMENTO");
+            codiceFiscale = rs.getString("CODICE_FISCALE");
+            partitaIva = rs.getString("PARTITA_IVA");
+            imponibile = rs.getDouble("IMPONIBILE");
+            tipoCassaPrevidenza = rs.getString("TIPO_CASSA_PREVIDENZA");
+            cassaPrevidenza = rs.getDouble("CASSA_PREVIDENZA");
+            imposta = rs.getDouble("IMPOSTA");
+            importoArt15 = rs.getDouble("IMPORTO_ART_15");
+            bollo = rs.getDouble("BOLLO");
+            totale = rs.getDouble("TOTALE");
+            ritenuta = rs.getString("RITENUTA");
+            nettoAPagare = rs.getDouble("NETTO_A_PAGARE");
+            notePiede = rs.getString("NOTE_PIEDE");
+            stato = rs.getString("STATO");
+            cliente = rs.getString("CLIENTE");
+            esito = rs.getString("ESITO");
+        } catch (SQLException e) {
+            //TODO ERRORE
+            throw new RuntimeException(e);
+        }
+    }
 
     /********************
      Utility

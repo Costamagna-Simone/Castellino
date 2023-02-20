@@ -64,6 +64,7 @@ public class ManagerDB {
             connection.prepareStatement(
                     "CREATE TABLE IF NOT EXISTS FATTURA(" +
                             "ID INTEGER NOT NULL IDENTITY, " +
+                            "UTENTE INTEGER NOT NULL, " +
                             "TIPO INTEGER NOT NULL, " +
                             "NUMERO INTEGER, " +
                             "SUFFISSO VARCHAR(30), " +
@@ -188,7 +189,7 @@ public class ManagerDB {
     }
 
     //aggiungi una lista di fatture nel db
-    public static ArrayList<Fattura> aggiungiFatture(ArrayList<Fattura> fatture) {
+    public static ArrayList<Fattura> setFatture(ArrayList<Fattura> fatture) {
         ArrayList<Fattura> nuoveFatture = new ArrayList<>();
 
         Connection connection = null;
@@ -204,37 +205,38 @@ public class ManagerDB {
 
             for(Fattura f : fatture)    {
                 pst[row] = connection.prepareStatement(
-                        "INSERT INTO FATTURA(TIPO, NUMERO, SUFFISSO, ANNO, DATA_, TIPO_DOCUMENTO, " +
+                        "INSERT INTO FATTURA(UTENTE, TIPO, NUMERO, SUFFISSO, ANNO, DATA_, TIPO_DOCUMENTO, " +
                                 "CODICE_FISCALE, PARTITA_IVA, IMPONIBILE, TIPO_CASSA_PREVIDENZA, " +
                                 "CASSA_PREVIDENZA, IMPOSTA, IMPORTO_ART_15, BOLLO, TOTALE, RITENUTA, " +
                                 "NETTO_A_PAGARE, NOTE_PIEDE, STATO, CLIENTE, ESITO) " +
-                                "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ",
+                                "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ",
                         Statement.RETURN_GENERATED_KEYS);
 
-                pst[row].setInt(1, f.getTipo());
-                pst[row].setInt(2, f.getNumero());
-                pst[row].setString(3, f.getSuffisso());
-                pst[row].setInt(4, f.getAnno());
-                pst[row].setDate(5, f.getData());
-                pst[row].setString(6, f.getTipoDocumento());
-                pst[row].setString(7, f.getCodiceFiscale());
-                pst[row].setString(8, f.getPartitaIva());
-                pst[row].setDouble(9, f.getImponibile());
-                pst[row].setString(10, f.getTipoCassaPrevidenza());
-                pst[row].setDouble(11, f.getCassaPrevidenza());
-                pst[row].setDouble(12, f.getImposta());
-                pst[row].setDouble(13, f.getImportoArt15());
-                pst[row].setDouble(14, f.getBollo());
-                pst[row].setDouble(15, f.getTotale());
-                pst[row].setString(16, f.getRitenuta());
-                pst[row].setDouble(17, f.getNettoAPagare());
-                pst[row].setString(18, f.getNotePiede());
-                pst[row].setString(19, f.getStato());
+                pst[row].setInt(1, f.getUtente());
+                pst[row].setInt(2, f.getTipo());
+                pst[row].setInt(3, f.getNumero());
+                pst[row].setString(4, f.getSuffisso());
+                pst[row].setInt(5, f.getAnno());
+                pst[row].setDate(6, f.getData());
+                pst[row].setString(7, f.getTipoDocumento());
+                pst[row].setString(8, f.getCodiceFiscale());
+                pst[row].setString(9, f.getPartitaIva());
+                pst[row].setDouble(10, f.getImponibile());
+                pst[row].setString(11, f.getTipoCassaPrevidenza());
+                pst[row].setDouble(12, f.getCassaPrevidenza());
+                pst[row].setDouble(13, f.getImposta());
+                pst[row].setDouble(14, f.getImportoArt15());
+                pst[row].setDouble(15, f.getBollo());
+                pst[row].setDouble(16, f.getTotale());
+                pst[row].setString(17, f.getRitenuta());
+                pst[row].setDouble(18, f.getNettoAPagare());
+                pst[row].setString(19, f.getNotePiede());
+                pst[row].setString(20, f.getStato());
 
                 if(f.getTipo()==VENDITA)    {
                     Vendita v = (Vendita)f;
-                    pst[row].setString(20, v.getCliente());
-                    pst[row].setString(21, v.getEsito());
+                    pst[row].setString(21, v.getCliente());
+                    pst[row].setString(22, v.getEsito());
                 } else {
                     //TODO PER ACQUISTO
                 }
@@ -257,13 +259,13 @@ public class ManagerDB {
                     fatture.get(i).setId(idFattura);
                     nuoveFatture.add(fatture.get(i));
                 } else {
-                    System.out.println("Id null");
+                    //TODO dialog id null
                 }
 
                 nuoveFatture.add(fatture.get(i));
             }
         } catch (SQLException e) {
-            System.out.println("Errore riga " + row + " - " + e);
+            System.out.println("ROW " + row + " - " + e);
             if(connection != null)  {
                 try {
                     connection.rollback();
@@ -315,5 +317,48 @@ public class ManagerDB {
         }
 
         return utenti;
+    }
+
+    //leggi le fatture dal db
+    public static ArrayList<Fattura> getFatture(int idUtente, int tipo_) {
+        ArrayList<Fattura> fatture = new ArrayList<>();
+
+        Connection connection = null;
+
+        try {
+            connection = DriverManager.getConnection(
+                    URL, USER, PASSWORD);
+
+            PreparedStatement pst = connection.prepareStatement(
+                    "SELECT * FROM FATTURA WHERE UTENTE=? AND TIPO=?;");
+
+            pst.setInt(1, idUtente);
+            pst.setInt(2, tipo_);
+
+            ResultSet rs = pst.executeQuery();
+
+            while(rs.next()) {
+                if (tipo_ == VENDITA) {
+                    fatture.add(new Vendita(rs));
+                }
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if(connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+
+        for(Fattura ft : fatture)   {
+            System.out.println(ft);
+        }
+
+        return fatture;
     }
 }

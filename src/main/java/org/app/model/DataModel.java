@@ -61,7 +61,7 @@ public class DataModel {
 
     //aggiungi fatture
     public void aggiungiFatture(ArrayList<Fattura> fatture) {
-        ArrayList<Fattura> nuoveFatture = ManagerDB.aggiungiFatture(fatture);
+        ArrayList<Fattura> nuoveFatture = ManagerDB.setFatture(fatture);
         fatture.addAll(nuoveFatture);
     }
 
@@ -99,5 +99,10 @@ public class DataModel {
 
     public void setUtenteCorrente(Utente utente) {
         utenteCorrente = utente;
+    }
+
+    public void setFatture(Utente utente, int tipo)    {
+        fatture.clear();
+        fatture.addAll(ManagerDB.getFatture(utente.getId(), tipo));
     }
 }

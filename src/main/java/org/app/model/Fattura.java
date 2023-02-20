@@ -4,10 +4,10 @@ package org.app.model;
 import java.sql.Date;
 
 public class Fattura {
-    private Integer id;
+    Integer id;
 
-    private Integer utente;
-    private int tipo;
+    Integer utente;
+    int tipo;
     int numero;
     String suffisso;
     int anno;
@@ -44,6 +44,10 @@ public class Fattura {
     }
     public Integer getId() {
         return id;
+    }
+
+    public Integer getUtente()  {
+        return utente;
     }
 
     public int getTipo() {
