@@ -36,6 +36,11 @@ public class ControllerModificaUtente {
         Node source = (Node) mouseEvent.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
+
+        textFieldNome.setText("");
+        textFieldCognome.setText("");
+        textErrore.setText("");
+        textErrore.setVisible(false);
     }
     private boolean utilityControllaCampi() {
         textErrore.setVisible(false);
@@ -90,7 +95,8 @@ public class ControllerModificaUtente {
     //Elimina utente
     public void eliminaUtente(MouseEvent mouseEvent) {
         //TODO open dialog di avviso
-        dataModel.eliminaUtente(dataModel.getUtenteCorrente());
+        dataModel.eliminaUtente(utente);
+        stop(mouseEvent);
     }
 
 

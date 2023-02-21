@@ -64,7 +64,7 @@ public class ManagerDB {
             connection.prepareStatement(
                     "CREATE TABLE IF NOT EXISTS FATTURA(" +
                             "ID INTEGER NOT NULL IDENTITY, " +
-                            "UTENTE INTEGER NOT NULL, " +
+                            "UTENTE INTEGER NOT NULL REFERENCES UTENTE(ID) ON DELETE CASCADE ON UPDATE CASCADE, " +
                             "TIPO INTEGER NOT NULL, " +
                             "NUMERO INTEGER, " +
                             "SUFFISSO VARCHAR(30), " +
@@ -190,7 +190,29 @@ public class ManagerDB {
 
     //elimina utente
     public static void eliminaUtente(int id)    {
-        //TODO ELIMINA UTENTE
+        Connection connection = null;
+
+        try {
+            connection = DriverManager.getConnection(
+                    URL, USER, PASSWORD);
+
+            PreparedStatement pst = connection.prepareStatement(
+                    "DELETE FROM UTENTE WHERE ID=?;");
+
+            pst.setInt(1, id);
+
+            pst.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if(connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
     }
 
     //aggiungi una lista di fatture nel db

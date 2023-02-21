@@ -49,12 +49,15 @@ public class ControllerIniziale implements Controller {
         slots = new Slot[NUM_SLOTS];
 
         ObservableList<Utente> utenti = dataModel.getUtenti();
+        System.out.println("L: " + utenti.size());
 
         for(int i=0; i<NUM_SLOTS; i++) {
             slots[i] = new Slot(App.getScene(), i);
 
             if(i<utenti.size()) {
                 slots[i].setUtente(utenti.get(i));
+            } else {
+                slots[i].setUtente(null);
             }
         }
     }

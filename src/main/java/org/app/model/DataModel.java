@@ -61,7 +61,20 @@ public class DataModel {
 
     //elimina un utente
     public void eliminaUtente(Utente utente)    {
+        System.out.println("l: " + utenti.size());
         ManagerDB.eliminaUtente(utente.getId());
+
+        /*for(int i=0; i<utenti.size(); i++)  {
+            System.out.println(i + " - " + utenti.get(i).getId() + " - " + utente.getId());
+            if(utenti.get(i).getId() == utente.getId()) {
+                utenti.remove(i);
+                i+=utenti.size();
+            }
+        }*/
+        utenti.remove(utente);
+
+        setAggiornaUtenti();
+        System.out.println("l: " + utenti.size());
     }
 
     //aggiungi fatture

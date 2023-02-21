@@ -35,6 +35,11 @@ public class ControllerAggiungiUtente {
         Node source = (Node) mouseEvent.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
+
+        textFieldNome.setText("");
+        textFieldCognome.setText("");
+        textErrore.setText("");
+        textErrore.setVisible(false);
     }
 
     //controlla che i campi del dialog siano completi e corretti
