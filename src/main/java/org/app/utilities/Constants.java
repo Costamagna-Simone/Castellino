@@ -9,5 +9,8 @@ public class Constants {
 
 
     public final static int NUM_COLONNE_VENDITA = 20;
+
+    public final static int NUM_COLONNE_ACQUISTO = 21;
     public final static int INIZIO_FATTURE_VENDITA = 5;
+    public final static int INIZIO_FATTURE_ACQUISTO = 5;
 }

@@ -49,7 +49,6 @@ public class ControllerIniziale implements Controller {
         slots = new Slot[NUM_SLOTS];
 
         ObservableList<Utente> utenti = dataModel.getUtenti();
-        System.out.println("L: " + utenti.size());
 
         for(int i=0; i<NUM_SLOTS; i++) {
             slots[i] = new Slot(App.getScene(), i);
@@ -181,6 +180,7 @@ public class ControllerIniziale implements Controller {
 
     //Apri finestra acquisto
     public void apriAcquisto(MouseEvent mouseEvent) {
+        dataModel.setFatture(dataModel.getUtenteCorrente(), ACQUISTO);
         try {
             App.setRoot(ACQUISTO, "acquisto");
         } catch (IOException e) {

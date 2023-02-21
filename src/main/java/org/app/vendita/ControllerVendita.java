@@ -119,7 +119,7 @@ public class ControllerVendita implements Controller {
      FXML
      ********************/
     //apri il file chooser per la scelta del file
-    public void fxmlImporta()   {
+    public void importa()   {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Importa file");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("XLSX files (*.xlsx)", "*.xlsx"));

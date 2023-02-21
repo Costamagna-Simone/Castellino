@@ -3,7 +3,6 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -68,7 +67,7 @@
       </Text>
       <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="30.0" maxWidth="125.0" minHeight="30.0" minWidth="125.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="50.0">
          <children>
-            <MFXButton alignment="BOTTOM_RIGHT" depthLevel="LEVEL1" maxHeight="30.0" maxWidth="125.0" minHeight="30.0" minWidth="125.0" styleClass="MFXButton-im" text="Importa" textAlignment="CENTER" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <MFXButton alignment="BOTTOM_RIGHT" depthLevel="LEVEL1" maxHeight="30.0" maxWidth="125.0" minHeight="30.0" minWidth="125.0" onMouseClicked="#importa" styleClass="MFXButton-im" text="Importa" textAlignment="CENTER" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <font>
                   <Font name="Comfortaa SemiBold" size="13.0" />
                </font>
@@ -86,35 +85,31 @@
             <FontAwesomeIconView fill="WHITE" glyphName="FILE" size="17" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0" />
          </children>
       </AnchorPane>
-      <ScrollPane prefHeight="200.0" prefWidth="200.0" styleClass="scroll-pane-f" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="115.0">
-         <content>
-            <TableView id="tableViewFatture" styleClass="table-view-f">
-              <columns>
-                <TableColumn minWidth="50.0" prefWidth="61.0" styleClass="table-column-f" text="Numero" />
-                <TableColumn minWidth="80.0" prefWidth="82.0" styleClass="table-column-f" text="Suffisso" />
-                  <TableColumn minWidth="58.0" prefWidth="58.0" styleClass="table-column-f" text="Anno" />
-                  <TableColumn prefWidth="95.0" styleClass="table-column-f" text="Data" />
-                  <TableColumn prefWidth="90.0" styleClass="table-column-f" text="Numero Rif." />
-                  <TableColumn prefWidth="95.0" styleClass="table-column-f" text="Data Rif." />
-                  <TableColumn prefWidth="123.0" styleClass="table-column-f" text="Tipo documento" />
-                  <TableColumn prefWidth="117.0" styleClass="table-column-f" text="Fornitore" />
-                  <TableColumn prefWidth="138.0" styleClass="table-column-f" text="Codice fiscale" />
-                  <TableColumn prefWidth="100.0" styleClass="table-column-f" text="Partita IVA" />
-                  <TableColumn prefWidth="100.0" styleClass="table-column-f" text="Imponibile" />
-                  <TableColumn prefWidth="100.0" styleClass="table-column-f" text="Tipo cassa previdenza" />
-                  <TableColumn prefWidth="100.0" styleClass="table-column-f" text="Cassa previdenza" />
-                  <TableColumn prefWidth="100.0" styleClass="table-column-f" text="Imposta" />
-                  <TableColumn prefWidth="100.0" styleClass="table-column-f" text="Importo Art. 15" />
-                  <TableColumn prefWidth="100.0" styleClass="table-column-f" text="Bollo" />
-                  <TableColumn prefWidth="100.0" styleClass="table-column-f" text="Totale" />
-                  <TableColumn prefWidth="100.0" styleClass="table-column-f" text="Ritenuta" />
-                  <TableColumn prefWidth="100.0" styleClass="table-column-f" text="Netto a pagare" />
-                  <TableColumn prefWidth="100.0" styleClass="table-column-f" text="Note piede" />
-                  <TableColumn prefWidth="100.0" styleClass="table-column-f" text="Stato" />
-              </columns>
-            </TableView>
-         </content>
-      </ScrollPane>
+      <TableView id="tableViewFatture" fx:id="tabella" editable="true" styleClass="table-view-f" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="125.0">
+        <columns>
+          <TableColumn fx:id="numero" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" styleClass="table-column-f" text="Numero" />
+          <TableColumn fx:id="suffisso" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" styleClass="table-column-f" text="Suffisso" />
+            <TableColumn fx:id="anno" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" styleClass="table-column-f" text="Anno" />
+            <TableColumn fx:id="data" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" styleClass="table-column-f" text="Data" />
+            <TableColumn fx:id="numeroRif" maxWidth="100.0" prefWidth="100.0" styleClass="table-column-f" text="Numero Rif." />
+            <TableColumn fx:id="dataRif" maxWidth="100.0" prefWidth="100.0" styleClass="table-column-f" text="Data Rif." />
+            <TableColumn fx:id="tipoDocumento" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" styleClass="table-column-f" text="Tipo documento" />
+            <TableColumn fx:id="fornitore" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" styleClass="table-column-f" text="Fornitore" />
+            <TableColumn fx:id="codiceFiscale" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" styleClass="table-column-f" text="Codice fiscale" />
+            <TableColumn fx:id="partitaIva" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" styleClass="table-column-f" text="Partita IVA" />
+            <TableColumn fx:id="imponibile" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" styleClass="table-column-f" text="Imponibile" />
+            <TableColumn fx:id="tipoCassaPrevidenza" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" styleClass="table-column-f" text="Tipo cassa previdenza" />
+            <TableColumn fx:id="cassaPrevidenza" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" styleClass="table-column-f" text="Cassa previdenza" />
+            <TableColumn fx:id="imposta" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" styleClass="table-column-f" text="Imposta" />
+            <TableColumn fx:id="importoArt15" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" styleClass="table-column-f" text="Importo Art. 15" />
+            <TableColumn fx:id="bollo" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" styleClass="table-column-f" text="Bollo" />
+            <TableColumn fx:id="totale" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" styleClass="table-column-f" text="Totale" />
+            <TableColumn fx:id="ritenuta" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" styleClass="table-column-f" text="Ritenuta" />
+            <TableColumn fx:id="nettoAPagare" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" styleClass="table-column-f" text="Netto a pagare" />
+            <TableColumn fx:id="notePiede" maxWidth="400.0" minWidth="400.0" prefWidth="400.0" styleClass="table-column-f" text="Note piede" />
+            <TableColumn fx:id="stato" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" styleClass="table-column-f" text="Stato" />
+        </columns>
+      </TableView>
       <StackPane maxHeight="50.0" minHeight="50.0" styleClass="stackPane-fi" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0">
          <children>
             <AnchorPane maxHeight="50.0" maxWidth="80.0" minHeight="50.0" minWidth="80.0">
