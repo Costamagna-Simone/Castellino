@@ -85,6 +85,7 @@ scroll-pane-f
     -fx-padding: 0 0 2 0;
     -fx-border-radius: 8;
 }
+
 /********************
 Table View-f
 ********************/
@@ -93,57 +94,71 @@ Table View-f
     -fx-padding: 0 0 2 0;
     -fx-background-radius: 8;
     -fx-border-radius: 8;
+    -fx-border-color: #cbcbcb;
 }
 
-.table-view-f .columns-container {
-    -fx-border-color: transparent transparent lightgray transparent;
+.table-view-f .scroll-bar:vertical .thumb {
+    -fx-background-color : #bec1ca;
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    -fx-background-radius : 2em;
 }
 
-.table-view-f .column-header-background .filler {
-    -fx-background-color: lightgray;
+.table-view-f .scroll-bar:horizontal .thumb {
+    -fx-background-color : #bec1ca;
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    -fx-background-radius : 2em;
 }
 
-/********************
-Table Columns
-********************/
+.table-view-f .scroll-bar:vertical .thumb:hover {
+    -fx-background-color : -fx-color-second;
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    -fx-background-radius : 2em;
+}
+
+.table-view-f .scroll-bar:horizontal .thumb:hover {
+    -fx-background-color : -fx-color-second;
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    -fx-background-radius : 2em;
+}
+
 .table-column-f {
-    -fx-pref-height: 35;
-    -fx-padding: 8 12 8 12;
-    -fx-background-color: #eeeff0;
-    -fx-fill: -fx-color-first;
+    -fx-padding: 10 15 10 15;
+    -fx-background-color: white;
     -fx-font-family: Comfortaa Semibold;
     -fx-font-size: 12px;
 }
 
-/********************
-Table Rows
-********************/
-.mfx-table-row {
-    -fx-background-color: transparent;
+.table-column-f .label {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-font-family: Comfortaa Semibold;
+    -fx-font-size: 14px;
 }
 
-.mfx-table-row:hover {
-    -fx-background-color: #F5F5F5;
+.column-header {
+    -fx-pref-height: 40;
 }
 
-.mfx-table-row:selected {
-    -fx-background-color: #E1E1E1;
+.table-cell:odd {
+    -fx-background-color: white;
+    -fx-border-width: 0.15 0 0 0;
+    -fx-border-color: gray;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-pref-height: -1;
 }
 
-.mfx-table-row .mfx-ripple-generator {
-    -mfx-ripple-radius: 30;
-    -mfx-ripple-color: #C8C8C8;
+.table-cell:even {
+    -fx-background-color: #F6F4F6;
+    -fx-border-width: 0.15 0 0 0;
+    -fx-border-color: gray;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-pref-height: -1;
 }
 
-/********************
-Table Row Cells
-********************/
-.table-view-f-cell {
-    -fx-background-color: transparent;
-    -fx-padding: 5 15 5 15;
-}
-
-.table-view-f-cell,
-.table-view-f-cell:focused {
-    -fx-border-color: transparent;
+.table-row-cell:filled:selected .table-cell {
+    -fx-background-color: -fx-color-second; /* colore di sfondo delle celle della riga evidenziata */
+    -fx-text-fill: white; /* colore del testo delle celle della riga evidenziata */
+    -fx-font-weight: bold;
 }

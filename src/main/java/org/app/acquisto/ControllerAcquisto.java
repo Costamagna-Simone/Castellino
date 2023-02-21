@@ -97,6 +97,7 @@ public class ControllerAcquisto implements Controller {
                 if(stato.equals("OK"))   {
                     fatture.add(a);
                 } else {
+                    System.out.println("STATO: " + stato);
                     fileCorretto = false;
                 }
 

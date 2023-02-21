@@ -36,6 +36,7 @@ public class ControllerIniziale implements Controller {
         slot();
 
         dataModel.getAggiornaUtenti().addListener((observableValue, numberOld, numberNew) -> {
+            chiudiSlot();
             slot();
         });
     }
@@ -109,7 +110,7 @@ public class ControllerIniziale implements Controller {
     /********************
      Utility
      ********************/
-    private static int parseInt(String text) {
+    private int parseInt(String text) {
         try {
             return Integer.parseInt(text);
         } catch (NumberFormatException e) {
@@ -117,6 +118,13 @@ public class ControllerIniziale implements Controller {
         }
     }
 
+    private void chiudiSlot()   {
+        for(Slot slot : slots) {
+            if(slot.getAperto())    {
+                slot.apriUtente(false);
+            }
+        }
+    }
 
     /********************
      FXML
@@ -124,11 +132,7 @@ public class ControllerIniziale implements Controller {
 
     //Visualizza slot acquisto/vendita/raffronto dopo click su freccia
     public void apriUtente(MouseEvent mouseEvent) {
-        for(Slot slot : slots) {
-            if(slot.getAperto())    {
-                slot.apriUtente(false);
-            }
-        }
+        chiudiSlot();
 
         FontAwesomeIconView icon = (FontAwesomeIconView) mouseEvent.getSource();
         int numSlot = parseInt(icon.getId().substring(icon.getId().length()-1));

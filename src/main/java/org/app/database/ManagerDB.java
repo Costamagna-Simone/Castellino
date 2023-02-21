@@ -1,5 +1,6 @@
 package org.app.database;
 
+import org.app.model.Acquisto;
 import org.app.model.Fattura;
 import org.app.model.Utente;
 import org.app.model.Vendita;
@@ -74,7 +75,7 @@ public class ManagerDB {
                             "CODICE_FISCALE VARCHAR(20), " +
                             "PARTITA_IVA VARCHAR(20), " +
                             "IMPONIBILE DOUBLE, " +
-                            "TIPO_CASSA_PREVIDENZA VARCHAR(50), " +
+                            "TIPO_CASSA_PREVIDENZA VARCHAR(100), " +
                             "CASSA_PREVIDENZA DOUBLE, " +
                             "IMPOSTA DOUBLE, " +
                             "IMPORTO_ART_15 DOUBLE, " +
@@ -235,8 +236,8 @@ public class ManagerDB {
                         "INSERT INTO FATTURA(UTENTE, TIPO, NUMERO, SUFFISSO, ANNO, DATA_, TIPO_DOCUMENTO, " +
                                 "CODICE_FISCALE, PARTITA_IVA, IMPONIBILE, TIPO_CASSA_PREVIDENZA, " +
                                 "CASSA_PREVIDENZA, IMPOSTA, IMPORTO_ART_15, BOLLO, TOTALE, RITENUTA, " +
-                                "NETTO_A_PAGARE, NOTE_PIEDE, STATO, CLIENTE, ESITO) " +
-                                "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ",
+                                "NETTO_A_PAGARE, NOTE_PIEDE, STATO, CLIENTE, ESITO, NUMERO_RIF, DATA_RIF, FORNITORE) " +
+                                "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ",
                         Statement.RETURN_GENERATED_KEYS);
 
                 pst[row].setInt(1, f.getUtente());
@@ -264,8 +265,19 @@ public class ManagerDB {
                     Vendita v = (Vendita)f;
                     pst[row].setString(21, v.getCliente());
                     pst[row].setString(22, v.getEsito());
+
+                    pst[row].setString(23, "");
+                    pst[row].setDate(24,null);
+                    pst[row].setString(25, "");
                 } else {
-                    //TODO PER ACQUISTO
+                    Acquisto a = (Acquisto)f;
+
+                    pst[row].setString(21, "");
+                    pst[row].setString(22, "");
+
+                    pst[row].setString(23, a.getNumeroRif());
+                    pst[row].setDate(24,a.getDataRif());
+                    pst[row].setString(25, a.getFornitore());
                 }
 
                 pst[row].executeUpdate();
@@ -293,11 +305,12 @@ public class ManagerDB {
                 }
             }
         } catch (SQLException e) {
+            System.out.println(e);
             if(connection != null)  {
                 try {
                     connection.rollback();
                 } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
+                    System.out.println(ex);
                 }
             }
             nuoveFatture.clear();
@@ -306,7 +319,7 @@ public class ManagerDB {
                 try {
                     connection.close();
                 } catch (SQLException e) {
-                    throw new RuntimeException(e);
+                    System.out.println(e);
                 }
             }
         }
@@ -347,7 +360,7 @@ public class ManagerDB {
     }
 
     //leggi le fatture dal db
-    public static ArrayList<Fattura> getFatture(int idUtente, int tipo_) {
+    public static ArrayList<Fattura> getFatture(int idUtente, int tipo) {
         ArrayList<Fattura> fatture = new ArrayList<>();
 
         Connection connection = null;
@@ -360,13 +373,15 @@ public class ManagerDB {
                     "SELECT * FROM FATTURA WHERE UTENTE=? AND TIPO=?;");
 
             pst.setInt(1, idUtente);
-            pst.setInt(2, tipo_);
+            pst.setInt(2, tipo);
 
             ResultSet rs = pst.executeQuery();
 
             while(rs.next()) {
-                if (tipo_ == VENDITA) {
+                if (tipo == VENDITA) {
                     fatture.add(new Vendita(rs));
+                } else {
+                    fatture.add(new Acquisto(rs));
                 }
             }
 

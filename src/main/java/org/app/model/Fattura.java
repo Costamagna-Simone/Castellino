@@ -7,23 +7,23 @@ public class Fattura {
     Integer id;
 
     Integer utente;
-    int tipo;
-    int numero;
+    Integer tipo;
+    Integer numero;
     String suffisso;
-    int anno;
+    Integer anno;
     Date data;
     String tipoDocumento;
     String codiceFiscale;
     String partitaIva;
-    double imponibile;
+    Double imponibile;
     String tipoCassaPrevidenza;
-    double cassaPrevidenza;
-    double imposta;
-    double importoArt15;
-    double bollo;
-    double totale;
+    Double cassaPrevidenza;
+    Double imposta;
+    Double importoArt15;
+    Double bollo;
+    Double totale;
     String ritenuta;
-    double nettoAPagare;
+    Double nettoAPagare;
     String notePiede;
     String stato;
 
