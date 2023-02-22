@@ -1,0 +1,54 @@
+@import url("colors.css");
+
+/********************
+text-caricamento
+*********************/
+.text-ca {
+    -fx-fill: -fx-color-first;
+    -fx-font-family: Comfortaa SemiBold;
+    -fx-font-size: 14px;
+}
+
+/********************
+text-nomeFile
+*********************/
+.text-nf {
+    -fx-fill: -fx-color-first;
+    -fx-font-family: Comfortaa SemiBold;
+    -fx-font-size: 10px;
+}
+
+/********************
+text-numeroFattureLette
+*********************/
+.text-nfl {
+    -fx-fill: -fx-color-first;
+    -fx-font-family: Comfortaa SemiBold;
+    -fx-font-size: 11px;
+}
+
+/********************
+text-errore
+*********************/
+.text-er {
+    -fx-fill: #ce0000;
+    -fx-font-family: Comfortaa SemiBold;
+    -fx-font-size: 11px;
+}
+
+/********************
+MFXButton-importa
+*********************/
+.MFXButton-im {
+    -fx-font-family: comfortaa;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-text-fill: #009e12;
+    -fx-border-color: #009e12;
+    -fx-border-width: 2;
+    -fx-border-radius: 4;
+    -fx-background-color: white;
+    -fx-background-radius: 4;
+}
+
+

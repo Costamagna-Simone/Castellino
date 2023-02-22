@@ -3,13 +3,19 @@ package org.app.acquisto;
 import com.spire.xls.Workbook;
 import com.spire.xls.Worksheet;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import org.app.App;
 import org.app.Controller;
+import org.app.caricamentoFile.ControllerCaricamento;
 import org.app.model.Acquisto;
 import org.app.model.DataModel;
 import org.app.model.Fattura;
@@ -21,6 +27,9 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Objects;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import static org.app.utilities.Constants.INIZIALE;
 import static org.app.utilities.Constants.INIZIO_FATTURE_ACQUISTO;
@@ -30,6 +39,10 @@ public class ControllerAcquisto implements Controller {
     private final String PATH_FATTURE = "tmp/fattureAcquisto.csv";
 
     private DataModel dataModel;
+
+    private ControllerCaricamento controllerCaricamento;
+    private Stage stageCaricamento;
+
 
     public void init(DataModel dataModel)  {
         this.dataModel = dataModel;
@@ -67,21 +80,55 @@ public class ControllerAcquisto implements Controller {
 
     }
 
+    //inizializza il dialog caricamento utente
+    private void dialogCaricamento()  {
+        try {
+            FXMLLoader loaderReceived = new FXMLLoader(App.class.getResource("dialogCaricamento.fxml"));
+            Parent parent = loaderReceived.load();
+            controllerCaricamento = loaderReceived.getController();
+            controllerCaricamento.init(dataModel);
+
+            Scene scene = new Scene(parent);
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/dialogCaricamento.css")).toExternalForm());
+
+            stageCaricamento = new Stage();
+            stageCaricamento.setScene(scene);
+            stageCaricamento.setResizable(false);
+            stageCaricamento.setTitle("Importa file");
+
+            stageCaricamento.initModality(Modality.APPLICATION_MODAL);
+        } catch (IOException e) {
+            System.out.println(e);
+            throw new RuntimeException(e);
+        }
+    }
+
     /********************
      Utility
      ********************/
     //leggi fatture da file
     private void leggiFattureDaFile()  {
-        System.out.println("Entrato");
         boolean fileCorretto = true;
         String stato = "File vuoto";
+        BufferedReader reader;
 
         ArrayList<Fattura> fatture = new ArrayList<>();
-        BufferedReader reader;
 
         try {
             reader = new BufferedReader(new FileReader(PATH_FATTURE));
             String line = reader.readLine();
+
+            for(int i=0; i<INIZIO_FATTURE_ACQUISTO-2 && line!=null; i++)    {
+                line = reader.readLine();
+            }
+
+            int numItem = 0;
+            while (reader.readLine() != null) {
+                numItem++;
+            }
+
+            reader = new BufferedReader(new FileReader(PATH_FATTURE));
+            line = reader.readLine();
 
             for(int i=0; i<INIZIO_FATTURE_ACQUISTO-2 && line!=null; i++)    {
                 line = reader.readLine();
@@ -97,22 +144,28 @@ public class ControllerAcquisto implements Controller {
                 if(stato.equals("OK"))   {
                     fatture.add(a);
                 } else {
-                    System.out.println("STATO: " + stato);
                     fileCorretto = false;
                 }
 
                 num++;
+                controllerCaricamento.setProgressSpinner(num, numItem);
+
+                try {
+                    Thread.sleep(40);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
                 line = reader.readLine();
             }
 
             reader.close();
 
             if(stato.equals("OK"))   {
-                //TODO dialog lettura avvenuta correttamente
-                dataModel.aggiungiFatture(fatture);
+                controllerCaricamento.setFatture(fatture);
+                controllerCaricamento.setDisableImporta(false);
             } else {
-                System.out.println("Errore: " + stato);
-                //TODO dialog errore durante la lettur
+                controllerCaricamento.setErrore(stato);
             }
 
             tabella.refresh();
@@ -140,7 +193,20 @@ public class ControllerAcquisto implements Controller {
             Worksheet sheet = workbook.getWorksheets().get(0);
             sheet.saveToFile(PATH_FATTURE, "^", StandardCharsets.UTF_8);
 
-            leggiFattureDaFile();
+            dialogCaricamento();
+            controllerCaricamento.setNomeFile(file.getName());
+            stageCaricamento.show();
+
+            ExecutorService executor = Executors.newFixedThreadPool(1);
+            executor.submit(() -> {
+                try {
+                    Thread.sleep(150);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                leggiFattureDaFile();
+            });
+            executor.shutdown();
         }
     }
 
