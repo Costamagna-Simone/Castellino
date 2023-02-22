@@ -49,7 +49,7 @@ public class ControllerCaricamento implements Controller {
         importa.setDisable(true);
         importa.setVisible(true);
         nomeFile.setText("");
-        numeroFatture.setText("Fatture caricate: 0");
+        numeroFatture.setText("Fatture individuate: 0");
         progressSpinner.setVisible(true);
     }
 
@@ -72,7 +72,7 @@ public class ControllerCaricamento implements Controller {
     public void setProgressSpinner(int num, int tot)    {
         double p = ((double)num)/tot;
         progressSpinner.setProgress(p);
-        numeroFatture.setText("Fatture caricate: " + num);
+        numeroFatture.setText("Fatture individuate: " + num);
     }
 
     public void setFatture(ArrayList<Fattura> fatture)    {
