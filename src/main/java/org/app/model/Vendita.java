@@ -28,6 +28,7 @@ public class Vendita extends Fattura {
             id = rs.getInt("ID");
             utente = rs.getInt("UTENTE");
             tipo = rs.getInt("TIPO");
+            dataCaricamento = rs.getTimestamp("DATA_CARICAMENTO");
             numero = rs.getInt("NUMERO");
             suffisso = rs.getString("SUFFISSO");
             anno = rs.getInt("ANNO");
@@ -71,7 +72,7 @@ public class Vendita extends Fattura {
     /********************
      Get & Set
      ********************/
-    public String setCampi(BufferedReader reader, String line, int num)   {
+    public String setCampi(BufferedReader reader, String line, Integer num)   {
         String[] colonne = line.split("\\^");
 
         if(colonne.length != NUM_COLONNE_VENDITA && colonne.length != NUM_COLONNE_VENDITA-2)   {
@@ -172,6 +173,7 @@ public class Vendita extends Fattura {
                 line = reader.readLine();
 
                 while(line != null && line.split("\\^").length==1) {
+                    num++;
                     np = np + "\n" + line;
                     line = reader.readLine();
                 }

@@ -2,12 +2,15 @@ package org.app.model;
 
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Fattura {
     Integer id;
 
     Integer utente;
     Integer tipo;
+
+    Timestamp dataCaricamento;
     Integer numero;
     String suffisso;
     Integer anno;
@@ -42,6 +45,11 @@ public class Fattura {
     public void setUtente(int utente)   {
         this.utente = utente;
     }
+
+    public void setDataCaricamento(Timestamp dataCaricamento) {
+        this.dataCaricamento = dataCaricamento;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -52,6 +60,10 @@ public class Fattura {
 
     public int getTipo() {
         return tipo;
+    }
+
+    public Timestamp getDataCaricamento()    {
+        return dataCaricamento;
     }
 
     public int getNumero() {
@@ -125,4 +137,5 @@ public class Fattura {
     public String getStato() {
         return stato;
     }
+
 }

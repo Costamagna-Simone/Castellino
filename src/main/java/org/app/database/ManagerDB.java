@@ -5,8 +5,10 @@ import org.app.model.Fattura;
 import org.app.model.Utente;
 import org.app.model.Vendita;
 import org.hsqldb.server.Server;
+
 import java.sql.*;
 import java.util.ArrayList;
+
 import static org.app.database.Constants.*;
 import static org.app.utilities.Constants.VENDITA;
 
@@ -67,6 +69,7 @@ public class ManagerDB {
                             "ID INTEGER NOT NULL IDENTITY, " +
                             "UTENTE INTEGER NOT NULL REFERENCES UTENTE(ID) ON DELETE CASCADE ON UPDATE CASCADE, " +
                             "TIPO INTEGER NOT NULL, " +
+                            "DATA_CARICAMENTO TIMESTAMP NOT NULL," +
                             "NUMERO INTEGER, " +
                             "SUFFISSO VARCHAR(30), " +
                             "ANNO INTEGER, " +
@@ -233,51 +236,52 @@ public class ManagerDB {
 
             for(Fattura f : fatture)    {
                 pst[row] = connection.prepareStatement(
-                        "INSERT INTO FATTURA(UTENTE, TIPO, NUMERO, SUFFISSO, ANNO, DATA_, TIPO_DOCUMENTO, " +
+                        "INSERT INTO FATTURA(UTENTE, TIPO, DATA_CARICAMENTO, NUMERO, SUFFISSO, ANNO, DATA_, TIPO_DOCUMENTO, " +
                                 "CODICE_FISCALE, PARTITA_IVA, IMPONIBILE, TIPO_CASSA_PREVIDENZA, " +
                                 "CASSA_PREVIDENZA, IMPOSTA, IMPORTO_ART_15, BOLLO, TOTALE, RITENUTA, " +
                                 "NETTO_A_PAGARE, NOTE_PIEDE, STATO, CLIENTE, ESITO, NUMERO_RIF, DATA_RIF, FORNITORE) " +
-                                "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ",
+                                "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ",
                         Statement.RETURN_GENERATED_KEYS);
 
                 pst[row].setInt(1, f.getUtente());
                 pst[row].setInt(2, f.getTipo());
-                pst[row].setInt(3, f.getNumero());
-                pst[row].setString(4, f.getSuffisso());
-                pst[row].setInt(5, f.getAnno());
-                pst[row].setDate(6, f.getData());
-                pst[row].setString(7, f.getTipoDocumento());
-                pst[row].setString(8, f.getCodiceFiscale());
-                pst[row].setString(9, f.getPartitaIva());
-                pst[row].setDouble(10, f.getImponibile());
-                pst[row].setString(11, f.getTipoCassaPrevidenza());
-                pst[row].setDouble(12, f.getCassaPrevidenza());
-                pst[row].setDouble(13, f.getImposta());
-                pst[row].setDouble(14, f.getImportoArt15());
-                pst[row].setDouble(15, f.getBollo());
-                pst[row].setDouble(16, f.getTotale());
-                pst[row].setString(17, f.getRitenuta());
-                pst[row].setDouble(18, f.getNettoAPagare());
-                pst[row].setString(19, f.getNotePiede());
-                pst[row].setString(20, f.getStato());
+                pst[row].setTimestamp(3, f.getDataCaricamento());
+                pst[row].setInt(4, f.getNumero());
+                pst[row].setString(5, f.getSuffisso());
+                pst[row].setInt(6, f.getAnno());
+                pst[row].setDate(7, f.getData());
+                pst[row].setString(8, f.getTipoDocumento());
+                pst[row].setString(9, f.getCodiceFiscale());
+                pst[row].setString(10, f.getPartitaIva());
+                pst[row].setDouble(11, f.getImponibile());
+                pst[row].setString(12, f.getTipoCassaPrevidenza());
+                pst[row].setDouble(13, f.getCassaPrevidenza());
+                pst[row].setDouble(14, f.getImposta());
+                pst[row].setDouble(15, f.getImportoArt15());
+                pst[row].setDouble(16, f.getBollo());
+                pst[row].setDouble(17, f.getTotale());
+                pst[row].setString(18, f.getRitenuta());
+                pst[row].setDouble(19, f.getNettoAPagare());
+                pst[row].setString(20, f.getNotePiede());
+                pst[row].setString(21, f.getStato());
 
                 if(f.getTipo()==VENDITA)    {
                     Vendita v = (Vendita)f;
-                    pst[row].setString(21, v.getCliente());
-                    pst[row].setString(22, v.getEsito());
+                    pst[row].setString(22, v.getCliente());
+                    pst[row].setString(23, v.getEsito());
 
-                    pst[row].setString(23, "");
-                    pst[row].setDate(24,null);
-                    pst[row].setString(25, "");
+                    pst[row].setString(24, "");
+                    pst[row].setDate(25,null);
+                    pst[row].setString(26, "");
                 } else {
                     Acquisto a = (Acquisto)f;
 
-                    pst[row].setString(21, "");
                     pst[row].setString(22, "");
+                    pst[row].setString(23, "");
 
-                    pst[row].setString(23, a.getNumeroRif());
-                    pst[row].setDate(24,a.getDataRif());
-                    pst[row].setString(25, a.getFornitore());
+                    pst[row].setString(24, a.getNumeroRif());
+                    pst[row].setDate(25,a.getDataRif());
+                    pst[row].setString(26, a.getFornitore());
                 }
 
                 pst[row].executeUpdate();

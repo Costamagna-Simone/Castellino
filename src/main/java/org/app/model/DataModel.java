@@ -6,7 +6,9 @@ import javafx.collections.ObservableList;
 import javafx.stage.Stage;
 import org.app.database.ManagerDB;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class DataModel {
 
@@ -68,6 +70,12 @@ public class DataModel {
 
     //aggiungi fatture
     public void aggiungiFatture(ArrayList<Fattura> fatture) {
+        Timestamp dataCaricamento = new Timestamp(Calendar.getInstance().getTimeInMillis());
+
+        for (Fattura f : fatture) {
+            f.setDataCaricamento(dataCaricamento);
+        }
+
         ArrayList<Fattura> nuoveFatture = ManagerDB.setFatture(fatture);
         this.fatture.addAll(nuoveFatture);
     }
@@ -108,7 +116,7 @@ public class DataModel {
         utenteCorrente = utente;
     }
 
-    public void setFatture(Utente utente, int tipo)    {
+    public void setFatture(Utente utente, int tipo) {
         fatture.clear();
         fatture.addAll(ManagerDB.getFatture(utente.getId(), tipo));
     }

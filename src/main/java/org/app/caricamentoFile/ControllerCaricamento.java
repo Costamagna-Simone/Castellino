@@ -10,7 +10,6 @@ import javafx.stage.Stage;
 import org.app.Controller;
 import org.app.model.DataModel;
 import org.app.model.Fattura;
-
 import java.util.ArrayList;
 
 public class ControllerCaricamento implements Controller {

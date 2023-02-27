@@ -27,6 +27,7 @@ public class Acquisto extends Fattura {
             id = rs.getInt("ID");
             utente = rs.getInt("UTENTE");
             tipo = rs.getInt("TIPO");
+            dataCaricamento = rs.getTimestamp("DATA_CARICAMENTO");
             numero = rs.getInt("NUMERO");
             suffisso = rs.getString("SUFFISSO");
             anno = rs.getInt("ANNO");

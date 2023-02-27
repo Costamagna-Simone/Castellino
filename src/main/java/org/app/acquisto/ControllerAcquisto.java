@@ -26,6 +26,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
@@ -75,6 +76,7 @@ public class ControllerAcquisto implements Controller {
         totale.setCellValueFactory(new PropertyValueFactory<>("totale"));
         dataRif.setCellValueFactory(new PropertyValueFactory<>("dataRif"));
         numeroRif.setCellValueFactory(new PropertyValueFactory<>("numeroRif"));
+        dataCaricamento.setCellValueFactory(new PropertyValueFactory<>("dataCaricamento"));
 
         tabella.setItems(dataModel.getFatture());
 
@@ -162,6 +164,7 @@ public class ControllerAcquisto implements Controller {
             reader.close();
 
             if(stato.equals("OK"))   {
+                controllerCaricamento.setProgressSpinner(num, num);
                 controllerCaricamento.setFatture(fatture);
                 controllerCaricamento.setDisableImporta(false);
             } else {
@@ -289,4 +292,7 @@ public class ControllerAcquisto implements Controller {
 
     @FXML
     private TableColumn<Fattura, Double> totale;
+
+    @FXML
+    private TableColumn<Fattura, Timestamp> dataCaricamento;
 }
