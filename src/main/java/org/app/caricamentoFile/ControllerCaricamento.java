@@ -55,7 +55,8 @@ public class ControllerCaricamento implements Controller {
     /********************
      Utility
      ********************/
-
+    //aggiorna i dati all'apertura della finestra
+    public void aggiorna()  {}
 
     /********************
      FXML

@@ -31,7 +31,7 @@
                   <Insets right="10.0" />
                </HBox.margin>
             </Text>
-            <Text onMouseClicked="#fxmlRitornaHome" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome Cognome">
+            <Text fx:id="nomeCognome" onMouseClicked="#fxmlRitornaHome" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome Cognome">
                <font>
                   <Font name="Comfortaa Light" size="11.0" />
                </font>

@@ -110,6 +110,11 @@ public class ControllerIniziale implements Controller {
     /********************
      Utility
      ********************/
+    //aggiorna i dati all'apertura della finestra
+    public void aggiorna()  {
+    }
+
+    //traduci stringa in int
     private int parseInt(String text) {
         try {
             return Integer.parseInt(text);
@@ -118,6 +123,7 @@ public class ControllerIniziale implements Controller {
         }
     }
 
+    //chiudi tutti gli slot aperti
     private void chiudiSlot()   {
         for(Slot slot : slots) {
             if(slot.getAperto())    {

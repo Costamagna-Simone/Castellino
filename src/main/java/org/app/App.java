@@ -67,6 +67,8 @@ public class App extends Application {
 
         if(inizializza)
             controllers[parent].init(datamodel);
+
+        controllers[parent].aggiorna();
     }
 
     public static Scene getScene()    {

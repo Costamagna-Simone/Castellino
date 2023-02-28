@@ -10,6 +10,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -108,6 +109,12 @@ public class ControllerAcquisto implements Controller {
     /********************
      Utility
      ********************/
+    //aggiorna i dati all'apertura della finestra
+    public void aggiorna()  {
+        nomeCognome.setText(dataModel.getUtenteCorrente().getNome() + " " +
+                dataModel.getUtenteCorrente().getCognome());
+    }
+
     //leggi fatture da file
     private void leggiFattureDaFile()  {
         boolean fileCorretto = true;
@@ -226,6 +233,9 @@ public class ControllerAcquisto implements Controller {
             throw new RuntimeException(e);
         }
     }
+
+    @FXML
+    private Text nomeCognome;
 
     @FXML
     private TableColumn<Fattura, Integer> anno;
