@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -14,6 +15,7 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import org.app.App;
 import org.app.Controller;
 import org.app.caricamentoFile.ControllerCaricamento;
@@ -28,6 +30,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
@@ -73,7 +76,27 @@ public class ControllerVendita implements Controller {
         tipoCassaPrevidenza.setCellValueFactory(new PropertyValueFactory<>("tipoCassaPrevidenza"));
         tipoDocumento.setCellValueFactory(new PropertyValueFactory<>("tipoDocumento"));
         totale.setCellValueFactory(new PropertyValueFactory<>("totale"));
+
         dataCaricamento.setCellValueFactory(new PropertyValueFactory<>("dataCaricamento"));
+        dataCaricamento.setCellFactory(new Callback<>() {
+            @Override
+            public TableCell<Fattura, Timestamp> call(TableColumn<Fattura, Timestamp> column) {
+                return new TableCell<>() {
+                    @Override
+                    protected void updateItem(Timestamp item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        if (item == null || empty) {
+                            setText(null);
+                        } else {
+                            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                            setText(dateFormat.format(item));
+                        }
+                    }
+                };
+            }
+        });
+
 
         tabella.setItems(dataModel.getFatture());
     }
