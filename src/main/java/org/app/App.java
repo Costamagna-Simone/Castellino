@@ -17,11 +17,9 @@ import static org.app.utilities.Constants.INIZIALE;
  * JavaFX App
  */
 public class App extends Application {
-
     private static Scene scene;
     private static Parent[] parents;
     private static Controller[] controllers;
-
     private static DataModel datamodel;
 
     @Override

@@ -15,7 +15,7 @@
    <children>
       <HBox maxHeight="15.0" maxWidth="500.0" minHeight="15.0" minWidth="500.0" AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="20.0">
          <children>
-            <Text onMouseClicked="#fxmlRitornaHome" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
+            <Text onMouseClicked="#ritornaHome" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
                <font>
                   <Font name="Comfortaa Light" size="11.0" />
                </font>
@@ -31,7 +31,7 @@
                   <Insets right="10.0" />
                </HBox.margin>
             </Text>
-            <Text fx:id="nomeCognome" onMouseClicked="#fxmlRitornaHome" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome Cognome">
+            <Text fx:id="nomeCognome" onMouseClicked="#ritornaHome" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome Cognome">
                <font>
                   <Font name="Comfortaa Light" size="11.0" />
                </font>
@@ -115,7 +115,7 @@
          <children>
             <AnchorPane maxHeight="50.0" maxWidth="80.0" minHeight="50.0" minWidth="80.0">
                <children>
-                  <FontAwesomeIconView glyphName="FILTER" size="25" styleClass="fontAwesomeIconView-fi" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                  <FontAwesomeIconView glyphName="FILTER" onMouseClicked="#apriFiltro" size="25" styleClass="fontAwesomeIconView-fi" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
                   <FontAwesomeIconView glyphName="UNDO" layoutX="10.0" layoutY="10.0" size="25" styleClass="fontAwesomeIconView-fi" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
                </children>
             </AnchorPane>

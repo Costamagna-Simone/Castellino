@@ -19,6 +19,7 @@ import javafx.util.Callback;
 import org.app.App;
 import org.app.Controller;
 import org.app.caricamentoFile.ControllerCaricamento;
+import org.app.filtro.ControllerFiltro;
 import org.app.model.Acquisto;
 import org.app.model.DataModel;
 import org.app.model.Fattura;
@@ -48,6 +49,9 @@ public class ControllerAcquisto implements Controller {
     private ControllerCaricamento controllerCaricamento;
     private Stage stageCaricamento;
 
+    private ControllerFiltro controllerFiltro;
+
+    private Stage stageFiltro;
 
     public void init(DataModel dataModel)  {
         this.dataModel = dataModel;
@@ -124,6 +128,28 @@ public class ControllerAcquisto implements Controller {
             stageCaricamento.initModality(Modality.APPLICATION_MODAL);
         } catch (IOException e) {
             System.out.println(e);
+            throw new RuntimeException(e);
+        }
+    }
+
+    //inizializza filtro
+    private void filtro()   {
+        try {
+            FXMLLoader loaderReceived = new FXMLLoader(App.class.getResource("filtro.fxml"));
+            Parent parent = loaderReceived.load();
+            controllerFiltro = loaderReceived.getController();
+            controllerFiltro.init(dataModel);
+
+            Scene scene = new Scene(parent);
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/filtro.css")).toExternalForm());
+
+            stageFiltro = new Stage();
+            stageFiltro.setScene(scene);
+            stageFiltro.setResizable(false);
+            stageFiltro.setTitle("Filtro");
+
+            stageFiltro.initModality(Modality.APPLICATION_MODAL);
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
@@ -248,12 +274,19 @@ public class ControllerAcquisto implements Controller {
      ********************/
 
     //Torna alla home
-    public void fxmlRitornaHome(MouseEvent mouseEvent) {
+    public void ritornaHome(MouseEvent mouseEvent) {
         try {
             App.setRoot(INIZIALE, "iniziale");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void apriFiltro()    {
+        if(stageFiltro==null)  {
+            filtro();
+        }
+        stageFiltro.show();
     }
 
     @FXML

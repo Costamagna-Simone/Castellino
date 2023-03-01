@@ -19,6 +19,7 @@ import javafx.util.Callback;
 import org.app.App;
 import org.app.Controller;
 import org.app.caricamentoFile.ControllerCaricamento;
+import org.app.filtro.ControllerFiltro;
 import org.app.model.DataModel;
 import org.app.model.Fattura;
 import org.app.model.Vendita;
@@ -44,6 +45,10 @@ public class ControllerVendita implements Controller {
 
     private ControllerCaricamento controllerCaricamento;
     private Stage stageCaricamento;
+
+    private ControllerFiltro controllerFiltro;
+
+    private Stage stageFiltro;
 
     @Override
     public void init(DataModel dataModel) {
@@ -124,6 +129,30 @@ public class ControllerVendita implements Controller {
         }
     }
 
+    /********************
+     Initialize
+     ********************/
+    //inizializza finestra filtrl
+    private void filtro()  {
+        try {
+            FXMLLoader loaderReceived = new FXMLLoader(App.class.getResource("filtro.fxml"));
+            Parent parent = loaderReceived.load();
+            controllerFiltro = loaderReceived.getController();
+            controllerFiltro.init(dataModel);
+
+            Scene scene = new Scene(parent);
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/filtro.css")).toExternalForm());
+
+            stageFiltro = new Stage();
+            stageFiltro.setScene(scene);
+            stageFiltro.setResizable(false);
+            stageFiltro.setTitle("Filtro");
+
+            stageFiltro.initModality(Modality.APPLICATION_MODAL);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     /********************
      Utility
@@ -240,12 +269,20 @@ public class ControllerVendita implements Controller {
     }
 
     //Torna alla home
-    public void fxmlRitornaHome(MouseEvent mouseEvent) {
+    public void ritornaHome(MouseEvent mouseEvent) {
         try {
             App.setRoot(INIZIALE, "iniziale");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    //apri filtro
+    public void apriFiltro(MouseEvent mouseEvent)   {
+        if(stageFiltro==null)  {
+            filtro();
+        }
+        stageFiltro.show();
     }
 
 
