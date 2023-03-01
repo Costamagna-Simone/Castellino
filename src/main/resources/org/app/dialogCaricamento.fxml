@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXProgressSpinner?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="230.0" maxWidth="450.0" minHeight="230.0" minWidth="450.0" prefHeight="230.0" prefWidth="450.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.caricamentoFile.ControllerCaricamento">
+   <children>
+      <StackPane prefHeight="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <AnchorPane maxWidth="150.0" minWidth="150.0" prefWidth="150.0">
+               <children>
+                  <BorderPane AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <center>
+                        <FontAwesomeIconView fill="#009e12" glyphName="FILE_TEXT" selectionEnd="0" size="30" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets top="15.0" />
+                           </BorderPane.margin>
+                        </FontAwesomeIconView>
+                     </center>
+                     <bottom>
+                        <Text fx:id="nomeFile" strokeType="OUTSIDE" strokeWidth="0.0" text="nome_file" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets top="5.0" />
+                           </BorderPane.margin>
+                        </Text>
+                     </bottom>
+                  </BorderPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+      <StackPane prefHeight="150.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="85.0">
+         <children>
+            <MFXProgressSpinner fx:id="progressSpinner" prefHeight="40.0" prefWidth="40.0" progress="0.0" styleClass="progressSpinner" />
+         </children></StackPane>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0">
+         <top>
+            <Text fx:id="numeroFatture" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-nfl" text="Text" BorderPane.alignment="CENTER" />
+         </top>
+         <center>
+            <MFXButton fx:id="importa" buttonType="RAISED" disable="true" onMouseClicked="#importa" prefWidth="80.0" styleClass="MFXButton-im" text="Carica" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

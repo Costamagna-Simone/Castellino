@@ -70,14 +70,25 @@ public class DataModel {
 
     //aggiungi fatture
     public void aggiungiFatture(ArrayList<Fattura> fatture) {
+        //aggiungo il campo "data caricamento" a tutte le fatture
         Timestamp dataCaricamento = new Timestamp(Calendar.getInstance().getTimeInMillis());
-
         for (Fattura f : fatture) {
             f.setDataCaricamento(dataCaricamento);
         }
 
         ArrayList<Fattura> nuoveFatture = ManagerDB.setFatture(fatture);
         this.fatture.addAll(nuoveFatture);
+    }
+
+    //elimina fatture
+    public void eliminaFatture(ArrayList<Fattura> fatture)    {
+        ArrayList<Fattura> nuoveFatture = ManagerDB.eliminaFatture(fatture);
+
+        for(Fattura f : nuoveFatture)    {
+            if(nuoveFatture.contains(f))
+                this.fatture.remove(f);
+            //TODO implementare else --> fattura non esistente
+        }
     }
 
 

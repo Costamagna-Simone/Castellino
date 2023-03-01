@@ -2,13 +2,12 @@ package org.app.acquisto;
 
 import com.spire.xls.Workbook;
 import com.spire.xls.Worksheet;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -52,6 +51,7 @@ public class ControllerAcquisto implements Controller {
     private ControllerFiltro controllerFiltro;
 
     private Stage stageFiltro;
+    private MultipleSelectionModel<Fattura> fattureSelezionate;
 
     public void init(DataModel dataModel)  {
         this.dataModel = dataModel;
@@ -63,6 +63,8 @@ public class ControllerAcquisto implements Controller {
      Initialize
      ********************/
     private void tabella()  {
+        tabella.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
         anno.setCellValueFactory(new PropertyValueFactory<>("anno"));
         bollo.setCellValueFactory(new PropertyValueFactory<>("bollo"));
         cassaPrevidenza.setCellValueFactory(new PropertyValueFactory<>("cassaPrevidenza"));
@@ -107,6 +109,7 @@ public class ControllerAcquisto implements Controller {
 
         tabella.setItems(dataModel.getFatture());
 
+        fattureSelezionate = tabella.getSelectionModel();
     }
 
     //inizializza il dialog caricamento utente
@@ -282,11 +285,20 @@ public class ControllerAcquisto implements Controller {
         }
     }
 
+    //apri filtro
     public void apriFiltro()    {
         if(stageFiltro==null)  {
             filtro();
         }
         stageFiltro.show();
+    }
+
+    //elimina fatture
+    public void eliminaFatture()    {
+        ObservableList<Fattura> selectedFatture = fattureSelezionate.getSelectedItems();
+        ArrayList<Fattura> fatture = new ArrayList<>(selectedFatture);
+
+        dataModel.eliminaFatture(fatture);
     }
 
     @FXML

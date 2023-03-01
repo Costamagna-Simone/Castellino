@@ -46,6 +46,10 @@ public class ManagerDB {
     }
 
 
+    /********************
+     Initialize
+     ********************/
+
     //inizializza le tabelle del database se non esistono
     private static void inizializzaDatabase() throws SQLException {
         Connection connection = null;
@@ -329,6 +333,53 @@ public class ManagerDB {
         }
 
         return nuoveFatture;
+    }
+
+    public static ArrayList<Fattura> eliminaFatture(ArrayList<Fattura> fatture)   {
+        ArrayList<Fattura> fattureEliminate = new ArrayList<>();
+
+        Connection connection = null;
+        PreparedStatement[] pst = new PreparedStatement[fatture.size()];
+        int row = 0;
+
+        try {
+            connection = DriverManager.getConnection(
+                    URL, USER, PASSWORD);
+
+            connection.setAutoCommit(false);
+
+            for(Fattura f : fatture)    {
+                pst[row] = connection.prepareStatement(
+                        "DELETE FROM FATTURA WHERE ID=?");
+
+                pst[row].setInt(1, f.getId());
+                pst[row].executeUpdate();
+                row++;
+
+                fattureEliminate.add(f);
+            }
+
+            connection.commit();
+        } catch (SQLException e) {
+            System.out.println(e);
+            if(connection != null)  {
+                try {
+                    connection.rollback();
+                } catch (SQLException ex) {
+                }
+            }
+            fattureEliminate.clear();
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    System.out.println(e);
+                }
+            }
+        }
+
+        return fattureEliminate;
     }
 
     //leggi gli utenti dal db

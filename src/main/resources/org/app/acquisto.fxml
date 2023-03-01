@@ -116,7 +116,7 @@
             <AnchorPane maxHeight="50.0" maxWidth="80.0" minHeight="50.0" minWidth="80.0">
                <children>
                   <FontAwesomeIconView glyphName="FILTER" onMouseClicked="#apriFiltro" size="25" styleClass="fontAwesomeIconView-fi" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                  <FontAwesomeIconView glyphName="UNDO" layoutX="10.0" layoutY="10.0" size="25" styleClass="fontAwesomeIconView-fi" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                  <FontAwesomeIconView glyphName="TRASH_ALT" layoutX="10.0" layoutY="10.0" onMouseClicked="#eliminaFatture" size="25" styleClass="fontAwesomeIconView-fi" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
                </children>
             </AnchorPane>
          </children>
