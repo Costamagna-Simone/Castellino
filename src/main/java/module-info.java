@@ -20,6 +20,8 @@ module org.app {
     opens org.app.caricamentoFile to javafx.fxml;
     exports org.app.utilities;
     opens org.app.utilities to javafx.fxml;
+    exports org.app.modificaFattura;
+    opens org.app.modificaFattura to javafx.fxml;
     exports org.app.filtro;
     opens org.app.filtro to javafx.fxml;
     opens org.app.model to javafx.base;

@@ -5,6 +5,7 @@ import com.spire.xls.Worksheet;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -22,6 +23,7 @@ import org.app.filtro.ControllerFiltro;
 import org.app.model.DataModel;
 import org.app.model.Fattura;
 import org.app.model.Vendita;
+import org.app.modificaFattura.ControllerModificaFattura;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -42,11 +44,18 @@ public class ControllerVendita implements Controller {
     private final String PATH_FATTURE = "tmp/fattureVendita.csv";
     private DataModel dataModel;
 
+    private Fattura fatturaCorrente;
+
     private ControllerCaricamento controllerCaricamento;
     private Stage stageCaricamento;
 
     private ControllerFiltro controllerFiltro;
     private Stage stageFiltro;
+
+    private ControllerModificaFattura controllerModificaFattura;
+
+    private Stage stageModificaFatture;
+
     private MultipleSelectionModel<Fattura> fattureSelezionate;
 
     @Override
@@ -151,6 +160,28 @@ public class ControllerVendita implements Controller {
             stageFiltro.setTitle("Filtro");
 
             stageFiltro.initModality(Modality.APPLICATION_MODAL);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    //inizializza modifica fatture
+    private void modificaFatture()   {
+        try {
+            FXMLLoader loaderReceived = new FXMLLoader(App.class.getResource("dialogModificaFattura.fxml"));
+            Parent parent = loaderReceived.load();
+            controllerModificaFattura = loaderReceived.getController();
+            controllerModificaFattura.init(dataModel);
+
+            Scene scene = new Scene(parent);
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/modificaFattura.css")).toExternalForm());
+
+            stageModificaFatture = new Stage();
+            stageModificaFatture.setScene(scene);
+            stageModificaFatture.setResizable(false);
+            stageModificaFatture.setTitle("Modifica fattura");
+
+            stageModificaFatture.initModality(Modality.APPLICATION_MODAL);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -295,9 +326,40 @@ public class ControllerVendita implements Controller {
         dataModel.eliminaFatture(fatture);
     }
 
+    //apri modifica fattura
+    public void selezionaFattura(MouseEvent mouseEvent) {
+        Node source = mouseEvent.getPickResult().getIntersectedNode();
+
+        //spostati attraverso la gerarchia node fino a quando incontri TableRow o la scena radice
+        while (source != null && !(source instanceof TableRow)) {
+            source = source.getParent();
+        }
+
+        if (source == null || (source instanceof TableRow && ((TableRow) source).isEmpty())) {
+            //se cliccato al di fuori della tabella o su una riga vuota, deseleziona il cantiere corrente
+            tabella.getSelectionModel().select(null);
+            fatturaCorrente = null;
+        } else {
+            Fattura f = fattureSelezionate.getSelectedItem();
+            if(f != null) {
+                if(f == fatturaCorrente)    {
+                    if(stageModificaFatture==null)  {
+                        modificaFatture();
+                    }
+                    stageModificaFatture.show();
+                } else {
+                    fatturaCorrente = f;
+                }
+            }
+        }
+    }
+
 
     @FXML
     private Text nomeCognome;
+
+    @FXML
+    private TableColumn<Fattura, String> commessa;
 
     @FXML
     private TableColumn<Fattura, Integer> anno;

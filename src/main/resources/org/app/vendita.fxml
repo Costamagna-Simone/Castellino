@@ -85,10 +85,11 @@
             <FontAwesomeIconView fill="WHITE" glyphName="FILE" size="17" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0" />
          </children>
       </AnchorPane>
-      <TableView fx:id="tabella" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="table-view-f" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="125.0">
+      <TableView fx:id="tabella" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#selezionaFattura" styleClass="table-view-f" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="125.0">
         <columns>
             <TableColumn fx:id="dataCaricamento" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" styleClass="table-column-f" text="Data caricamento" />
-          <TableColumn fx:id="numero" maxWidth="-1.0" minWidth="100.0" prefWidth="100.0" styleClass="table-column-f" text="Numero" />
+          <TableColumn fx:id="commessa" maxWidth="-1.0" minWidth="200.0" prefWidth="200.0" styleClass="table-column-f" text="Commessa" />
+            <TableColumn fx:id="numero" maxWidth="-1.0" minWidth="100.0" prefWidth="100.0" styleClass="table-column-f" text="Numero" />
           <TableColumn fx:id="suffisso" maxWidth="-1.0" minWidth="100.0" prefWidth="100.0" styleClass="table-column-f" text="suffisso" />
             <TableColumn fx:id="anno" maxWidth="-1.0" minWidth="100.0" prefWidth="100.0" styleClass="table-column-f" text="anno" />
             <TableColumn fx:id="data" maxWidth="-1.0" minWidth="100.0" prefWidth="100.0" styleClass="table-column-f" text="data" />

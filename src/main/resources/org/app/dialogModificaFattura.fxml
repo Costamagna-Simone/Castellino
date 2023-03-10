@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.modificaFattura.ControllerModificaFattura">
+   <children>
+      <ChoiceBox fx:id="tipologia" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" styleClass="choiceBox-ti" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="25.0" />
+      <TextArea fx:id="testo" prefHeight="200.0" prefWidth="200.0" styleClass="textArea-va" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="75.0" />
+      <MFXButton fx:id="modifica" styleClass="MFXButton-mo" text="Modifica" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="190.0" />
+   </children>
+</AnchorPane>

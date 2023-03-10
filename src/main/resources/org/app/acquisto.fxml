@@ -85,9 +85,10 @@
             <FontAwesomeIconView fill="WHITE" glyphName="FILE" size="17" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0" />
          </children>
       </AnchorPane>
-      <TableView id="tableViewFatture" fx:id="tabella" editable="true" styleClass="table-view-f" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="125.0">
+      <TableView id="tableViewFatture" fx:id="tabella" onMouseClicked="#selezionaFattura" editable="true" styleClass="table-view-f" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="125.0">
         <columns>
             <TableColumn fx:id="dataCaricamento" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" styleClass="table-column-f" text="Data caricamento" />
+            <TableColumn fx:id="commessa" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" styleClass="table-column-f" text="Commessa" />
           <TableColumn fx:id="numero" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" styleClass="table-column-f" text="Numero" />
           <TableColumn fx:id="suffisso" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" styleClass="table-column-f" text="Suffisso" />
             <TableColumn fx:id="anno" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" styleClass="table-column-f" text="Anno" />

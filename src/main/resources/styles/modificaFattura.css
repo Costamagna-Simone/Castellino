@@ -1,0 +1,29 @@
+@import url("colors.css");
+
+/********************
+MFXButton-modifica
+********************/
+.MFXButton-mo{
+    -fx-font-family: comfortaa;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-text-fill: white;
+    -fx-background-color: -fx-color-second;
+    -fx-background-radius: 6;
+}
+
+/********************
+TextArea-testo
+********************/
+.textArea-va {
+    -fx-font-family: Comfortaa Semibold;
+    -fx-font-size: 12px;
+}
+
+/********************
+ChoiceBox-tipologie
+********************/
+.choiceBox-ti   {
+    -fx-font-family: Comfortaa Semibold;
+    -fx-font-size: 12px;
+}

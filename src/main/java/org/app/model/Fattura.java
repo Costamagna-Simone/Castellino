@@ -11,6 +11,7 @@ public class Fattura {
     Integer tipo;
 
     Timestamp dataCaricamento;
+    String commessa;
     Integer numero;
     String suffisso;
     Integer anno;
@@ -32,6 +33,7 @@ public class Fattura {
 
     public Fattura(int tipo)    {
         this.tipo = tipo;
+        this.commessa = "";
     }
 
 
